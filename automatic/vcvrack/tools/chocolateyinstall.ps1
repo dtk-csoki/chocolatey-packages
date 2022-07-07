@@ -3,7 +3,7 @@ $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 
 $packageArgs = @{
   packageName = $env:ChocolateyPackageName
-  file64      = "$toolsDir\RackFree-2.0.6-win.exe"
+  file64      = "$toolsDir\RackFree-2.1.2-win.exe"
   silentArgs  = '/S'
 }
 
