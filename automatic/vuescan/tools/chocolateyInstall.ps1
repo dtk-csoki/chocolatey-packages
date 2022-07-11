@@ -5,11 +5,11 @@ $packageArgs = @{
   packageName    = $env:ChocolateyPackageName
 
   url            = 'https://www.hamrick.com/files/vuex3297.exe'
-  checksum       = '4c27332b272ef941c0913913c7eef621612afba5b2c19a1479c06de5b44b22f0'
+  checksum       = '95631763753fefb6134b08dbf80f16b7576a46e0bff5efe68921c4306eabd326'
   checksumType   = 'sha256'
 
   url64          = 'https://www.hamrick.com/files/vuex6497.exe'
-  checksum64     = 'd0f8f6ed7dfea3f8f1aaef2ffafd4322c94d51cfa42f88d31698011140b8473b'
+  checksum64     = '51697a7e1e65df0f09852be1b802bdbc3deaf137b8512edb225e230dc414c5a4'
   checksumType64 = 'sha256'
 }
 
