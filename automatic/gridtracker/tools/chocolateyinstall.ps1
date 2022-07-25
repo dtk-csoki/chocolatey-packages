@@ -3,8 +3,8 @@
 $packageArgs = @{
   packageName  = $env:ChocolateyPackageName
 
-  url          = 'https://storage.googleapis.com/gt_download/v1.21.0503-2/GridTracker-Installer.1.22.0503.exe'
-  checksum     = 'e641fd83bf281e11364eb138e906b6e85093c7504cf06bbb08605503d1d0e152'
+  url          = 'https://storage.googleapis.com/gt_download/v1.22.0725/GridTracker-Installer.1.22.0725.exe'
+  checksum     = '5dfa352e69ce6a0d207c17a5929735f3f56cd0a7918e605fe6c006ee8ec5bb1f'
   checksumType = 'sha256'
 
   silentArgs   = '/S'
