@@ -6,12 +6,14 @@ function global:au_GetLatest {
     $github_repository = 'stephenegriffin/mfcmapi'
     $releases = 'https://github.com/' + $github_repository + '/releases/latest'
     $regex32  = 'MFCMAPI.exe.(?<Version>[\d\.]+).zip$'
-    $regex64  = 'MFCMAPI.exe.x64.([\d\.]+).zip$'
+    $regex64  = 'MFCMAPI.(exe.x64|x64.exe).([\d\.]+).zip$'
 
     $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing	
 	$url32   = $download_page.links | ? href -match $regex32
+    $file32  = $matches.0
     $version = $matches.Version
     $url64   = $download_page.links | ? href -match $regex64
+    $file64  = $matches.0
 
     $century = Get-date -uformat %C
 
@@ -19,7 +21,9 @@ function global:au_GetLatest {
         Version = $century + $version
         VersionFile = $version
         URL32   = 'https://github.com' + $url32.href
+        File32  = $file32
         URL64   = 'https://github.com' + $url64.href
+        File64  = $file64
     }
 }
 
@@ -34,8 +38,8 @@ function global:au_SearchReplace {
         }
 
         "tools\chocolateyinstall.ps1" = @{
-            "(`"[$]toolsDir\\MFCMAPI.exe.)[\d\.]+(.zip`")"     = "`${1}$($Latest.VersionFile)`$2"
-            "(`"[$]toolsDir\\MFCMAPI.exe.x64.)[\d\.]+(.zip`")" = "`${1}$($Latest.VersionFile)`$2"
+            "(`"[$]toolsDir\\)MFCMAPI.exe.[\d\.]+(.zip`")"     = "`${1}$($Latest.File32)"""
+            "(`"[$]toolsDir\\)MFCMAPI.(exe.x64|x64.exe).[\d\.]+(.zip`")" = "`${1}$($Latest.File64)"""
         }
     }
 }
