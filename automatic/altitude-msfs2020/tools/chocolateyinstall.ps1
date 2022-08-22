@@ -1,7 +1,7 @@
 ﻿$ErrorActionPreference = 'Stop';
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 
-$packageArgs = @{
+<#$packageArgs = @{
   packageName   = $env:ChocolateyPackageName
   destination   = "$toolsDir"
 
@@ -20,8 +20,20 @@ $packageArgs = @{
   packageName   = $env:ChocolateyPackageName  
   file          = "$exe_file"
   silentArgs    = '/S'
+}#>
+
+$packageArgs = @{
+  packageName   = $env:ChocolateyPackageName
+  destination   = "$toolsDir"
+
+  url           = 'https://api.ivao.aero/v2/softwares/altitude/5/files/latest/download'
+  checksum      = '298D498EA1012149904D92242F59A4F2D21702EB40EFBF813A909B828C1BBF50'
+  checksumType  = 'sha256'
+
+  silentArgs    = '/S'
 }
 
-Write-Warning "The installation takes several dozens of minutes while MTL libraries are downloaded."
+Write-Warning "The installation takes several __DOZENS__ of minutes while MTL libraries are downloaded."
 
-Install-ChocolateyInstallPackage @packageArgs
+#Install-ChocolateyInstallPackage @packageArgs
+Install-ChocolateyPackage @packageArgs
