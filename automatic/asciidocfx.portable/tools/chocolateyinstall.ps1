@@ -4,12 +4,13 @@ $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $packageArgs = @{
   packageName = $env:ChocolateyPackageName
   destination = "$toolsDir"
-  file        = "$toolsDir\AsciidocFX_Windows.zip"
-  silentArgs  = '-q'
+
+  url           = 'https://github.com/asciidocfx/AsciidocFX/releases/download/v1.7.8/AsciidocFX_Windows.zip'
+  checksum      = ''
+  checksumType  = 'sha256'
 }
 
-Get-ChocolateyUnzip @packageArgs
-Remove-Item -Path $packageArgs.file
+Install-ChocolateyZipPackage @packageArgs
 
 # Install start menu shortcut
 $programs = [environment]::GetFolderPath([environment+specialfolder]::Programs)
