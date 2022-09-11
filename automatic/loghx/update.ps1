@@ -1,6 +1,10 @@
 ﻿$ErrorActionPreference = 'Stop'
 import-module au
 
+function global:au_BeforeUpdate() {
+    $Latest.Checksum32 = Get-RemoteChecksum $Latest.Url32    
+}
+
 function global:au_GetLatest {
 	$releases = 'http://rx4hx.qrz.ru/index.php?page=download_loghx'
 	$regex    = 'LogHX3Setup_build_(?<Version>[\d]+).exe'
@@ -23,4 +27,4 @@ function global:au_SearchReplace {
     }
 }
 
-update
+update -ChecksumFor none
