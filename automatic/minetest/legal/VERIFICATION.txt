@@ -7,16 +7,16 @@ Package can be verified like this:
  
 1. Download:
  
-   x32: https://github.com/minetest/minetest/releases/download/5.6.0/minetest-5.6.0-win32.zip
-   x64: https://github.com/minetest/minetest/releases/download/5.6.0/minetest-5.6.0-win64.zip
+   x32: https://github.com/minetest/minetest/releases/download/5.6.1/minetest-5.6.1-win32.zip
+   x64: https://github.com/minetest/minetest/releases/download/5.6.1/minetest-5.6.1-win64.zip
   
 2. You can use one of the following methods to obtain the SHA256 checksum:
    - Use powershell function 'Get-FileHash'
    - Use Chocolatey utility 'checksum.exe'
  
    checksum type: sha256
-   checksum32: 565004ADD5F1938DBF3D263BA98DBA7B8DE020ADBE7DA8EC1F8EC4C89FD4D500
-   checksum64: 81213FD6CB871A8BD1015BDF4005824ECF22140452BED162AA9F6C1B3BE83971
+   checksum32: F1EBE435BE57D45DF6B0267BC09C503FA0339D97D3B47866EFD0456F28525DEE
+   checksum64: DB6E8358E7F3EA2AE152B1824AEF0D6F0312D8ADC88F918FC4A1958990E89C27
  
 File 'LICENSE.txt' is obtained from:
    https://raw.githubusercontent.com/minetest/minetest/master/LICENSE.txt
