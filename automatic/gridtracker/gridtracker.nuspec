@@ -48,6 +48,7 @@ Display on a large second monitor in your amateur radio club, hamfest or as a de
 ]]></description>
     <releaseNotes>https://tagloomis.com</releaseNotes>
     <dependencies>
+      <dependency id="vcredist140" version="14.32.31332" />
       <dependency id="wormies-au-helpers" version="0.3.2" />
     </dependencies>
   </metadata>
