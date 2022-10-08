@@ -1,19 +1,13 @@
 ﻿import-module au
+. ..\..\helpers\GitHub_Helper.ps1
 
 function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
 function global:au_GetLatest {
-    $github_repository = "toolbox4minecraft/amidst"
-    $releases = "https://github.com/" + $github_repository + "/releases/latest"
-    $regex = 'amidst-v(?<Version>[\d\-]+).exe'
-
-    $url = (Invoke-WebRequest -Uri $releases -UseBasicParsing).links | ? href -match $regex
-    $version = $matches.Version -Replace '-', '.'
-
-    return @{
-        Version = $version
-        URL32 = 'https://github.com/' + $url.href
-    }
+   return github_GetInfo -ArgumentList @{
+        repository = 'toolbox4minecraft/amidst'
+        regex32    = 'amidst-v(?<Version>[\d\-]+).exe'        
+   }
 }
 
 function global:au_SearchReplace {
@@ -32,6 +26,4 @@ function global:au_SearchReplace {
     }
 }
 
-if ($MyInvocation.InvocationName -ne '.') { # run the update only if script is not sourced
-    update -ChecksumFor none
-}
+update -ChecksumFor none
