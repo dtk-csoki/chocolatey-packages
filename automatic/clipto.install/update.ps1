@@ -1,18 +1,12 @@
 ﻿$ErrorActionPreference = 'Stop'
 import-module au
+. ..\..\helpers\GitHub_Helper.ps1
 
 function global:au_GetLatest {
-    $github_repository = 'clipto-pro/Desktop'
-    $releases = 'https://github.com/' + $github_repository + '/releases/latest'
-    $regex    = 'clipto-(?<Version>[\d\.]+).exe'
-
-    $url     = (Invoke-WebRequest -Uri $releases -UseBasicParsing).links |? href -match $regex
-    $version = $matches.Version
-
-    return @{
-        Version = $version
-        URL32 = 'https://github.com' + $url.href
-    }
+   return github_GetInfo -ArgumentList @{
+        repository = 'clipto-pro/Desktop'
+        regex32    = 'clipto-(?<Version>[\d\.]+).exe'
+   }
 }
 
 function global:au_SearchReplace {
