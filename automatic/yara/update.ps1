@@ -1,22 +1,14 @@
 import-module au
+. ..\..\helpers\GitHub_Helper.ps1
 
 function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
 function global:au_GetLatest {
-    $github_repository = "VirusTotal/yara"
-    $releases          = "https://github.com/" + $github_repository + "/releases/latest"
-    $regex32           = 'yara-v[\d\.]+-\d+-win32.zip'
-    $regex64           = 'yara-v(?<Version>[\d\.]+)-\d+-win64.zip'
-    
-    $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
-	$url32         = $download_page.links | ? href -match $regex32
-    $url64         = $download_page.links | ? href -match $regex64
-
-    return @{
-        Version = $matches.Version
-        URL32   = 'https://github.com' + $url32.href
-        URL64   = 'https://github.com' + $url64.href
-    }
+   return github_GetInfo -ArgumentList @{
+        repository = 'VirusTotal/yara'
+        regex32    = 'yara-v[\d\.]+-\d+-win32.zip'
+        regex64    = 'yara-v(?<Version>[\d\.]+)-\d+-win64.zip'
+   }
 }
 
 function global:au_SearchReplace {
