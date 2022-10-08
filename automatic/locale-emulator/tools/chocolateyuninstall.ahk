@@ -6,8 +6,8 @@ SetControlDelay 0
 
 ; Welcome to Locale Emulator.
 winTitle1 = % "LE Context Menu Installer - V"
-WinWait, %winTitle1% ahk_class WindowsForms10.Window.8.app.0.141b42a_r9_ad1, Welcome to Locale Emulator., 30 ;
-ControlClick, WindowsForms10.BUTTON.app.0.141b42a_r9_ad13, %winTitle1%
+WinWait, %winTitle1%, Welcome to Locale Emulator., 30 ;
+ControlClick, WindowsForms10.BUTTON.app.0.141b42a_r7_ad13, %winTitle1%
 
 ; Uninstall finished.
 winTitle2 = % "LE Context Menu Installer"
