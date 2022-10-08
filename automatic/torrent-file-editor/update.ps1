@@ -1,20 +1,15 @@
 ﻿$ErrorActionPreference = 'Stop'
 import-module au
+. ..\..\helpers\GitHub_Helper.ps1
 
 function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
 function global:au_GetLatest {
-    $github_repository = "torrent-file-editor/torrent-file-editor"
-    $releases          = "https://github.com/" + $github_repository + "/releases/latest"
-    $regex32           = 'torrent-file-editor-(?<Version>[\d\.]+)-x32.exe$'
-    $regex64           = 'torrent-file-editor-([\d\.]+)-x64.exe$'
-
-    $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
-    $url32         = $download_page.links | ? href -match $regex32
-    $version       = $matches.Version
-    $url64         = $download_page.links | ? href -match $regex64
-
-    return @{ Version = $version ; URL32 = "https://github.com" + $url32.href ; URL64 = "https://github.com" + $url64.href }
+   return github_GetInfo -ArgumentList @{
+        repository = 'torrent-file-editor/torrent-file-editor'
+        regex32    = 'torrent-file-editor-(?<Version>[\d\.]+)-x32.exe$'
+        regex64    = 'torrent-file-editor-([\d\.]+)-x64.exe$'
+   }
 }
 
 function global:au_SearchReplace {
@@ -33,6 +28,4 @@ function global:au_SearchReplace {
     }
 }
 
-if ($MyInvocation.InvocationName -ne '.') { # run the update only if script is not sourced
-    update -ChecksumFor none
-}
+update -ChecksumFor none
