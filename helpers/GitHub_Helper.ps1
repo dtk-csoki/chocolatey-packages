@@ -17,7 +17,7 @@ function github_GetInfo {
         $uri64_path = ($download_page.links | ? href -match $regex64 | select -Last 1).href
         $output += @{ URL64 = $github_url + $uri64_path }
         If ($matches.Version) {
-            $output += @{ Version = $matches.Version }
+            $output += @{ Version = $matches.Version -replace '-', '.' }
          
         }
     }
@@ -25,7 +25,7 @@ function github_GetInfo {
         $uri32_path = ($download_page.links | ? href -match $regex32 | select -Last 1).href
         $output     += @{ URL32 = $github_url + $uri32_path }
         If ($matches.Version) {
-            $output += @{ Version = $matches.Version }
+            $output += @{ Version = $matches.Version -replace '-', '.' }
          
         }
     }
