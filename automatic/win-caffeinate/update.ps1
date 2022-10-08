@@ -1,15 +1,13 @@
 ﻿import-module au
- 
+. ..\..\helpers\GitHub_Helper.ps1
+
 function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
 function global:au_GetLatest {
-  $releases = 'https://github.com/iorate/win-caffeinate/releases/latest'  
-  $regex    = 'win-caffeinate_v(?<Version>[\d\.]+).zip$'
-  
-  $download_page = (Invoke-WebRequest -Uri $releases -UseBasicParsing)
-  $url = $download_page.links | ? href -match $regex
-
-  return @{ Version = $matches.Version ; URL32 = 'https://github.com' + $url.href }
+   return github_GetInfo -ArgumentList @{
+        repository = 'iorate/win-caffeinate'
+        regex32    = 'win-caffeinate_v(?<Version>[\d\.]+).zip$'        
+   }
 }
 
 function global:au_SearchReplace {
