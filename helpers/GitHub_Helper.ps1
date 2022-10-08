@@ -1,15 +1,17 @@
 function github_GetInfo {
     Param([array]$ArgumentList)    
 
-    $debug = 0;
+    $debug = 1;
     $github_url = 'https://github.com/'
-    $github_repository_root     = "$github_url" + $ArgumentList.repository    
-    $github_repository_releases = "$github_repository_root" + '/releases/latest'
+    $github_repository_root = "$github_url" + $ArgumentList.repository
+    $github_latest_version  = (Get-RedirectedUrl "${github_repository_root}/releases/latest") -match '/tag/v(?<Version>.*)'
+    $github_expanded_assets = "$github_repository_root" + '/releases/expanded_assets/v' + $matches.Version
+
     $regex32 = $ArgumentList.regex32;
     $regex64 = $ArgumentList.regex64;
-    $output = @()
+    $output = @{}
 
-    $download_page = Invoke-WebRequest -Uri $github_repository_releases -UseBasicParsing
+    $download_page = Invoke-WebRequest -Uri $github_expanded_assets -UseBasicParsing
 
     If ($regex64) {
         $uri64_path = ($download_page.links | ? href -match $regex64 | select -Last 1).href
@@ -32,8 +34,8 @@ function github_GetInfo {
     If ((-Not($output.URL32))-And(-Not($output.URL64))) { Write-Warning "URL32 and/or URL64 are missing."}
 
     If ($debug) {
-        Write-Host "github_repository_root:" $github_repository_root
-        Write-Host "github_repository_releases:" $github_repository_releases
+        Write-Host "github_latest_version:" $github_latest_version
+        Write-Host "github_expanded_assets:" $github_expanded_assets
         Write-Host "Regex32:" $ArgumentList.regex32
         Write-Host "Regex64:" $ArgumentList.regex64
         Write-Host "Version:" $matches.Version
