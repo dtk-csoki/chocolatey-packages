@@ -1,16 +1,13 @@
 import-module au
+. ..\..\helpers\GitHub_Helper.ps1
 
 function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
 function global:au_GetLatest {
-    $github_repository = "klaussinani/tusk"
-    $releases          = "https://github.com/" + $github_repository + "/releases/latest"
-    $regex             = 'tusk-setup-(?<Version>[\d\.]+).exe$'
-
-    $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
-    $url = $download_page.links | ? href -match $regex
-
-    return @{ Version = $matches.Version ; URL32 = "https://github.com" + $url.href }
+   return github_GetInfo -ArgumentList @{
+        repository = 'klaussinani/tusk'
+        regex32    = 'tusk-setup-(?<Version>[\d\.]+).exe$'       
+   }
 }
 
 function global:au_SearchReplace {
