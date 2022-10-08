@@ -1,7 +1,7 @@
 function github_GetInfo {
     Param([array]$ArgumentList)    
 
-    $debug = 1;
+    $debug = 0;
     $github_url = 'https://github.com/'
     $github_repository_root = "$github_url" + $ArgumentList.repository
     $github_latest_version  = (Get-RedirectedUrl "${github_repository_root}/releases/latest") -match '/tag/v(?<Version>.*)'
