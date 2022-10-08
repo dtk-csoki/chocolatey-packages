@@ -1,21 +1,13 @@
 ﻿import-module au
+. ..\..\helpers\GitHub_Helper.ps1
 
 function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
 function global:au_GetLatest {
-    $github_repository = 'CorsixTH/CorsixTH'
-    $releases = 'https://github.com/' + $github_repository + '/releases/latest'
-    $regex    = '/v(?<Version>[\d\.]+)/(?<Filename>CorsixTh.*.zip)'
-
-    $download_page = (Invoke-WebRequest -Uri $releases -UseBasicParsing).links | ? href -match $regex 
-
-    $version  = $matches.Version
-    $filename = $matches.Filename
-
-    return @{
-        Version = $version
-        URL32 = 'https://github.com/' + $github_repository + '/releases/download/v' + $version + '/' + $filename
-    }
+   return github_GetInfo -ArgumentList @{
+        repository = 'CorsixTH/CorsixTH'
+        regex32    = '/v(?<Version>[\d\.]+)/(?<Filename>CorsixTh.*.zip)'
+   }
 }
 
 function global:au_SearchReplace {
