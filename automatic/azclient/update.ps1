@@ -1,12 +1,13 @@
 ﻿import-module au
-$github_repository = "azirevpn/azclient"
-$releases = "https://github.com/" + $github_repository + "/releases/latest"
+. ..\..\helpers\GitHub_Helper.ps1
 
-function global:au_GetLatest {	
-     $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing     
-	 $regex   = $github_repository + '/releases/download/.*/AzireVPN-(?<Version>[\d\.]*)[\w-]*.exe'
-	 $url = $download_page.links | ? href -match $regex
-     return @{ Version = $matches.Version ; URL32 = "https://github.com" + $url.href }
+function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
+
+function global:au_GetLatest {
+   return github_GetInfo -ArgumentList @{
+        repository = 'azirevpn/azclient'
+        regex32    = '/releases/download/.*/AzireVPN-(?<Version>[\d\.]*)[\w-]*.exe'
+   }
 }
 
 function global:au_SearchReplace {
