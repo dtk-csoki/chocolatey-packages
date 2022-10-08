@@ -17,10 +17,10 @@ Install-ChocolateyZipPackage @packageArgs
 Start-Process "AutoHotKey" -Verb runas -ArgumentList "`"$toolsDir\chocolateyinstall.ahk`""
 Install-ChocolateyInstallPackage @packageArgs
 
-#Install start menu shortcuts
+# Install start menu shortcuts
 $programs = [environment]::GetFolderPath([environment+specialfolder]::Programs)
 $shortcutFilePath = Join-Path $programs "Locale Emulator GUI.lnk"
-$targetPath = Join-Path $toolsDir "Locale.Emulator.2.5.0.1\LEGUI.exe"
+$targetPath = (Get-ChildItem -Path "$toolsDir" -Filter "LEGUI.exe").FullName
 Install-ChocolateyShortcut -shortcutFilePath $shortcutFilePath -targetPath $targetPath
 
 Write-Warning 'Launch LEGUI or "Locale Emulator GUI" from start menu to access settings.'
