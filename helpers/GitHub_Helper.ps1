@@ -4,7 +4,9 @@ function github_GetInfo {
     $debug = 0;
     $github_url = 'https://github.com/'
     $github_repository_root = "$github_url" + $ArgumentList.repository
-    $github_latest_version  = (Get-RedirectedUrl "${github_repository_root}/releases/latest") -match '/tag/v(?<Version>.*)'
+    $github_redirected_url  = (Get-RedirectedUrl "${github_repository_root}/releases/latest")
+    $github_latest_version  = "$github_redirected_url" -match '/tag/v(?<Version>.*)'
+
     $github_expanded_assets = "$github_repository_root" + '/releases/expanded_assets/v' + $matches.Version
     $isVersionMatched = $false
 
@@ -12,21 +14,49 @@ function github_GetInfo {
     $regex64 = $ArgumentList.regex64;
     $output = @{}
 
-    $download_page = Invoke-WebRequest -Uri $github_expanded_assets -UseBasicParsing
+    If ($matches.Version -ne $null) {
+        $download_page = Invoke-WebRequest -Uri $github_expanded_assets -UseBasicParsing        
+    } Else {
+        # If "${github_repository_root}/releases/latest" does not redirect to an URL like '/tag/v(?<Version>.*)'
+        # Ex: zVirtualDesktop - <h1 data-view-component="true" class="d-inline mr-3">1.0.98.14</h1>
+        $download_page = Invoke-WebRequest -Uri $github_redirected_url -UseBasicParsing        
+        $version = $download_page -match '<h1 data-view-component="true" class="d-inline mr-3">(?<Version>[\d\.]+)<'        
+    }
+    $version = $matches.Version
 
     If ($regex64) {
         $uri64_path = ($download_page.links | ? href -match $regex64 | select -Last 1).href
-        $output += @{ URL64 = $github_url + $uri64_path }
-        If ($matches.Version) {
-            $output += @{ Version = $matches.Version -replace '-', '.' }
+
+        If ($uri64_path -eq $null) {
+            $uri64_path = $download_page.Links.href -match $regex64
+        }
+
+        If ($uri64_path -match "^https://") {
+            $output += @{ URL64 = $uri64_path }
+        } Else {
+            $output += @{ URL64 = $github_url + $uri64_path }
+        }
+
+        If ($version) {
+            $output += @{ Version = $version -replace '-', '.' }
             $isVersionMatched = $true
         }
     }
     If ($regex32) {
         $uri32_path = ($download_page.links | ? href -match $regex32 | select -Last 1).href
-        $output     += @{ URL32 = $github_url + $uri32_path }
-        If (($matches.Version) -And ($isVersionMatched -eq $false)) {
-            $output += @{ Version = $matches.Version -replace '-', '.' }
+
+        If ($uri32_path -eq $null) {            
+            $uri32_path = $download_page.Links.href -match $regex32
+        }
+
+        If ($uri32_path -match "^https://") {
+            $output += @{ URL32 = $uri32_path }
+        } Else {
+            $output += @{ URL32 = $github_url + $uri32_path }
+        }
+
+        If (($version) -And ($isVersionMatched -eq $false)) {
+            $output += @{ Version = $version -replace '-', '.' }
          
         }
     }
