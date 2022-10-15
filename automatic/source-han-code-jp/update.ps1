@@ -1,15 +1,11 @@
 ﻿Import-Module au
+. ..\..\helpers\GitHub_Helper.ps1
 
 function global:au_GetLatest {
-  $github_repository = "adobe-fonts/source-han-code-jp"
-  $releases = "https://github.com/" + $github_repository + "/releases"
-  $regex   = "/(?<Version>[\d\.]+)R.zip$"
-
-  $url = (Invoke-WebRequest -Uri $releases -UseBasicParsing).links | ? href -match $regex | Select-Object -First 1
-  return @{
-    Version = $matches.Version
-    URL32 = "https://github.com" + $url.href
-  }
+   return github_GetInfo -ArgumentList @{
+        repository = 'adobe-fonts/source-han-code-jp'
+        regex32    = '/(?<Version>[\d\.]+)R.zip$'
+   }
 }
 
 function global:au_SearchReplace {
