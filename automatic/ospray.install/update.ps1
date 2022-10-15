@@ -1,19 +1,14 @@
 ﻿$ErrorActionPreference = 'Stop'
 import-module au
+. ..\..\helpers\GitHub_Helper.ps1
 
 function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
-function global:au_GetLatest {	
-    $github_repository = 'ospray/ospray'
-    $releases = 'https://github.com/' + $github_repository + '/releases/latest'
-    $regex   = 'ospray-(?<Version>[\d\.]+)(.x86_64)?.windows.msi$'
-
-	$url = (Invoke-WebRequest -Uri $releases -UseBasicParsing).links | ? href -match $regex
-
-	return @{
-		Version = $matches.Version
-		URL32   = 'https://github.com' + $url.href
-	}
+function global:au_GetLatest {
+   return github_GetInfo -ArgumentList @{
+        repository = 'ospray/ospray'
+        regex32    = 'ospray-(?<Version>[\d\.]+)(.x86_64)?.windows.msi$'
+   }
 }
 
 function global:au_SearchReplace {
