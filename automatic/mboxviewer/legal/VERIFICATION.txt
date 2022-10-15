@@ -7,16 +7,16 @@ Package can be verified like this:
  
 1. Download:
  
-   x32 https://freefr.dl.sourceforge.net/project/mbox-viewer/v1.0.3.34/mbox-viewer.exe-v1.0.3.34.zip
-   x64 https://freefr.dl.sourceforge.net/project/mbox-viewer/v1.0.3.34/mbox-viewer.exe-v1.0.3.34.zip
+   x32 https://freefr.dl.sourceforge.net/project/mbox-viewer/v1.0.3.35/mbox-viewer.exe-v1.0.3.35.zip
+   x64 https://freefr.dl.sourceforge.net/project/mbox-viewer/v1.0.3.35/mbox-viewer.exe-v1.0.3.35.zip
   
 2. You can use one of the following methods to obtain the SHA256 checksum:
    - Use powershell function 'Get-FileHash'
    - Use Chocolatey utility 'checksum.exe'
  
-   checksum type:                             sha256
-   checksum32: 579DA36C31CC4E5D556F6298EE204184A357A3BDEEB8B94586AE217900408C72
-   checksum64: 579DA36C31CC4E5D556F6298EE204184A357A3BDEEB8B94586AE217900408C72
+   checksum type:                              sha256
+   checksum32: F4B3F2B56546E7B64BA9AA8C51970C948C25121B2C6E193EE31E691865C1DAE9
+   checksum64: F4B3F2B56546E7B64BA9AA8C51970C948C25121B2C6E193EE31E691865C1DAE9
  
 File 'LICENSE.txt' is obtained from:
    https://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
