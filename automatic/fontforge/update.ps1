@@ -1,18 +1,13 @@
 ﻿import-module au
+. ..\..\helpers\GitHub_Helper.ps1
 
 function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
 function global:au_GetLatest {
-    $github_repository = 'fontforge/fontforge'
-    $releases = 'https://github.com/' + $github_repository + '/releases/latest'
-    $regex   = 'FontForge-(?<Version>[\d-]+)-Windows.exe$'
-
-    $url = (Invoke-WebRequest -Uri $releases -UseBasicParsing).links | ? href -Match $regex
-
-    return @{
-        Version = $matches.Version -Replace '-', '.'
-        URL32   = 'https://github.com' + $url.href
-    }
+   return github_GetInfo -ArgumentList @{
+        repository = 'fontforge/fontforge'
+        regex32    = 'FontForge-(?<Version>[\d-]+)-Windows.exe$'
+   }
 }
 
 function global:au_SearchReplace {
@@ -31,6 +26,4 @@ function global:au_SearchReplace {
     }
 }
 
-if ($MyInvocation.InvocationName -ne '.') { # run the update only if script is not sourced
-    update -ChecksumFor none
-}
+update -ChecksumFor none
