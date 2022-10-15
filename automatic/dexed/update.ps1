@@ -1,16 +1,13 @@
 import-module au
-
-[Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
+. ..\..\helpers\GitHub_Helper.ps1
 
 function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
 function global:au_GetLatest {
-    $releases = 'https://github.com/asb2m10/dexed/releases'
-    $regex   = 'dexed-(?<Version>[\d\.]+)-win.zip$'
-
-    $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing	
-	$url = $download_page.links | ? href -match $regex | Select -First 1
-    return @{ Version = $matches.Version ; URL32 = "https://github.com" + $url.href }
+   return github_GetInfo -ArgumentList @{
+        repository = 'asb2m10/dexed'
+        regex32    = 'dexed-(?<Version>[\d\.]+)-win.zip$'
+   }
 }
 
 function global:au_SearchReplace {
