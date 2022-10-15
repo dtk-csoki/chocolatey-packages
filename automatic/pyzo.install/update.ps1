@@ -1,23 +1,14 @@
 ﻿import-module au
+. ..\..\helpers\GitHub_Helper.ps1
 
 function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
 function global:au_GetLatest {
-    $github_repository = 'pyzo/pyzo'
-    $releases   = 'https://github.com/' + $github_repository + '/releases/latest'
-    #$regex_win7 = 'pyzo-([\d\.]+)-win64-windows7.exe$'
-    #$regex32      = 'pyzo-[\d\.]+-win32.exe$'
-    $regex64      = 'pyzo-(?<Version>[\d\.]+)-win64.exe$'
-
-    $download_page = (Invoke-WebRequest -Uri $releases -UseBasicParsing).links
-    #$url32 = $download_page | ? href -match $regex32 | Select -First 1
-    $url64 = $download_page | ? href -match $regex64 | Select -First 1
-
-    return @{
-        Version = $matches.Version
-        #URL32   = 'https://github.com' + $url32.href
-        URL64   = 'https://github.com' + $url64.href
-    }
+   return github_GetInfo -ArgumentList @{
+        repository = 'pyzo/pyzo'
+        regex32    = 'pyzo-[\d\.]+-win32.zip$'        
+        regex64    = 'pyzo-(?<Version>[\d\.]+)-win64.exe$'
+   }
 }
 
 function global:au_SearchReplace {    
