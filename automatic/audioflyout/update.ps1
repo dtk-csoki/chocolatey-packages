@@ -1,11 +1,19 @@
 ﻿$ErrorActionPreference = 'Stop'
 import-module au
-
-[Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
+. ..\..\helpers\GitHub_Helper.ps1
 
 function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
 function global:au_GetLatest {
+   return github_GetInfo -ArgumentList @{
+        repository = 'ADeltaX/AudioFlyout'
+        regex32    = 'AudioFlyout.zip'
+   }
+}
+
+[Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
+
+<#function global:au_GetLatest {
     $releases     = 'https://github.com/ADeltaX/AudioFlyout/releases'
     $regex        = 'AudioFlyout.zip'
     $regexVersion = 'AudioFlyout/tree/(?<Version>[\d\.]+)'
@@ -15,7 +23,7 @@ function global:au_GetLatest {
     $download_page.links | ? href -match $regexVersion
 
     return @{ Version = $matches.Version ; URL32 = 'https://github.com' + $url.href }
-}
+}#>
 
 function global:au_SearchReplace {
     @{
@@ -29,6 +37,4 @@ function global:au_SearchReplace {
     }
 }
 
-if ($MyInvocation.InvocationName -ne '.') { # run the update only if script is not sourced
-    update -ChecksumFor none
-}
+update -ChecksumFor none
