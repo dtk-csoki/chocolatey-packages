@@ -1,11 +1,11 @@
 function github_GetInfo {
     Param([array]$ArgumentList)    
 
-    $debug = 0;
+    $debug = 1;
     $github_url = 'https://github.com/'
     $github_repository_root = "$github_url" + $ArgumentList.repository
     $github_redirected_url  = (Get-RedirectedUrl "${github_repository_root}/releases/latest")
-    $github_latest_version  = "$github_redirected_url" -match '/tag/v(?<Version>.*)'
+    $github_latest_version  = "$github_redirected_url" -match '/tag/v(?<Version>[\d\.]+)'
 
     $github_expanded_assets = "$github_repository_root" + '/releases/expanded_assets/v' + $matches.Version
     $isVersionMatched = $false
