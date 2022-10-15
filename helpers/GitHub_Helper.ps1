@@ -5,9 +5,10 @@ function github_GetInfo {
     $github_url = 'https://github.com/'
     $github_repository_root = "$github_url" + $ArgumentList.repository
     $github_redirected_url  = (Get-RedirectedUrl "${github_repository_root}/releases/latest")
-    $github_latest_version  = "$github_redirected_url" -match '/tag/v(?<Version>[\d\.]+)'
+    # v is optional (ex: https://github.com/adobe-fonts/source-han-code-jp/releases/latest)
+    $github_latest_version  = "$github_redirected_url" -match '/tag/(v??<Version>.*)' # Get version to re-use for expanded_assets
 
-    $github_expanded_assets = "$github_repository_root" + '/releases/expanded_assets/v' + $matches.Version
+    $github_expanded_assets = "$github_repository_root" + '/releases/expanded_assets/' + $matches.Version    
     $isVersionMatched = $false
 
     $regex32 = $ArgumentList.regex32;
@@ -15,12 +16,17 @@ function github_GetInfo {
     $output = @{}
 
     If ($matches.Version -ne $null) {
-        $download_page = Invoke-WebRequest -Uri $github_expanded_assets -UseBasicParsing        
+        # If version has not the correct format - Ex: 2.0.12R -> 2.0.12 (source-han-code-jp)
+        If ($matches.Version -Notmatch "^[\d\.]+$") {
+            $matches.Version = $matches.Version -replace '([\d\.]+).*', '$1'
+        } 
+
+        $download_page = Invoke-WebRequest -Uri $github_expanded_assets -UseBasicParsing    
     } Else {
         # If "${github_repository_root}/releases/latest" does not redirect to an URL like '/tag/v(?<Version>.*)'
         # Ex: zVirtualDesktop - <h1 data-view-component="true" class="d-inline mr-3">1.0.98.14</h1>
         $download_page = Invoke-WebRequest -Uri $github_redirected_url -UseBasicParsing        
-        $version = $download_page -match '<h1 data-view-component="true" class="d-inline mr-3">(?<Version>[\d\.]+)<'        
+        $version = $download_page -match '<h1 data-view-component="true" class="d-inline mr-3">(?<Version>[\d\.]+)<'
     }
     $version = $matches.Version
 
@@ -40,6 +46,9 @@ function github_GetInfo {
         If ($version) {
             $output += @{ Version = $version -replace '-', '.' }
             $isVersionMatched = $true
+        } ElseIf ($matches.Version) {
+            # cleanVersion - Ex: source-han-code-jp - 2.0.12R -> 2.0.12
+            $version = $matches.Version -replace "([\d\.]+).*", '$1'
         }
     }
     If ($regex32) {
@@ -56,8 +65,10 @@ function github_GetInfo {
         }
 
         If (($version) -And ($isVersionMatched -eq $false)) {
-            $output += @{ Version = $version -replace '-', '.' }
-         
+            $output += @{ Version = $version -replace '-', '.' }         
+        } ElseIf ($matches.Version) {
+            # cleanVersion - Ex: source-han-code-jp - 2.0.12R -> 2.0.12
+            $version = $matches.Version -replace "([\d\.]+).*", '$1'
         }
     }
 
