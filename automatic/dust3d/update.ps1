@@ -1,31 +1,17 @@
 ﻿import-module au
-
-[Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
+. ..\..\helpers\GitHub_Helper.ps1
 
 function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
 function global:au_GetLatest {
-    $github_repository = 'huxingyi/dust3d'
-    $releases = 'https://github.com/' + $github_repository + '/releases/latest'
-    $regex32  = 'dust3d-[\d\.]+(-beta|-rc)?\.[\d\.]*-x86.zip'
-    $regex64  = 'dust3d-(?<Version>[\d\.]+)(-beta|-rc)?(?<VersionBeta>\.[\d\.]*).zip'
-
-    $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing	
-	$url32 = $download_page.links | ? href -match $regex32
-    $url64 = $download_page.links | ? href -match $regex64
-
-    if ($matches.VersionBeta) {
-        $version = $matches.Version + $matches.VersionBeta + $matches.1
-    } else {
-        $version = $matches.Version
-    }
-
-    return @{
-        Version = $version
-        URL32   = 'https://github.com' + $url32.href
-        URL64   = 'https://github.com' + $url64.href
-    }
+   return github_GetInfo -ArgumentList @{
+        repository = 'huxingyi/dust3d'
+        regex32    = 'dust3d-[\d\.]+(-beta|-rc)?\.[\d\.]*-x86.zip'
+        regex64    = 'dust3d-(?<Version>[\d\.]+)(-beta|-rc)?(?<VersionBeta>\.[\d\.]*).zip'
+   }
 }
+
+#[Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
 
 function global:au_SearchReplace {
     @{
