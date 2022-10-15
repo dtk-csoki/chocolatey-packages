@@ -8,7 +8,7 @@ function github_GetInfo {
     If ($debug) { Write-Host "`$github_redirected_url  = (Get-RedirectedUrl "${github_repository_root}/releases/latest")" }
     $github_redirected_url  = (Get-RedirectedUrl "${github_repository_root}/releases/latest")
     # v is optional (ex: https://github.com/adobe-fonts/source-han-code-jp/releases/latest)
-    $github_latest_version  = "$github_redirected_url" -match '/tag/(?<FullVersion>v?(?<Version>.*))' # Get version to re-use for expanded_assets
+    $github_latest_version  = "$github_redirected_url" -match '/tag/(?<FullVersion>v?(?<Version>[\d\.]*).*)' # Get version to re-use for expanded_assets
 
     $github_expanded_assets = "$github_repository_root" + '/releases/expanded_assets/' + $matches.FullVersion
     $isVersionMatched = $false
@@ -17,7 +17,8 @@ function github_GetInfo {
     $regex64 = $ArgumentList.regex64;
     $output = @{}
 
-    If ($matches.Version -ne $null) {
+    If ($debug) { Write-Host $matches.Version }    
+    If (-Not([string]::IsNullOrEmpty($matches.Version))) {
         # If version has not the correct format - Ex: 2.0.12R -> 2.0.12 (source-han-code-jp)
         If ($matches.Version -Notmatch "^[\d\.]+$") {
             $matches.Version = $matches.Version -replace '([\d\.]+).*', '$1'
@@ -27,7 +28,7 @@ function github_GetInfo {
         $download_page = Invoke-WebRequest -Uri $github_expanded_assets -UseBasicParsing    
     } Else {
         # If "${github_repository_root}/releases/latest" does not redirect to an URL like '/tag/v(?<Version>.*)'
-        # Ex: zVirtualDesktop - <h1 data-view-component="true" class="d-inline mr-3">1.0.98.14</h1>
+        # Ex: zVirtualDesktop - <h1 data-view-component="true" class="d-inline mr-3">1.0.98.14</h1>        
         $download_page = Invoke-WebRequest -Uri $github_redirected_url -UseBasicParsing        
         $version = $download_page -match '<h1 data-view-component="true" class="d-inline mr-3">(?<Version>[\d\.]+)<'
     }
