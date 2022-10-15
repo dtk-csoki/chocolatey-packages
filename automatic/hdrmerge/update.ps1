@@ -1,22 +1,14 @@
 import-module au
+. ..\..\helpers\GitHub_Helper.ps1
 
 function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
 function global:au_GetLatest {
-    $github_repository = "jcelaya/hdrmerge"
-    $releases          = "https://github.com/" + $github_repository + "/releases/latest"
-    $regex32           = 'hdrmerge-setup64-([\d\.]+).exe$'
-    $regex64           = 'hdrmerge-setup-(?<Version>[\d\.]+).exe$'
-
-    $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
-    $url32 = $download_page.links | ? href -match $regex32
-    $url64 = $download_page.links | ? href -match $regex64
-
-    return @{
-        Version = $matches.Version
-        URL32 = "https://github.com" + $url32.href
-        URL64 = "https://github.com" + $url64.href
-    }
+   return github_GetInfo -ArgumentList @{
+        repository = 'jcelaya/hdrmerge'
+        regex32    = 'hdrmerge-setup64-([\d\.]+).exe$'
+        regex64    = 'hdrmerge-setup-(?<Version>[\d\.]+).exe$'
+   }
 }
 
 function global:au_SearchReplace {
@@ -36,6 +28,4 @@ function global:au_SearchReplace {
     }
 }
 
-if ($MyInvocation.InvocationName -ne '.') { # run the update only if script is not sourced
-    update -ChecksumFor none
-}
+update -ChecksumFor none
