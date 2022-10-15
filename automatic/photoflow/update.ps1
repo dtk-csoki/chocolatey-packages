@@ -1,18 +1,13 @@
 ﻿import-module au
+. ..\..\helpers\GitHub_Helper.ps1
 
 function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
 function global:au_GetLatest {
-    $github_repository = 'aferrero2707/PhotoFlow'
-    $releases = "https://github.com/" + $github_repository + "/releases/latest"
-    $regex    = 'photoflow-(?<Version>[\d\.]*).zip$'
-
-    $url = (Invoke-WebRequest -Uri $releases -UseBasicParsing).links | ? href -match $regex | Select -First 1
-
-    return @{
-        Version = $matches.Version
-        URL32   = "https://github.com" + $url.href
-    }
+   return github_GetInfo -ArgumentList @{
+        repository = 'aferrero2707/PhotoFlow'
+        regex32    = 'photoflow-(?<Version>[\d\.]*).zip$'
+   }
 }
 
 function global:au_SearchReplace {
