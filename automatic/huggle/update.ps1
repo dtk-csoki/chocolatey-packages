@@ -1,19 +1,14 @@
 ﻿import-module au
+. ..\..\helpers\GitHub_Helper.ps1
 
-function global:au_GetLatest {	
-    $github_repository = 'huggle/huggle3-qt-lx'
-    $releases = 'https://github.com/' + $github_repository + '/releases/latest'
-    $regex32  = 'huggle_([\d\.]+).exe'
-    $regex64  = 'huggle_(?<Version>[\d\.]+)_x64.exe'
+function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
-    $url32 = (Invoke-WebRequest -Uri $releases -UseBasicParsing).links | ? href -match $regex32
-    $url64 = (Invoke-WebRequest -Uri $releases -UseBasicParsing).links | ? href -match $regex64
-
-    return @{
-        Version = $matches.Version
-        URL32   = 'https://github.com' + $url32.href
-        URL64   = 'https://github.com' + $url64.href
-    }
+function global:au_GetLatest {
+   return github_GetInfo -ArgumentList @{
+        repository = 'huggle/huggle3-qt-lx'
+        regex32  = 'huggle_([\d\.]+).exe'
+        regex64  = 'huggle_(?<Version>[\d\.]+)_x64.exe'
+   }
 }
 
 function global:au_SearchReplace {
