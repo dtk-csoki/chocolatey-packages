@@ -4,11 +4,13 @@ function github_GetInfo {
     $debug = 1;
     $github_url = 'https://github.com/'
     $github_repository_root = "$github_url" + $ArgumentList.repository
+
+    If ($debug) { Write-Host "`$github_redirected_url  = (Get-RedirectedUrl "${github_repository_root}/releases/latest")" }
     $github_redirected_url  = (Get-RedirectedUrl "${github_repository_root}/releases/latest")
     # v is optional (ex: https://github.com/adobe-fonts/source-han-code-jp/releases/latest)
-    $github_latest_version  = "$github_redirected_url" -match '/tag/(v??<Version>.*)' # Get version to re-use for expanded_assets
+    $github_latest_version  = "$github_redirected_url" -match '/tag/(?<FullVersion>v?(?<Version>.*))' # Get version to re-use for expanded_assets
 
-    $github_expanded_assets = "$github_repository_root" + '/releases/expanded_assets/' + $matches.Version    
+    $github_expanded_assets = "$github_repository_root" + '/releases/expanded_assets/' + $matches.FullVersion
     $isVersionMatched = $false
 
     $regex32 = $ArgumentList.regex32;
@@ -21,6 +23,7 @@ function github_GetInfo {
             $matches.Version = $matches.Version -replace '([\d\.]+).*', '$1'
         } 
 
+        If ($debug) { Write-Host "`$download_page = Invoke-WebRequest -Uri $github_expanded_assets -UseBasicParsing" }
         $download_page = Invoke-WebRequest -Uri $github_expanded_assets -UseBasicParsing    
     } Else {
         # If "${github_repository_root}/releases/latest" does not redirect to an URL like '/tag/v(?<Version>.*)'
