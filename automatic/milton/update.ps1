@@ -1,13 +1,4 @@
-import-module au
-
-function global:au_GetLatest {
-    $releases = 'https://github.com/serge-rgb/milton/releases/latest'
-    $regex   = 'MiltonSetup_(?<Version>[\d\.]+)_x64.exe$'
-
-    $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
-    $url = $download_page.links | ? href -match $regex
-    return @{ Version = $matches.Version ; URL64 = "https://github.com" + $url.href }
-}
+. $PSScriptRoot\..\milton.install\update.ps1
 
 function global:au_SearchReplace {
    @{
@@ -17,6 +8,4 @@ function global:au_SearchReplace {
     }
 }
 
-if ($MyInvocation.InvocationName -ne '.') { # run the update only if script is not sourced
-    update -ChecksumFor none -NoCheckUrl
-}
+update -ChecksumFor none -NoCheckUrl
