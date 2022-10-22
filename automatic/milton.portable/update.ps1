@@ -1,14 +1,13 @@
 import-module au
+. ..\..\helpers\GitHub_Helper.ps1
 
 function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
 function global:au_GetLatest {
-    $releases = 'https://github.com/serge-rgb/milton/releases/latest'
-    $regex   = 'Milton_(?<Version>[\d\.]+)_Standalone_x64.zip$'
-
-    $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing	 
-    $url = $download_page.links | ? href -match $regex
-    return @{ Version = $matches.Version ; URL64 = "https://github.com" + $url.href }
+   return github_GetInfo -ArgumentList @{
+        repository = 'serge-rgb/milton'        
+        regex64    = 'Milton_(?<Version>[\d\.]+)_Standalone_x64.zip$'
+   }
 }
 
 function global:au_SearchReplace {
