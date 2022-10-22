@@ -1,14 +1,12 @@
 # Disabled (package not embeddable and no available on another location than fosshub) - https://docs.chocolatey.org/en-us/community-repository/moderation/package-validator/rules/cpmr0028
 import-module au
+. ..\..\helpers\GitHub_Helper.ps1
 
 function global:au_GetLatest {
-    $github_repository = 'alicevision/meshroom'
-    $releases = 'https://github.com/' + $github_repository + '/releases/latest'
-    $regex    = '/Meshroom-(?<Version>[\d\.]+)-win64.zip$'
-
-    $url = (Invoke-WebRequest -Uri $releases -UseBasicParsing).links | ? href -match $regex
-
-    return @{ Version = $matches.Version ; URL64 = 'https://github.com' + $url.href }
+   return github_GetInfo -ArgumentList @{
+        repository = 'alicevision/meshroom'
+        regex64    = '/Meshroom-(?<Version>[\d\.]+)-win64.zip$'
+   }
 }
 
 function global:au_SearchReplace {
