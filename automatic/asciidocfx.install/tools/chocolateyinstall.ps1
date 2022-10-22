@@ -5,8 +5,8 @@ $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
   destination   = "$toolsDir"
 
-  url           = 'https://github.com/asciidocfx/AsciidocFX/releases/download/v1.7.9/AsciidocFX_Windows.exe'
-  checksum      = 'b7e5e642972cf4513aefdd82c1ea218c1eb8a7d08daffb8a4d293ff69d2d9689'
+  url           = 'https://github.com/asciidocfx/AsciidocFX/releases/download/v1.8.0/AsciidocFX_Windows.exe'
+  checksum      = '9b467b2ec5bab8bd3e75b0930d1441f81c59d98cb858534266815acd332fe64c'
   checksumType  = 'sha256'
 
   silentArgs    = '-q'
