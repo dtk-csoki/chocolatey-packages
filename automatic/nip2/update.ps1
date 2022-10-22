@@ -1,19 +1,13 @@
 ﻿import-module au
+. ..\..\helpers\GitHub_Helper.ps1
 
 function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
-function global:au_GetLatest {	
-    $github_repository = 'libvips/nip2'
-    $releases = 'https://github.com/' + $github_repository + '/releases'
-    $regex  = 'nip2-(?<Version>[\d\.]*)-setup.zip$'
-
-    $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
-	$url32 = $download_page.links | ? href -match $regex | Select -First 1
-    
-    return @{
-        Version = $matches.Version
-        URL32 = "https://github.com" + $url32.href    
-    }
+function global:au_GetLatest {
+   return github_GetInfo -ArgumentList @{
+        repository = 'libvips/nip2'
+        regex32    = 'nip2-(?<Version>[\d\.]*)-setup.zip$'
+   }
 }
 
 function global:au_SearchReplace {
@@ -33,6 +27,4 @@ function global:au_SearchReplace {
     }
 }
 
-if ($MyInvocation.InvocationName -ne '.') { # run the update only if script is not sourced
-    update -ChecksumFor none
-}
+update -ChecksumFor none
