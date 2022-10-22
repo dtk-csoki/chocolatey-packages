@@ -1,13 +1,11 @@
 ﻿import-module au
+. ..\..\helpers\GitHub_Helper.ps1
 
-function global:au_GetLatest {	
-    $github_repository = "xupefei/Locale-Emulator"
-    $releases = "https://github.com/" + $github_repository + "/releases/latest"
-    $regex    = $github_repository + '/releases/download/.*/Locale.Emulator\.(?<Version>[\d\.]*)[\w-]*.zip'
-    
-    $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing	
-	$url = $download_page.links | ? href -match $regex
-    return @{ Version = $matches.Version ; URL32 = "https://github.com" + $url.href }
+function global:au_GetLatest {
+   return github_GetInfo -ArgumentList @{
+        repository = 'xupefei/Locale-Emulator'
+        regex32    = '/releases/download/.*/Locale.Emulator\.(?<Version>[\d\.]*)[\w-]*.zip'
+   }
 }
 
 function global:au_SearchReplace {
