@@ -1,13 +1,11 @@
 import-module au
-$github_repository = "bruderstein/nppPluginManager"
+. ..\..\helpers\GitHub_Helper.ps1
 
-$releases = "https://github.com/" + $github_repository + "/releases/latest"
-
-function global:au_GetLatest {	
-     $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing	 
-	 $regex   = '/releases/download/.*/PluginManager_v(?<Version>.*)_x64.zip'
-	 $url = $download_page.links | ? href -match $regex
-     return @{ Version = $matches.Version ; URL32 = "https://github.com" + $url.href }
+function global:au_GetLatest {
+   return github_GetInfo -ArgumentList @{
+        repository = 'bruderstein/nppPluginManager'
+        regex32    = '/releases/download/.*/PluginManager_v(?<Version>.*)_x64.zip'
+   }
 }
 
 function global:au_SearchReplace {
