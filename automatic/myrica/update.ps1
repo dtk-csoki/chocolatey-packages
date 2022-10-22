@@ -1,15 +1,11 @@
 ﻿import-module au
+. ..\..\helpers\GitHub_Helper.ps1
 
 function global:au_GetLatest {
-	$github_repository = "tomokuni/Myrica"
-	$releases = "https://github.com/" + $github_repository + "/releases/latest"
-	$regex   = "/(?<Version>[\d\.]+).zip$"
-	
-	$url = (Invoke-WebRequest -Uri $releases -UseBasicParsing).links | ? href -match $regex
-	return @{
-		Version = $matches.Version
-		URL32 = "https://github.com" + $url.href
-	}
+   return github_GetInfo -ArgumentList @{
+        repository = 'tomokuni/Myrica'        
+        regex32    = '/(?<Version>[\d\.]+).zip$'
+   }
 }
 
 function global:au_SearchReplace {
