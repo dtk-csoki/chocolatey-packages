@@ -1,5 +1,5 @@
 ﻿
-From: https://git.ring.cx/savoirfairelinux/ring-client-windows/blob/master/License.rtf
+From: https://www.gnu.org/licenses/gpl-3.0.txt
 
 LICENSE
 
