@@ -1,4 +1,5 @@
 ﻿import-module au
+. ..\..\helpers\GitHub_Helper.ps1
 
 function global:au_BeforeUpdate {
     Get-RemoteFiles -NoSuffix -Purge
@@ -6,22 +7,10 @@ function global:au_BeforeUpdate {
 }
 
 function global:au_GetLatest {
-    $github     = 'https://github.com/'
-    $repository = 'guilryder/clavier-plus'
-
-    $github_repository = $github + $repository
-    $releases = $github_repository + '/releases/latest'
-    $regexVersion = '/tree/release(?<Version>[\d\.]+)'
-    $regexUrl = 'ClavierSetup.exe'
-
-    (Invoke-WebRequest -Uri $releases -UseBasicParsing) -match $regexVersion | Out-Null
-    $version = $matches.Version
-    $path = ((Invoke-WebRequest -Uri $releases -UseBasicParsing).links | ? href -match $regexUrl).href
-
-     return @{
-        Version = $version
-        URL64   = 'https://github.com' + $path
-    }
+   return github_GetInfo -ArgumentList @{
+        repository = 'guilryder/clavier-plus'
+        regex64    = '/download/release(?<Version>[\d\.]+)/ClavierSetup.exe'
+   }
 }
 
 function global:au_SearchReplace {
