@@ -1,7 +1,7 @@
 function github_GetInfo {
     Param([array]$ArgumentList)    
 
-    $debug = 0;
+    $debug = 1;
     $github_url = 'https://github.com/'
     $github_repository_root = "$github_url" + $ArgumentList.repository
 
@@ -31,20 +31,25 @@ function github_GetInfo {
         # If version in the $github_expanded_assets URL has not the correct format - Ex: 2.0.12R -> 2.0.12 (source-han-code-jp)
         If ($version -NotMatch "^[\d\.]+$") {
             $version = $version -replace '([\d\.]+).*', '$1'
-        }
-        $download_page = Invoke-WebRequest -Uri $github_expanded_assets -UseBasicParsing        
+        }        
+        $download_page = Invoke-WebRequest -Uri $github_expanded_assets -UseBasicParsing
+        $used_page = $github_expanded_assets
     } Else {
         # If "${github_repository_root}/releases/latest" does not redirect to an URL like '/tag/v(?<Version>.*)'
         # Ex: zVirtualDesktop - <h1 data-view-component="true" class="d-inline mr-3">1.0.98.14</h1>        
-        $download_page = Invoke-WebRequest -Uri $github_redirected_url -UseBasicParsing        
+        $download_page = Invoke-WebRequest -Uri $github_redirected_url -UseBasicParsing
+        $used_page = $github_redirected_url
         $version = $download_page -match '<h1 data-view-component="true" class="d-inline mr-3">(?<Version>[\d\.]+)<'
     }
 
     If ($regex64) {
         $uri64_path = ($download_page.links | ? href -match $regex64 | select -Last 1).href
 
-        If ($uri64_path -eq $null) {
+        If ([string]::IsNullOrEmpty($uri64_path)) {
             $uri64_path = $download_page.Links.href -match $regex64
+            If ([string]::IsNullOrEmpty($uri64_path)) {
+                Write-Error "$regex64 not found in links displayed on $used_page" -ErrorAction Stop
+            }
         }
 
         If ($uri64_path -match "^https://") {
@@ -71,8 +76,11 @@ function github_GetInfo {
     If ($regex32) {            
         $uri32_path = ($download_page.links | ? href -match $regex32 | select -Last 1).href
 
-        If ($uri32_path -eq $null) {        
+        If ([string]::IsNullOrEmpty($uri32_path)) {            
             $uri32_path = $download_page.Links.href -match $regex32
+            If ([string]::IsNullOrEmpty($uri32_path)) {
+                Write-Error "$regex32 not found in links displayed on $used_page" -ErrorAction Stop
+            }
         }
 
         If ($uri32_path -match "^https://") {
