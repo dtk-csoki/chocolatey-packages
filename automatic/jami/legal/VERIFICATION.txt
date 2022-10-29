@@ -14,7 +14,7 @@ Package can be verified like this:
    - Use Chocolatey utility 'checksum.exe'
  
    checksum type: sha256
-   checksum64: D750C2AA175674955E79BCB53CC78F2AA5E958E32579A14C412A43C1F0D4BFB6
+   checksum64: 455B75F0E3BC5FC9D2508EE0B94175A2913A3A0C6D187D32777F2D5CE686CFC6
  
 File 'LICENSE.txt' is obtained from:
    https://git.ring.cx/savoirfairelinux/ring-client-windows/blob/master/License.rtf
