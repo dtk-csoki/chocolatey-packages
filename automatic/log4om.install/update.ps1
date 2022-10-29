@@ -1,7 +1,10 @@
 ﻿$ErrorActionPreference = 'Stop'
 import-module au
 
-function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
+function global:au_BeforeUpdate { 
+    Get-RemoteFiles -NoSuffix -Purge
+    $Latest.Checksum32 = Get-RemoteChecksum $Latest.URL32
+}
 
 function global:au_GetLatest {
   $releases = 'http://www.log4om.com/download/'
@@ -10,10 +13,11 @@ function global:au_GetLatest {
   $url     = (Invoke-WebRequest -Uri $releases -UseBasicParsing).links | ? href -match $regex | select -First 1
   $version = $matches.Version -Replace "_", "."
     
-	return @{
+  return @{
     Version    = $version
     VersionUrl = $matches.Version
     URL32      = $url.href
+    Options    = @{ Headers = @{ "User-Agent" = 'Other' }}
   }
 }
 
@@ -35,5 +39,5 @@ function global:au_SearchReplace {
 }
 
 if ($MyInvocation.InvocationName -ne '.') { # run the update only if script is not sourced
-    update -ChecksumFor none
+    update -ChecksumFor none -noCheckUrl
 }
