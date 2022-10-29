@@ -1,28 +1,14 @@
 ﻿$ErrorActionPreference = 'Stop'
 import-module au
-
-[Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
+. ..\..\helpers\GitHub_Helper.ps1
 
 function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
 function global:au_GetLatest {
-    $github     = 'https://github.com/'
-    $repository = 'Crypto-Notepad/Crypto-Notepad'
-    $regexUrl   = '.*/Crypto.Notepad.(7z|zip)'
-
-    $github_repository = $github + $repository
-    $releases = $github_repository + '/releases/latest'
-    $regex    = '/tree/v(?<Version>[\d\.]+)'
-
-    $download_page = (Invoke-WebRequest -Uri $releases -UseBasicParsing).links
-    $download_page | ? href -match $regex | Out-Null
-    $version = $matches.Version
-    $path = ($download_page | ? href -match $regexUrl).href
-
-    return @{
-        Version = $version
-        URL32   = 'https://github.com/' + $path
-    }
+   return github_GetInfo -ArgumentList @{
+        repository = 'Crypto-Notepad/Crypto-Notepad'
+        regex32    = '.*/Crypto.Notepad.(7z|zip)'
+   }
 }
 
 function global:au_SearchReplace {
