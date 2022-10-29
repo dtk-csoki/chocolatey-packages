@@ -1,18 +1,21 @@
 ﻿import-module au
-
-[Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
+. ..\..\helpers\GitHub_Helper.ps1
 
 function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
 function global:au_GetLatest {
-    $github_repository = "sedwards2009/extraterm"
-    $releases = "https://github.com/" + $github_repository + "/releases/latest"
-    $regex   = 'extraterm-setup-(?<Version>[\d\.]*).exe$'
+   $output = github_GetInfo -ArgumentList @{
+        repository = 'sedwards2009/extraterm'        
+        regex32    = 'extratermqt-setup-(?<Version>[\d\.]*).exe$'
+   }
 
-    $url = (Invoke-WebRequest -Uri $releases -UseBasicParsing).links | ? href -match $regex | Select -First 1
+   # append "-pre" to version
+   $output[1].Version += '-pre'
 
-    return @{ Version = $matches.Version + "-pre" ; URL32 = "https://github.com" + $url.href }
+   return $output
 }
+
+#[Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
 
 function global:au_SearchReplace {
     @{
