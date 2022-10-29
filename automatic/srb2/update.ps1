@@ -4,7 +4,7 @@
 function global:au_GetLatest {
     return github_GetInfo -ArgumentList @{
         repository = 'STJr/SRB2'
-        regex32    = 'SRB2_release_(?<Version>[\d\.]+)/SRB2-v\d+-Installer.exe'
+        regex32    = 'SRB2_release_(?<Version>[\d\.]+)/SRB2-v\d+-Installer.exe'                      
         }
 }
 
