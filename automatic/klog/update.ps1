@@ -5,7 +5,7 @@ function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
 function global:au_GetLatest {
    return github_GetInfo -ArgumentList @{
-        repository = 'fetacore/Infinitex'
+        repository = 'ea4k/klog'
         regex32    = 'KLog-(.*)-windows-installer.exe$'        
    }
 }
