@@ -1,5 +1,7 @@
 ﻿import-module au
  
+[System.Net.ServicePointManager]::SecurityProtocol = 3072 -bor 768 -bor [System.Net.SecurityProtocolType]::Tls -bor [System.Net.SecurityProtocolType]::Ssl3
+
 function global:au_GetLatest {
   $releases = 'http://losslessaudiochecker.com'  
   $regex    = 'GUI v(?<Version>[\d\.]+) \(Regular users\)'
