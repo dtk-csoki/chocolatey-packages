@@ -12,25 +12,26 @@ function github_GetInfo {
     # If "${github_repository_root}/releases/latest" redirect to a URL like '/tag/(?<FullVersion>v?(?<Version>[\d\.]*).*)'
     If ($github_redirected_url -match '/tag/v?[\d\.]*.*') {
         # v is optional (ex: https://github.com/adobe-fonts/source-han-code-jp/releases/latest)
-        $github_latest_version  = "$github_redirected_url" -match '/tag/(?<FullVersion>v?(?<Version>[\d\.]*).*)' # Get version to re-use for expanded_assets
+        $github_latest_version  = "$github_redirected_url" -match '/tag/(?<FullVersion>v?(?<Version>[\d\.]*).*)' # Get version to re-use for expanded_assets        
     } else {
         # Else we grab the first version displayed in the page returned by "${github_repository_root}/releases/latest" (Exp: https://github.com/sedwards2009/extraterm/releases/latest)
-        (Invoke-WebRequest "$github_redirected_url" -UseBasicParsing).RawContent -match '/tag/(?<FullVersion>v?(?<Version>[\d\.]*))"' # Get version to re-use for expanded_assets
+        (Invoke-WebRequest "$github_redirected_url" -UseBasicParsing).RawContent -match '/tag/(?<FullVersion>v?(?<Version>[\d\.]*))"' # Get version to re-use for expanded_assets        
     }
 
     $github_expanded_assets = "$github_repository_root" + '/releases/expanded_assets/' + $matches.FullVersion
     $isVersionMatched = $false
 
-    $version = $matches.Version
+    # "2022-03-08" to "2022.03.08" - Exp: https://github.com/fontforge/fontforge/releases/tag/20220308
+    $version = $matches.Version -replace "-", "."    
     $regex32 = $ArgumentList.regex32;
     $regex64 = $ArgumentList.regex64;
     $output = @{}
 
     If (-Not([string]::IsNullOrEmpty($version))) {
-        # If version has not the correct format - Ex: 2.0.12R -> 2.0.12 (source-han-code-jp)
+        # If version in the $github_expanded_assets URL has not the correct format - Ex: 2.0.12R -> 2.0.12 (source-han-code-jp)
         If ($version -NotMatch "^[\d\.]+$") {
             $version = $version -replace '([\d\.]+).*', '$1'
-        } 
+        }
         $download_page = Invoke-WebRequest -Uri $github_expanded_assets -UseBasicParsing        
     } Else {
         # If "${github_repository_root}/releases/latest" does not redirect to an URL like '/tag/v(?<Version>.*)'
@@ -51,10 +52,13 @@ function github_GetInfo {
         } Else {
             $output += @{ URL64 = $github_url + $uri64_path }
         }
-
+        
         If ($version) {
-            $output += @{ Version = $version -replace '-', '.' }
-            $isVersionMatched = $true
+            $output += @{ Version = $version -replace '-', '.' }            
+            # Si la version de $github_expanded_assets contient \d.\d (contrairement à https://github.com/fontforge/fontforge/releases/tag/20220308 par exemple)
+            If ($version -match "[\d\.]+") {
+                $isVersionMatched = $true
+            }            
         } ElseIf ($matches.Version) {
             # cleanVersion - Ex: source-han-code-jp - 2.0.12R -> 2.0.12
             $version = $matches.Version -replace "([\d\.]+).*", '$1'
@@ -77,8 +81,14 @@ function github_GetInfo {
             $output += @{ URL32 = $github_url + $uri32_path }
         }
 
-        If (($version) -And ($isVersionMatched -eq $false)) {
-            $output += @{ Version = $version -replace '-', '.' }         
+        If (($version) -And ($isVersionMatched -eq $false)) {            
+            # If version contained in $github_expanded_assets match \d.\d (contrarily to https://github.com/fontforge/fontforge/releases/tag/20220308 for example)
+            # we grab the version from regex32            
+            If ($version -NotMatch "\d\.\d") {
+                $version = $matches.Version
+                $isVersionMatched = $true
+            }
+            $output += @{ Version = $version -replace '-', '.' }
         } ElseIf ($matches.Version) {
             # cleanVersion - Ex: source-han-code-jp - 2.0.12R -> 2.0.12
             $version = $matches.Version -replace "([\d\.]+).*", '$1'
