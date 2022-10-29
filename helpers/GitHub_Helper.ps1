@@ -78,12 +78,15 @@ function github_GetInfo {
                 $isVersionMatched = $true
             }            
         } ElseIf ($matches.Version) {
+            Write-Host $matches.Version
             # cleanVersion - Ex: source-han-code-jp - 2.0.12R -> 2.0.12
             $version = $matches.Version -replace "([\d\.]+).*", '$1'
+            $isVersionMatched = $true
             # handle beta version - Ex: littlenavmap
             If ($version -match '\.beta') {
                 $version = $version -replace '\.beta', '-beta'
             }
+            $output += @{ Version = $version -replace '-', '.' }            
         }
     }
 
