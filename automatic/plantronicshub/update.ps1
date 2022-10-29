@@ -12,11 +12,10 @@ function global:au_BeforeUpdate {
 function global:au_GetLatest {  
   $etag = GetETagIfChanged -uri "https://www.poly.com/content/dam/www/software/PlantronicsHubInstaller.exe"
 
-  if ($etag) {        
+  If ($etag) {        
       $result = GetResultInformation "https://www.poly.com/content/dam/www/software/PlantronicsHubInstaller.exe"
       $result["ETAG"] = $etag
-  }
-  else {        
+  } Else {        
     $result = @{
       URL32   = 'https://www.poly.com/content/dam/www/software/PlantronicsHubInstaller.exe'
       Version = Get-Content "$PSScriptRoot\info" -Encoding UTF8 | select -First 1 | % { $_ -split '\|' } | select -Last 1
