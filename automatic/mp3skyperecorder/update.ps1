@@ -3,11 +3,11 @@ import-module au
 [Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
 
 function global:au_GetLatest {
-    $releases = 'https://voipcallrecording.com'
-    $regex    = 'version=(?<Version>[\d\.]+)$'    
+    $releases = 'https://voipcallrecording.com/MP3_Skype_Recorder'
+    $regex    = 'Download latest version (?<Version>[\d\.]+)'
     
     $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
-    $url           = $download_page.links | ? href -match $regex | select -First 1    
+    $url           = $download_page.RawContent -match $regex | select -First 1
     $version       = $matches.Version
 
     return @{
