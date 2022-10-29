@@ -3,7 +3,7 @@ import-module au
 function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
 function global:au_GetLatest {
-    $releases = 'http://speedcrunch.org/download.html'    
+    $releases = 'https://heldercorreia.bitbucket.io/speedcrunch/download.html'
     $regex    = 'SpeedCrunch-(?<Version>[\d\.]+)-win32.exe$'
 
     $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
