@@ -1,22 +1,15 @@
 import-module au
+. ..\..\helpers\GitHub_Helper.ps1
 
 function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
 function global:au_GetLatest {
-    $github_repository = 'Yutaka-Sawada/MultiPar'    
-    $regexURL     = "/(?<File>MultiPar[\d]+_setup.exe)"    
-    $regexVersion = 'MultiPar/tree/v(?<Version>[\d\.]+)'
-    $releases     = 'https://github.com/' + $github_repository + '/releases/latest'
-
-    $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
-    $url = ($download_page.links | ? href -match $regexURL | Select -Last 1).href    
-    ($download_page -match $regexVersion) | Out-Null
-
-    return @{
-        Version = $matches.Version
-        URL32   = 'https://github.com/' + $url
-    }
+   return github_GetInfo -ArgumentList @{
+        repository = 'Yutaka-Sawada/MultiPar'        
+        regex64    = '/(?<File>MultiPar[\d]+_setup.exe)'
+   }
 }
+
 
 function global:au_SearchReplace {
     @{
