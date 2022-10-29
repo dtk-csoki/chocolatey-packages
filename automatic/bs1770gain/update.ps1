@@ -13,8 +13,8 @@ function global:au_GetLatest {
 
     return @{
         Version = $version
-        URL32   = 'https://iweb.dl.sourceforge.net/project/bs1770gain/bs1770gain/' +$version + '/bs1770gain-' + $version + '-win32.7z'
-        URL64   = 'https://iweb.dl.sourceforge.net/project/bs1770gain/bs1770gain/' +$version + '/bs1770gain-' + $version + '-win64.7z'
+        URL32   = Get-Redirectedurl ('https://downloads.sourceforge.net/project/bs1770gain/bs1770gain/' + $version + '/bs1770gain-' + $version + '-win32.7z')
+        URL64   = Get-Redirectedurl ('https://downloads.sourceforge.net/project/bs1770gain/bs1770gain/' + $version + '/bs1770gain-' + $version + '-win64.7z')
     }
 }
 
@@ -35,6 +35,4 @@ function global:au_SearchReplace {
     }
 }
 
-if ($MyInvocation.InvocationName -ne '.') { # run the update only if script is not sourced
-    update -ChecksumFor none
-}
+update -ChecksumFor none
