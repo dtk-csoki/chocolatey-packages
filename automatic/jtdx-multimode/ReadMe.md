@@ -1,4 +1,4 @@
-﻿# <img src="https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/automatic/jtdx-multimode/jtdx-multimode.png" width="48" height="48"/> [JTDX](https://chocolatey.org/packages/jtdx-multimode)
+﻿# <img src="https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/automatic/jtdx-multimode/jtdx-multimode.png" width="48" height="48"/> [JTDX - 32-bit-audio version](https://chocolatey.org/packages/jtdx-multimode)
 
 ## What is JTDX?
 
