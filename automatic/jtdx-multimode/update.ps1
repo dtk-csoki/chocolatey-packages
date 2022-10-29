@@ -39,8 +39,8 @@ function global:au_GetLatest {
 
     return @{
         Version = $version
-        URL32   =  get-redirectedurl url32.href
-        URL64   =  get-redirectedurl url64.href
+        URL32   =  get-redirectedurl $url32.href
+        URL64   =  get-redirectedurl $url64.href
     }
 }
 
