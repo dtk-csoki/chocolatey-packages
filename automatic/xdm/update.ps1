@@ -1,11 +1,14 @@
 ﻿$ErrorActionPreference = 'Stop'
 import-module au
-. $PSScriptRoot\..\..\helpers\au_Helper_GitHub.ps1
+. ..\..\helpers\GitHub_Helper.ps1
 
 function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
 function global:au_GetLatest {
-    return au_Helper_GitHub 'subhra74/xdm' -RegexFile32 'xdmsetup.msi'
+   return github_GetInfo -ArgumentList @{
+        repository = 'subhra74/xdm'
+        regex32    = 'xdmsetup.msi'
+   }
 }
 
 function global:au_SearchReplace {
