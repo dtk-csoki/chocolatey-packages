@@ -8,8 +8,15 @@ function github_GetInfo {
     If ($debug) { Set-PsDebug -Trace 1 }
 
     $github_redirected_url  = Get-RedirectedUrl "${github_repository_root}/releases/latest"
-    # v is optional (ex: https://github.com/adobe-fonts/source-han-code-jp/releases/latest)
-    $github_latest_version  = "$github_redirected_url" -match '/tag/(?<FullVersion>v?(?<Version>[\d\.]*).*)' # Get version to re-use for expanded_assets
+
+    # If "${github_repository_root}/releases/latest" redirect to a URL like '/tag/(?<FullVersion>v?(?<Version>[\d\.]*).*)'
+    If ($github_redirected_url -match '/tag/v?[\d\.]*.*') {
+        # v is optional (ex: https://github.com/adobe-fonts/source-han-code-jp/releases/latest)
+        $github_latest_version  = "$github_redirected_url" -match '/tag/(?<FullVersion>v?(?<Version>[\d\.]*).*)' # Get version to re-use for expanded_assets
+    } else {
+        # Else we grab the first version displayed in the page returned by "${github_repository_root}/releases/latest" (Exp: https://github.com/sedwards2009/extraterm/releases/latest)
+        (Invoke-WebRequest "$github_redirected_url" -UseBasicParsing).RawContent -match '/tag/(?<FullVersion>v?(?<Version>[\d\.]*))"' # Get version to re-use for expanded_assets
+    }
 
     $github_expanded_assets = "$github_repository_root" + '/releases/expanded_assets/' + $matches.FullVersion
     $isVersionMatched = $false
