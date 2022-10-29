@@ -1,4 +1,4 @@
-. $PSScriptRoot\..\openorienteeting-mapper.install\update.ps1
+. $PSScriptRoot\..\openorienteering-mapper.install\update.ps1
 
 function global:au_SearchReplace {
     @{
