@@ -17,4 +17,4 @@ Package can be verified like this:
    checksum64: 455B75F0E3BC5FC9D2508EE0B94175A2913A3A0C6D187D32777F2D5CE686CFC6
  
 File 'LICENSE.txt' is obtained from:
-   https://git.ring.cx/savoirfairelinux/ring-client-windows/blob/master/License.rtf
+   https://www.gnu.org/licenses/gpl-3.0.txt
