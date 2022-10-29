@@ -1,25 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>gravitdesigner.portable</id>
-    <version>2021.1.1</version>
-    <packageSourceUrl>https://github.com/chtof/chocolatey-packages/tree/master/automatic/gravitdesigner.portable</packageSourceUrl>
-    <owners>chtof</owners>
-    <title>Gravit Designer (Portable)</title>
-    <authors>Gravit GmbH, Corel Corporation</authors>
-    <projectUrl>https://www.designer.io</projectUrl>
-	<iconUrl>https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/automatic/gravitdesigner.portable/gravitdesigner.portable.png</iconUrl>
-    <copyright>Copyright © 2018 - 2019 Corel Corporation. All rights reserved.</copyright>
-    <licenseUrl>https://www.corel.com/en/eula</licenseUrl>
-    <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <!--<projectSourceUrl>Software Source Location - is the software FOSS somewhere? Link to it with this</projectSourceUrl>-->
-    <docsUrl>https://documentation.designer.io/</docsUrl>
-    <!--<mailingListUrl></mailingListUrl>-->
-    <bugTrackerUrl>https://support.gravit.io/hc/en-us/requests/new</bugTrackerUrl>
-    <tags>gravitdesigner.portable gravit designer vector graphic edit svg</tags>
-    <summary>A cross-platform graphic design tool for the 21st century.</summary>
-    <description><![CDATA[Gravit Designer is a full-featured vector graphic design app right at your fingertips.
+﻿# <img src="https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/automatic/gravitdesigner/gravitdesigner.png" width="48" height="48"/> [Gravit Designer](https://chocolatey.org/packages/gravitdesigner)
+
+Gravit Designer is a full-featured vector graphic design app right at your fingertips.
 
 ![screenshot](https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/automatic/gravitdesigner.portable/screenshot.png)
 
@@ -73,10 +54,3 @@ Export high quality PDFs, SVGs and Images using slices and multiple assets.
 
 ### ![screenshot](https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/automatic/gravitdesigner.portable/screenshot8a.png) ADVANCED
 Presentations, Sketch and EPS import, design templates, transformations, and more.
-]]></description>
-    <releaseNotes>https://www.designer.io/changelog</releaseNotes>   
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-  </files>
-</package>
