@@ -1,8 +1,16 @@
 ﻿import-module au
+. ..\..\helpers\GitHub_Helper.ps1
 
 function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
 function global:au_GetLatest {
+   return github_GetInfo -ArgumentList @{
+        repository = 'Armin2208/Windows-Auto-Night-Mode'
+        regex32    = '/.*AutoDarkMode.*\.exe'
+   }
+}
+
+<#function global:au_GetLatest {
     $github_repository = 'Armin2208/Windows-Auto-Night-Mode'
     $releases = 'https://github.com/' + $github_repository + '/releases/latest'
     #$regexVersion = 'Armin2208/Windows-Auto-Night-Mode/tree/(?<Version>[\d\.]+)'
@@ -22,7 +30,7 @@ function global:au_GetLatest {
         Version = $version
         URL32   = 'https://github.com/' + $path
     }
-}
+}#>
 
 function global:au_SearchReplace {
     @{
