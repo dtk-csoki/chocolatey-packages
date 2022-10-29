@@ -3,14 +3,35 @@
 function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
 function global:au_GetLatest {
-    $releases = 'https://www.jtdx.tech/en/'
-    # $regex    = 'JTDX-(?<Version>[\d\.]+)-GA-win32.zip$'
-    $regex32    = 'jtdx-.*-win32.exe'
-    $regex64    = 'jtdx-(?<Version>.*)-win64.exe'
+
+    # Get Version
+    $releases = 'https://sourceforge.net/projects/jtdx/files/'
+    $regex    = '/jtdx_(?<Version>[\d\.]+)/'
+    (Invoke-WebRequest -UseBasicParsing $releases) -match $regex | Out-Null
+    $version = $matches.Version
+
+    # Get Windows dir (Microsoft Windows / Microsoft_Windows)
+    $releases = 'https://sourceforge.net/projects/jtdx/files/jtdx_' + $version
+    $regex    = "/projects/jtdx/files/jtdx_$version/.*Windows/"
+    (Invoke-WebRequest -UseBasicParsing $releases) -match $regex | Out-Null
+    
+    # This package provides currently only the 32-bit-audio version
+    <#
+    32-bit audio version of JTDX is dedicated for trial in setups with very low noise environment, on overcrowded bands and receiver path IM3 dynamic range greater than 90dB.
+    In SDR software WDM KS or better driver shall be used, virtual audio cable shall be configured to support 32-bit audio stream.
+
+    24/32-bit audio ADC device shall be used if analog linear AF output of receiver is connected to sound card.
+
+    32-bit audio version of JTDX have better suppression of unwanted and side emissions in TX audio spectrum versus 16-bit audio version. 
+    #>
+
+    $releases = 'https://sourceforge.net' + $matches.0 + '32-bit_audio'    
+    $regex32    = 'jtdx-.*-32A-win32.exe'
+    $regex64    = 'jtdx-(?<Version>.*)-32A-win64.exe'
 
     $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
-    $url32 = $download_page.links | ? href -match $regex32
-	$url64 = $download_page.links | ? href -match $regex64
+    $url32 = $download_page.links | ? href -match $regex32 | Select -First 1
+	$url64 = $download_page.links | ? href -match $regex64 | Select -First 1
     $version = $matches.Version
     If ($version | Select-String '-rc') {
         $version = $version.Replace('-rc', '-beta')
@@ -18,8 +39,8 @@ function global:au_GetLatest {
 
     return @{
         Version = $version
-        URL32   = 'https://www.jtdx.tech' + $url32.href
-        URL64   = 'https://www.jtdx.tech' + $url64.href
+        URL32   =  get-redirectedurl url32.href
+        URL64   =  get-redirectedurl url64.href
     }
 }
 
