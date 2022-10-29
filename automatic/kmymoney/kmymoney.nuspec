@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>    
     <id>kmymoney</id>    
-    <version>5.0.6</version>    
+    <version>5.1.1567</version>    
     <packageSourceUrl>https://github.com/chtof/chocolatey-packages/tree/master/automatic/kmymoney</packageSourceUrl>    
     <owners>chtof</owners>    
     <title>KMyMoney</title>
@@ -11,7 +11,7 @@
     <projectUrl>https://kmymoney.org</projectUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/automatic/kmymoney/kmymoney.png</iconUrl>
     <copyright>Copyright (c) Thomas Baumgart, 2005</copyright>    
-    <licenseUrl>https://invent.kde.org/office/kmymoney/-/raw/master/COPYING</licenseUrl>
+    <licenseUrl>https://invent.kde.org/office/kmymoney/-/tree/master/LICENSES</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <projectSourceUrl>https://invent.kde.org/office/kmymoney</projectSourceUrl>
     <docsUrl>https://kmymoney.org/documentation.php</docsUrl>
