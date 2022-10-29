@@ -6,7 +6,7 @@ function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 function global:au_GetLatest {
    return github_GetInfo -ArgumentList @{
         repository = 'albar965/littlenavmap'
-        regex32    = '(^/$github_repository/.*LittleNavmap-win-(?<Version>[\d\.]+(\.beta)?).zip)'
+        regex32    = '(/LittleNavmap-win-(?<Version>[\d\.]+(\.beta)?).zip)'        
    }
 }
 
