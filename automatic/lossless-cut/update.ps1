@@ -1,24 +1,16 @@
 ﻿$ErrorActionPreference = 'Stop'
 import-module au
+. ..\..\helpers\GitHub_Helper.ps1
 
 function global:au_BeforeUpdate() {
-  # $Latest.Checksum32 = Get-RemoteChecksum $Latest.Url32
-  $Latest.Checksum64 = Get-RemoteChecksum $Latest.Url64
+    $Latest.Checksum32 = Get-RemoteChecksum $Latest.Url64   
 }
 
 function global:au_GetLatest {
-    $github_repository = 'mifi/lossless-cut'
-    $releases = 'https://github.com/' + $github_repository + '/releases/latest'
-    $regex    = $github_repository + '/tree/v(?<Version>[\d\.]+)$'
-
-    $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
-    $download_page.links | ? href -match $regex | Out-Null
-
-    return @{
-        Version = $matches.Version
-        # URL32   = 'https://github.com/mifi/lossless-cut/releases/download/v' + $matches.Version +'/LosslessCut-win.zip'
-        URL64 = 'https://github.com/mifi/lossless-cut/releases/download/v' + $matches.Version +'/LosslessCut-win-x64.zip'
-    }
+   return github_GetInfo -ArgumentList @{
+        repository = 'mifi/lossless-cut'
+        regex64    = 'LosslessCut-win-x64.(zip|7z)'         
+   }
 }
 
 function global:au_SearchReplace {
