@@ -1,16 +1,13 @@
 import-module au
+. ..\..\helpers\GitHub_Helper.ps1
 
 function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
 function global:au_GetLatest {
-    $github_repository = "intika/Librefox"
-    $releases          = "https://github.com/" + $github_repository + "/releases/latest"
-    $regex             = 'Librefox-(?<Version>[\d\.]+)-Firefox-Windows-[\d\.]+.zip$'
-
-    $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
-    $url = $download_page.links | ? href -match $regex
-
-    return @{ Version = $matches.Version ; URL32 = "https://github.com" + $url.href }
+   return github_GetInfo -ArgumentList @{
+        repository = 'intika/Librefox'
+        regex32    = 'Librefox-(?<Version>[\d\.]+)-Firefox-Windows-[\d\.]+.zip$'
+   }
 }
 
 function global:au_SearchReplace {
@@ -29,6 +26,4 @@ function global:au_SearchReplace {
     }
 }
 
-if ($MyInvocation.InvocationName -ne '.') { # run the update only if script is not sourced
-    update -ChecksumFor none
-}
+update -ChecksumFor none
