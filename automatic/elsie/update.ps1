@@ -5,9 +5,10 @@ function global:au_GetLatest {
     $regex    = 'current version of Elsie is <b>(?<Version>[\d\.]+)</b> -'
     $regexURL = 'LCinstall\d+.exe$'
 
-    (Invoke-WebRequest -Uri $releases).Content -match $regex | Out-Null
+    $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
+    $download_page.Content -match $regex | Out-Null
     $version = $matches.Version
-    $url = (Invoke-WebRequest -Uri $releases -UseBasicParsing).links | ? href -match $regexURL
+    $url = $download_page.links | ? href -match $regexURL | Select -First 1
 
     return @{
         Version = $version
