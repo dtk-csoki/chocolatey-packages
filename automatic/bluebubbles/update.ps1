@@ -6,7 +6,7 @@ function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 function global:au_GetLatest {
    return github_GetInfo -ArgumentList @{
         repository = 'BlueBubblesApp/bluebubbles-app'
-        regex32    = '/v(?<Version>[\d\.]+)?(%2B\d+)/bluebubbles_installer.exe'
+        regex32    = '/v(?<Version>[\d\.]+)?(%2B\d+)/bluebubbles_standalone.exe'
    }
 }
 
