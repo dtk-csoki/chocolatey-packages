@@ -1,18 +1,13 @@
 ﻿import-module au
+. ..\..\helpers\GitHub_Helper.ps1
 
 function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
-function global:au_GetLatest {	
-	$github_repository = "leanprover/lean"
-	$releases = "https://github.com/" + $github_repository + "/releases/latest"
-	$regex   = "lean-(?<Version>[\d\.]+)-windows.zip$"
-
-	$url = (Invoke-WebRequest -Uri $releases -UseBasicParsing).links | ? href -match $regex
-	
-	return @{
-		Version = $matches.Version
-		URL32 = "https://github.com" + $url.href
-	}
+function global:au_GetLatest {
+   return github_GetInfo -ArgumentList @{
+        repository = 'leanprover/lean'
+        regex32    = 'lean-(?<Version>[\d\.]+)-windows.zip$'
+   }
 }
 
 function global:au_SearchReplace {
@@ -31,6 +26,4 @@ function global:au_SearchReplace {
     }
 }
 
-if ($MyInvocation.InvocationName -ne '.') { # run the update only if script is not sourced
-    update -ChecksumFor none
-}
+update -ChecksumFor none
