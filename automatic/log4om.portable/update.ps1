@@ -13,6 +13,7 @@ function global:au_GetLatest {
 	return @{
         Version = $version
         URL32   = $url.href
+        Options = @{ Headers = @{ "User-Agent" = 'Other' }}
     }
 }
 
