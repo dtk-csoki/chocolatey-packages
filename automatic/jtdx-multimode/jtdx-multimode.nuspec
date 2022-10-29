@@ -6,7 +6,7 @@
     <version>2.2.158</version>
     <packageSourceUrl>https://github.com/chtof/chocolatey-packages/tree/master/automatic/jtdx-multimode</packageSourceUrl>
     <owners>chtof</owners>
-    <title>JTDX</title>
+    <title>JTDX 32-bit-audio version</title>
     <authors>JTDX Team</authors>
     <projectUrl>https://www.jtdx.tech</projectUrl>
 	<iconUrl>https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/automatic/jtdx-multimode/jtdx-multimode.png</iconUrl>
