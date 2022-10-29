@@ -8,7 +8,7 @@ function global:au_GetLatest {
 	$url_32 = $download_page_32.links |? href -match $regex_32 | select -Last 1	
 	$version = $matches.Version_32 #>
 
-	$releases = 'https://kmymoney.org/download.html'
+	<#$releases = 'https://kmymoney.org/download.html'
 	$regex_version = 'https://download.kde.org/stable/kmymoney/(?<Version>[\d\.]+)/'
 	$urlpath = (Invoke-WebRequest -Uri $releases -UseBasicParsing).links |? href -match $regex_version
 	$version = $matches.Version
@@ -19,12 +19,15 @@ function global:au_GetLatest {
 
 	$download_page_32 = Invoke-WebRequest -Uri $($urlpath.href + '/win32') -UseBasicParsing
 	$regex_32   = 'kmymoney(\d+)?-mingw\d+-([\d\.]+?)(-[\d\.]+)?-setup.exe$'		
-	$url_32 = $download_page_32.links |? href -match $regex_32 | select -Last 1
-			
+	$url_32 = $download_page_32.links |? href -match $regex_32 | select -Last 1#>
+
+	$releases = 'https://binary-factory.kde.org/job/KMyMoney_Release_win64/1567/artifact/'	
+	$regex = 'kmymoney-(?<Version>[\d\.-]+)-windows-.*_64-cl.exe$'
+	
+	$url = (Invoke-WebRequest -Uri $releases -UseBasicParsing).links | ? href -match $regex
     return @{
-		Version = $version
-		URL32   = $urlpath.href + '/win32/' + $url_32.href
-		URL64   = $urlpath.href + '/win64/' + $url_64.href
+		Version = $matches.version -replace '-', '.'
+		URL64   = $releases + $url.href		
 	}
 }
 
@@ -39,4 +42,4 @@ function global:au_SearchReplace {
     }
 }
 
-update
+update -checksumFor 64
