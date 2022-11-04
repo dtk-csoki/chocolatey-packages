@@ -7,8 +7,8 @@ Package can be verified like this:
  
 1. Download:
  
-   x32: https://cfhcable.dl.sourceforge.net/project/ffmpeg-batch/FFBatch_AV_Converter_2.7.7_32bit.exe
-   x64: https://deac-fra.dl.sourceforge.net/project/ffmpeg-batch/FFBatch_AV_Converter_2.8.2_64bit.exe
+   x32: https://versaweb.dl.sourceforge.net/project/ffmpeg-batch/FFBatch_AV_Converter_2.7.7_32bit.exe
+   x64: https://versaweb.dl.sourceforge.net/project/ffmpeg-batch/FFBatch_AV_Converter_2.8.3_64bit.exe
   
 2. You can use one of the following methods to obtain the SHA256 checksum:
    - Use powershell function 'Get-FileHash'
@@ -16,7 +16,7 @@ Package can be verified like this:
  
    checksum type: sha256
    checksum32: 58EA3D92435216CB163E91674101EEDBFA1756A0D888B78D502B39D77A1AFBAC
-   checksum64: 1BD60A8EB900944731227D299AFACF8FA60BBADE35D90D76053DD8DB608A8B38
+   checksum64: AD2EC9877F935D0D1B79D3DEF0023910E55BDE1B1F687D183DC0D50EC5FD6AE9
  
 File 'LICENSE.txt' is obtained from:
    https://creativecommons.org/licenses/by-nc-sa/3.0/legalcode.txt
