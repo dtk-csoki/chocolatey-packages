@@ -5,7 +5,7 @@
     <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
     <id>vagrant-manager</id>
     <title>Vagrant Manager</title>
-    <version>1.0.0.6</version>
+    <version>1.0.2.2</version>
 	<packageSourceUrl>https://github.com/chtof/chocolatey-packages/tree/master/manual/vagrant-manager</packageSourceUrl>
     <authors>Lanayo Technology</authors>
     <owners>chtof</owners>
