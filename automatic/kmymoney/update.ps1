@@ -21,7 +21,7 @@ function global:au_GetLatest {
 	$regex_32   = 'kmymoney(\d+)?-mingw\d+-([\d\.]+?)(-[\d\.]+)?-setup.exe$'		
 	$url_32 = $download_page_32.links |? href -match $regex_32 | select -Last 1#>
 
-	$releases = 'https://binary-factory.kde.org/job/KMyMoney_Release_win64/1567/artifact/'	
+	$releases = 'https://binary-factory.kde.org/job/KMyMoney_Release_win64/'
 	$regex = 'kmymoney-(?<Version>[\d\.-]+)-windows-.*_64-cl.exe$'
 	
 	$url = (Invoke-WebRequest -Uri $releases -UseBasicParsing).links | ? href -match $regex
