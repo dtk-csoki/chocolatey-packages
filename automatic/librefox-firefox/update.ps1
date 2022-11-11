@@ -6,7 +6,7 @@ function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 function global:au_GetLatest {
    return github_GetInfo -ArgumentList @{
         repository = 'intika/Librefox'
-        regex32    = 'Librefox-(?<Version>[\d\.]+)-Firefox-Windows-[\d\.]+.zip$'
+        regex32    = 'Librefox-(?<Version>[\d\.]+)-Firefox-Windows-[\d\.]+.zip$'        
    }
 }
 
