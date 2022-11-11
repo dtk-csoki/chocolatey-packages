@@ -16,7 +16,7 @@
     <projectSourceUrl>https://github.com/Governikus/AusweisApp2</projectSourceUrl>
     <!--<docsUrl>At what url are the software docs located?</docsUrl>-->
     <!--<mailingListUrl></mailingListUrl>-->
-    <bugTrackerUrl>https://www.ausweisapp.bund.de/en/qa/support</bugTrackerUrl>
+    <!--<bugTrackerUrl>https://www.ausweisapp.bund.de/en/qa/support</bugTrackerUrl>-->
     <tags>ausweisapp2 german federal id card online identification reader transport-PIN integrated self-assessment</tags>
     <summary>App to use the German federal ID card.</summary>
     <description><![CDATA[## Briefly explained...
