@@ -11,7 +11,7 @@ $packageArgs = @{
   checksumType64= 'sha256'
 }
 
-Install-ChocolateyZipPackage @packageArgs
+Install-ChocolateyZipPackage -DisableLogging @packageArgs
 
 # Don't create shims for other executables
 $files = Get-ChildItem "$toolsDir" -Recurse -Exclude mapla.bat,monteverdi.bat
