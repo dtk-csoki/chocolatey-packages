@@ -3,10 +3,10 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>libre-hardware-monitor</id>
-    <version>1.0.223</version>
+    <version>1.0.223.20221111</version>
     <packageSourceUrl>https://github.com/chtof/chocolatey-packages/tree/master/automatic/libre-hardware-monitor</packageSourceUrl>
     <owners>chtof</owners>
-    <title>Libre Hardware Monitor</title>
+    <title>[Deprecated] Libre Hardware Monitor</title>
     <authors>Libre Hardware Monitor Team</authors>
     <projectUrl>https://github.com/LibreHardwareMonitor/LibreHardwareMonitor</projectUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/automatic/libre-hardware-monitor/libre-hardware-monitor.png</iconUrl>
@@ -20,11 +20,12 @@
     <tags>librehardwaremonitor hardware monitor</tags>
     <summary>Libre Hardware Monitor, fork of Open Hardware Monitor.</summary>
     <description><![CDATA[Libre Hardware Monitor, fork of Open Hardware Monitor.
+      This Chocolatey package is now replaced by another Chocolatey package named "librehardwaremonitor" using package and versionning from the Github repository for LibreHardwareMonitor.
 ]]></description>
     <releaseNotes>https://ci.appveyor.com/project/LibreHardwareMonitor/LibreHardwareMonitor/history</releaseNotes>
+    <dependencies>
+      <dependency id="librehardwaremonitor" version="0.9.1" />
+    </dependencies>
   </metadata>
-  <files>
-    <file src="legal\**" target="legal" />
-    <file src="tools\**" target="tools" />
-  </files>
+  <files />
 </package>
