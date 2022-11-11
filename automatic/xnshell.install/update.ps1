@@ -10,8 +10,8 @@ function global:au_GetLatest {
 
     return @{
         Version = $version
-        URL32   = "https://download.xnview.com/XnShellEx.exe"
-        URL64   = "https://download.xnview.com/XnShellEx64.exe"
+        URL32   = 'https://download.xnview.com/XnShellEx.exe'
+        URL64   = 'https://download.xnview.com/XnShellEx64.exe'
     }
 }
 
