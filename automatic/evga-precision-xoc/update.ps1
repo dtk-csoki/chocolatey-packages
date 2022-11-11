@@ -1,7 +1,7 @@
 ﻿import-module au
 
 function global:au_GetLatest {
-	$releases = 'https://www.evga.com/precisionxoc'
+	$releases = 'https://www.evga.com/precisionxoc/'
 	$regex    = "Version (?<Version>[\d\.]+)<\/h3>"
 
     (Invoke-WebRequest -Uri $releases) -match $regex | out-null
