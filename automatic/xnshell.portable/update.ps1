@@ -1,20 +1,27 @@
 ﻿import-module au
 
 function global:au_GetLatest {
-     $releases = 'https://__XXX__'
-	 $regex   = 'XnShellEx.zip'
-	 
-	 $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
-	 $url = $download_page.links | ? href -match $regex | select -Last 1
-	 $version = $url -split '-|.exe' | select -Last 1 -Skip 3
-     return @{ Version = $version ; URL32 = $releases+$url.href }
+    $releases = 'https://www.xnview.com/fr/'
+    $regex    = '>XnShell Extension</span> <span class="list-group-item-description">(?<Version>[\d\.]+)</span>'
+    
+    $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
+    $download_page.RawContent -match $regex
+    $version = $matches.Version
+
+    return @{
+        Version = $version
+        URL32   = 'https://download.xnview.com/XnShellEx.zip'
+        URL64   = 'https://download.xnview.com/XnShellEx64.zip'
+    }
 }
 
 function global:au_SearchReplace {
     @{
         "tools\chocolateyInstall.ps1" = @{
-			"(^(\s)*url\s*=\s*)('.*')" = "`$1'$($Latest.URL32)'"
+            "(^(\s)*url\s*=\s*)('.*')" = "`$1'$($Latest.URL32)'"
             "(^(\s)*checksum\s*=\s*)('.*')" = "`$1'$($Latest.Checksum32)'"
+            "(^(\s)*url64\s*=\s*)('.*')" = "`$1'$($Latest.URL64)'"
+            "(^(\s)*checksum64\s*=\s*)('.*')" = "`$1'$($Latest.Checksum64)'"
         }
     }
 }
