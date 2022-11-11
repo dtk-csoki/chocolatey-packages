@@ -6,7 +6,7 @@ $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
   destination   = "$toolsDir"
 
   url           = 'https://api.ivao.aero/v2/softwares/altitude/5/files/latest/download'
-  checksum      = '7c7f6c6f87377cc289e6f0c0a8f9d2c8bceb1d045bfb57b2e00eb2cbd39f8689'
+  checksum      = '5783ee8e9a3262f9660008a663163e0d0a675f57b4e5d5be62a994d528aeede4'
   checksumType  = 'sha256'
 
   silentArgs    = '/S'
@@ -27,7 +27,7 @@ $packageArgs = @{
   destination   = "$toolsDir"
 
   url           = 'https://api.ivao.aero/v2/softwares/altitude/5/files/latest/download'
-  checksum      = '298D498EA1012149904D92242F59A4F2D21702EB40EFBF813A909B828C1BBF50'
+  checksum      = '5783ee8e9a3262f9660008a663163e0d0a675f57b4e5d5be62a994d528aeede4'
   checksumType  = 'sha256'
 
   silentArgs    = '/S'
