@@ -7,8 +7,8 @@ function global:au_GetLatest {
 
      return @{
         Version = $version
-        URL32   = 'https://keepersecurity.com/desktop_electron/Win32/KeeperSetup32.zip'
-        URL64   = 'https://keepersecurity.com/desktop_electron/Win64/KeeperSetup64.zip'
+        URL32   = 'https://www.keepersecurity.com/desktop_electron/Win32/KeeperSetup32.msi'
+        URL64   = 'https://www.keepersecurity.com/desktop_electron/packages/KeeperPasswordManager.msixbundle'
     }
 }
 
