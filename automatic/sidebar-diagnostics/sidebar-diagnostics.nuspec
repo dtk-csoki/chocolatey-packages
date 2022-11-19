@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>sidebar-diagnostics</id>
+    <version>3.6.2</version>
+    <packageSourceUrl>https://github.com/chtof/chocolatey-packages/tree/master/automatic/sidebar-diagnostics</packageSourceUrl>
+    <owners>chtof</owners>
+    <title>Sidebar Diagnostics</title>
+    <authors>Sidebar Diagnostics Team</authors>
+    <projectUrl>https://github.com/ArcadeRenegade/SidebarDiagnostics</projectUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/automatic/sidebar-diagnostics/sidebar-diagnostics.png</iconUrl>
+    <!-- <copyright>Year Software Vendor</copyright> -->
+    <licenseUrl>https://raw.githubusercontent.com/ArcadeRenegade/SidebarDiagnostics/master/LICENSE.md</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectSourceUrl>https://github.com/ArcadeRenegade/SidebarDiagnostics</projectSourceUrl>
+    <docsUrl>https://github.com/ArcadeRenegade/SidebarDiagnostics/wiki</docsUrl>
+    <!--<mailingListUrl></mailingListUrl>-->
+    <bugTrackerUrl>https://github.com/ArcadeRenegade/SidebarDiagnostics/issues</bugTrackerUrl>
+    <tags>sidebar-diagnostics sidebar diagnostics hardware information CPU RAM GPU network drives disk</tags>
+    <summary>A simple sidebar for Windows desktop that displays hardware diagnostic information.</summary>
+    <description><![CDATA[
+## Features
+- Monitors CPU, RAM, GPU, network, and logical drives.
+- Create graphs for all metrics.
+- Allows for lots of customization.
+- Allows alerts for various values.
+- Allows binding hotkeys.
+- Supports monitors of all DPI types.
+- Has a clock at the top.
+
+![screenshot](https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/automatic/sidebar-diagnostics/screenshot.png)
+]]></description>
+    <releaseNotes>https://github.com/ArcadeRenegade/SidebarDiagnostics/releases</releaseNotes>
+  </metadata>
+  <files>
+    <file src="legal\**" target="legal" />
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
