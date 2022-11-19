@@ -22,8 +22,8 @@ function global:au_GetLatest {
 	$url_32 = $download_page_32.links |? href -match $regex_32 | select -Last 1#>
 
 	$releases = 'https://binary-factory.kde.org/job/KMyMoney_Release_win64/'
-	$regex = 'kmymoney-(?<Version>[\d\.-]+)-windows-.*_64-cl.exe$'
-	
+	$regex = 'kmymoney-(?<Version>[\d\.-]+)-windows-.*_64(-cl)?.exe$'	
+
 	$url = (Invoke-WebRequest -Uri $releases -UseBasicParsing).links | ? href -match $regex
     return @{
 		Version = $matches.version -replace '-', '.'
