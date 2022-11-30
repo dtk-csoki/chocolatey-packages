@@ -13,7 +13,7 @@ $packageArgs = @{
   checksum64     = '386dd68cb920e487c575917d3f657a55942d8c9a2468ed2ec6ce322ffcc5ab61'
   checksumType64 = 'sha256'
 }
-Install-ChocolateyZipPackage @packageArgs
+Install-ChocolateyZipPackage -DisableLogging @packageArgs
 
 $packageArgs = @{
   packageName   = $env:ChocolateyPackageName  
