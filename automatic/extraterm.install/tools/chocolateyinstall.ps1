@@ -3,7 +3,7 @@ $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 
 $packageArgs = @{
   packageName = $env:ChocolateyPackageName  
-  file        = "$toolsDir\extratermqt-setup-0.67.0.exe"
+  file        = "$toolsDir\extratermqt-setup-0.68.0.exe"
   silentArgs  = "/S"
 }
 
