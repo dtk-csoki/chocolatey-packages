@@ -16,7 +16,6 @@ function global:au_GetLatest {
     # $releases = 'https://www.ivao.aero/softdev/beta/altitudebeta.asp'
     $releases = 'https://www.ivao.aero/softdev/software/altitude.asp'
     $regex = 'target="dl">v(?<Version>[\d\.b]+) Voice'
-    target="dl">v1.12.0 Voice | MSFS - Current</a></li>
 
     (Invoke-WebRequest -Uri $releases -UseBasicParsing).RawContent -match $regex | Out-Null
     #$version = $matches.Version -Replace 'b', '-beta'
