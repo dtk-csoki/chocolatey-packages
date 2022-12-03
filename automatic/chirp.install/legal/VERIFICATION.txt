@@ -7,16 +7,16 @@ Package can be verified like this:
   
 1. Download:
   
-   x32: https://trac.chirp.danplanet.com/chirp_daily/daily-20221201/chirp-daily-20221201-installer.exe
-   x64: https://trac.chirp.danplanet.com/chirp_daily/daily-20221201/chirp-daily-20221201-installer.exe
+   x32: https://trac.chirp.danplanet.com/chirp_daily/daily-20221203/chirp-daily-20221203-installer.exe
+   x64: https://trac.chirp.danplanet.com/chirp_daily/daily-20221203/chirp-daily-20221203-installer.exe
    
 2. You can use one of the following methods to obtain the SHA256 checksum:
    - Use powershell function 'Get-FileHash'
    - Use Chocolatey utility 'checksum.exe'
   
    checksum type: sha256
-   checksum32: 89F8C46A39F4B5B543EBC3986BDAE052657AC004E6D8E2A4C733993E15A59F84
-   checksum64: 89F8C46A39F4B5B543EBC3986BDAE052657AC004E6D8E2A4C733993E15A59F84
+   checksum32: 54DBA80E98F562CA0D45BE4645B5BC16CF2CD3EA4AC5E5F2C3AB822E31CE4994
+   checksum64: 54DBA80E98F562CA0D45BE4645B5BC16CF2CD3EA4AC5E5F2C3AB822E31CE4994
   
 File 'LICENSE.txt' is obtained from:
    http://chirp.danplanet.com/projects/chirp/repository/revisions/222c1830b798/entry/COPYING
