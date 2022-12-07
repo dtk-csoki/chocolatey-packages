@@ -3,8 +3,8 @@
 $packageArgs = @{
   packageName  = $env:ChocolateyPackageName
 
-  url          = 'https://dl.genymotion.com/releases/genymotion-3.3.1/genymotion-3.3.1.exe'
-  checksum     = '@{Algorithm=SHA256; Hash=379B161CBEFB9DDD570ADFE576E057AA42A9AE297052E2032A79744EEB76DE9A; Path=C:\Users\appveyor\AppData\Local\Temp\1\genymotion.exe}'
+  url          = 'https://dl.genymotion.com/releases/genymotion-3.3.2/genymotion-3.3.2.exe'
+  checksum     = '@{Algorithm=SHA256; Hash=990A701C4F22EC552BABFE29DB85CE3125035DB9877041DBE6C673C90C456CF5; Path=C:\Users\appveyor\AppData\Local\Temp\1\genymotion.exe}'
   checksumType = 'sha256'
 
   silentArgs   = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-'
