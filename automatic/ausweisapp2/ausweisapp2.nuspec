@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>ausweisapp2</id>
-    <version>1.24.4</version>
+    <version>1.26.1</version>
     <packageSourceUrl>https://github.com/chtof/chocolatey-packages/tree/master/automatic/ausweisapp2</packageSourceUrl>
     <owners>chtof</owners>
     <title>AusweisApp 2</title>
@@ -30,7 +30,7 @@ To use the online identification function, you have to create the following prec
 ## Overview
 The AusweisApp2 is a software, that you can install on your Computer/Smartphone/Tablet, to identify yourself online with your ID card or your electronic residence permit. The App is availible for the most used operating systems and works in all common browsers.
 
-The AusweisApp2 offers you an integrated self-assessment where you are able to view your data that is stored on the online ID.
+The AusweisApp2 offers you an [integrated self-assessment](https://www.ausweisapp.bund.de/en/online-identification-function/try-it) where you are able to view your data that is stored on the online ID.
 
 In the app you will also find an overview with the available services, a running overview and you can manage your PIN there.
 
