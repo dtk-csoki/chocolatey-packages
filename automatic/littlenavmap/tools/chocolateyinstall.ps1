@@ -5,6 +5,7 @@ $packageArgs = @{
   packageName = $env:ChocolateyPackageName
   destination = "$toolsDir"
   file        = "$toolsDir\LittleNavmap-win-2.8.0.beta.zip"
+  file64      = "$toolsDir\LittleNavmap-win-2.8.0.beta.zip"
 }
 
 Get-ChocolateyUnzip @packageArgs
