@@ -2,14 +2,22 @@
 $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 
 $packageArgs = @{
-  packageName = $env:ChocolateyPackageName
-  destination = "$toolsDir"
-  file        = "$toolsDir\LittleNavmap-win-2.8.0.beta.zip"
+  packageName   = $env:ChocolateyPackageName
+  destination   = "$toolsDir"
+  
+  URL32         = 'https://github.com/albar965/littlenavmap/releases/download/v2.8.7/LittleNavmap-win64-2.8.7.zip'
+  checksum      = '808ff584426d52cc775ad6406da00622f454be95bd4c8fbca42eef4b7235ad5c'
+  checksumType  = 'sha256'
+
   file64      = "$toolsDir\LittleNavmap-win-2.8.0.beta.zip"
 }
 
-Get-ChocolateyUnzip @packageArgs
-Remove-Item -Path $packageArgs.file
+If (Get-OSArchitectureWidth -Compare 64) {
+  Get-ChocolateyUnzip @packageArgs
+} Else {
+  Install-ChocolateyZipPackage @packageArgs
+}
+Remove-Item -Path $packageArgs.file64
 
 # Install start menu shortcut
 $programs = [environment]::GetFolderPath([environment+specialfolder]::Programs)
