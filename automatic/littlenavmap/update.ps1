@@ -20,8 +20,8 @@ function global:au_SearchReplace {
         }
 
         "tools\chocolateyinstall.ps1" = @{        
-          "(^(\s)*url\s*=\s*)('.*')"      = "`$1'$($Latest.URL32)'"
-          "(^(\s)*checksum\s*=\s*)('.*')" = "`$1'$($Latest.Checksum32)'"
+          "(^(\s)*url32\s*=\s*)('.*')"      = "`$1'$($Latest.URL32)'"
+          "(^(\s)*checksum32\s*=\s*)('.*')" = "`$1'$($Latest.Checksum32)'"
           "(?i)(^\s*file64\s*=\s*`"[$]toolsDir\\)(.*)`"" = "`$1$($Latest.FileName64)`""
         }
     }
