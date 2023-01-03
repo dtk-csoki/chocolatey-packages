@@ -4,12 +4,12 @@ $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
   fileType		= "msi"
   
-  url           = 'https://chronoplexsoftware.com/myfamilytree/downloads/myfamilytree_languagepack12.4.2000.0.msi'
-  checksum      = '7fccbf864c1b6c93c3b00c1dde469db895b73c3505b78c749ae3fe6d583cec0f'
+  url           = 'https://chronoplexsoftware.com/myfamilytree/downloads/myfamilytree_languagepack12.4.3000.0.msi'
+  checksum      = 'ca6a3700a79e8bb903bab3a8fadb9f78b078a4fcb2b6ca4a356098ccfe97f5e5'
   checksumType  = 'sha256'
   
-  url64bit      = 'https://chronoplexsoftware.com/myfamilytree/downloads/myfamilytree_languagepack12.4.2000.0x64.msi'
-  checksum64    = '3268aae265bf2b9189c8b6e8044474911596ee2af822168202628086a1d5e412'
+  url64bit      = 'https://chronoplexsoftware.com/myfamilytree/downloads/myfamilytree_languagepack12.4.3000.0x64.msi'
+  checksum64    = '9533538f92af56b8fde3fc4ebe9944336bbbb211443482100a9827f9b422ffc0'
   checksumType64= 'sha256'
   
   silentArgs	= "/qn /norestart /l*v `"$($env:TEMP)\$($packageName).$($env:chocolateyPackageVersion).MsiInstall.log`""
