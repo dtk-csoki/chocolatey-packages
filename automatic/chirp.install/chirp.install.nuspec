@@ -11,7 +11,7 @@
     <projectUrl>http://chirp.danplanet.com/projects/chirp/wiki/Home</projectUrl>
 	  <iconUrl>https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/automatic/chirp.install/chirp.install.png</iconUrl>
 	  <copyright>Copyright 2015 Dan Smith (KK7DS)</copyright>
-    <licenseUrl>http://chirp.danplanet.com/projects/chirp/repository/revisions/222c1830b798/entry/COPYING</licenseUrl>
+    <licenseUrl>https://chirp.danplanet.com/projects/chirp/repository/github/revisions/master/entry/COPYING</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
 	  <projectSourceUrl>http://chirp.danplanet.com/projects/chirp/repository</projectSourceUrl>
     <docsUrl>http://chirp.danplanet.com/projects/chirp/wiki/Documentation</docsUrl>
