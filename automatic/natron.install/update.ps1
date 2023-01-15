@@ -7,8 +7,7 @@ function global:au_GetLatest {
         regex64    = 'Natron-(?<Version>[\d\.]+)-Windows-x86_64.zip'
     }
 
-    return @{
-        URL32   = $data.URL32
+    return @{        
         URL64   = $data.URL64
         Version = $data.Version
     }
