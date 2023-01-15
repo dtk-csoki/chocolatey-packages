@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>huggle</id>
-    <version>3.4.9</version>
+    <version>3.4.11</version>
     <packageSourceUrl>https://github.com/chtof/chocolatey-packages/tree/master/automatic/huggle</packageSourceUrl>
     <owners>chtof</owners>
     <title>Huggle</title>
@@ -19,8 +19,7 @@
     <bugTrackerUrl>https://phabricator.wikimedia.org/tag/huggle/</bugTrackerUrl>
     <tags>huggle wikimedia diff browser</tags>
     <summary>Huggle is an anti-vandalism tool for use on MediaWiki based projects.</summary>
-    <description><![CDATA[
-**Huggle** is a diff browser intended for dealing with vandalism and other unconstructive edits on Wikimedia projects, written in C++ using the Qt framework. It was originally developed in .NET Framework by [Gurch](https://en.wikipedia.org/wiki/User:Gurch), who is no longer active on this project. Anyone can download Huggle, but rollback permission is required to use the program without restrictions on the English Wikipedia.
+    <description><![CDATA[**Huggle** is a diff browser intended for dealing with vandalism and other unconstructive edits on Wikimedia projects, written in C++ using the Qt framework. It was originally developed in .NET Framework by [Gurch](https://en.wikipedia.org/wiki/User:Gurch), who is no longer active on this project. Anyone can download Huggle, but rollback permission is required to use the program without restrictions on the English Wikipedia.
 
 The principal idea of Huggle as an anti-vandalism tool is to make it possible for Wikipedia to stay as open and free as possible (allowing everyone to edit without any restrictions), while keeping it clean of any vandalism.
 
