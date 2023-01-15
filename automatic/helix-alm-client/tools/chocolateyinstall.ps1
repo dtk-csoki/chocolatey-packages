@@ -7,7 +7,7 @@ $packageArgs = @{
   checksum     = '799907ecdb92797cc6223e77e0e721a85e3b4e74e80c587f88b04f67cd4ef14d'
   checksumType = 'sha256'
 
-  silentArgs   = "-i SILENT LAX_VM resource\jre\bin\java.exe"
+  silentArgs   = '-i SILENT LAX_VM resource\jre\bin\java.exe'
 }
 
 Install-ChocolateyPackage @packageArgs
