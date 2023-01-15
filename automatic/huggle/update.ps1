@@ -1,8 +1,6 @@
 ﻿import-module au
 . ..\..\helpers\GitHub_Helper.ps1
 
-function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
-
 function global:au_GetLatest {
    return github_GetInfo -ArgumentList @{
         repository = 'huggle/huggle3-qt-lx'
@@ -22,4 +20,4 @@ function global:au_SearchReplace {
     }
 }
 
-update
+update -NoCheckUrl
