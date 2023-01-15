@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>helix-alm-client</id>
-    <version>2022.3.0</version>
+    <version>2022.3.0.20230115</version>
     <packageSourceUrl>https://github.com/chtof/chocolatey-packages/tree/master/automatic/helix-alm-client</packageSourceUrl>
     <owners>chtof</owners>
     <title>Helix ALM Desktop Client</title>
@@ -14,7 +14,7 @@
     <licenseUrl>https://www.perforce.com/terms-use</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <!--<projectSourceUrl>Software Source Location - is the software FOSS somewhere? Link to it with this</projectSourceUrl>-->
-    <docsUrl>http://help.perforce.com/alm/helixalm/2019.2.1/admin/Content/ServerAdmin/home-halm-admin.htm</docsUrl>
+    <!-- <docsUrl>http://help.perforce.com/alm/helixalm/2019.2.1/admin/Content/ServerAdmin/home-halm-admin.htm</docsUrl>-->
     <!--<mailingListUrl></mailingListUrl>-->
     <bugTrackerUrl>https://www.perforce.com/support</bugTrackerUrl>
     <tags>helix-alm-client lifecycle management tool</tags>
