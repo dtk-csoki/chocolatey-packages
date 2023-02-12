@@ -14,7 +14,7 @@
     <licenseUrl>https://waterlan.home.xs4all.nl/dos2unix/COPYING.txt</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <projectSourceUrl>https://sourceforge.net/p/dos2unix/dos2unix/ci/master/tree</projectSourceUrl>
-    <docsUrl>https://waterlan.home.xs4all.nl/dos2unix/dos2unix.htm</docsUrl>
+    <!--<docsUrl>https://waterlan.home.xs4all.nl/dos2unix/dos2unix.htm</docsUrl>-->
     <mailingListUrl>https://sourceforge.net/p/dos2unix/discussion</mailingListUrl>
     <bugTrackerUrl>https://sourceforge.net/p/dos2unix/_list/tickets</bugTrackerUrl>
     <tags>dos2unix text file format converter dos unix</tags>
