@@ -8,6 +8,6 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 ; License agreement
 winTitle1 = Firestorm
-WinWait, %winTitle1%, Do you want to register Firestorm as default handler for virtual world protocols?, 600
+WinWait, %winTitle1% ahk_exe i)Phoenix-FirestormOS-.*_Setup\.exe$,, 600
 
 ControlClick, Button1, %winTitle1% ; &Yes
