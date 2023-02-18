@@ -1,10 +1,15 @@
 ﻿import-module au
 . ..\..\helpers\GitHub_Helper.ps1
 
+function global:au_BeforeUpdate() {
+    $Latest.Checksum32 = Get-RemoteChecksum $Latest.Url32
+    $Latest.Checksum64 = Get-RemoteChecksum $Latest.Url64
+}
+
 function global:au_GetLatest {
    return github_GetInfo -ArgumentList @{
         repository = 'albar965/littlenavmap'
-        regex32    = '(/LittleNavmap-win32-(?<Version>[\d\.]+(\.beta)?).zip)'
+        regex32    = '(/LittleNavmap-win32-(?<Version>[\d\.]+(\.beta)?).zip)'        
         regex64    = '(/LittleNavmap-win64-(?<Version>[\d\.]+(\.beta)?).zip)'        
    }
 }
@@ -20,4 +25,4 @@ function global:au_SearchReplace {
     }
 }
 
-update
+update -ChecksumFor none
