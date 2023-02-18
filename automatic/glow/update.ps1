@@ -6,8 +6,8 @@ function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 function global:au_GetLatest {
    return github_GetInfo -ArgumentList @{
         repository = 'charmbracelet/glow'
-        regex32    = 'glow_.*_i386.zip'
-        regex64    = 'glow_(?<Version>[\d\.]*).*_x86_64.zip'
+        regex32    = 'glow_.*_i386.zip$'
+        regex64    = 'glow_(?<Version>[\d\.]*).*_x86_64.zip$'
    }
 }
 
