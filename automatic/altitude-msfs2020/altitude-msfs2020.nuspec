@@ -2,13 +2,13 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
   <metadata>
     <id>altitude-msfs2020</id>
-    <version>1.12.0</version>
+    <version>1.12.0.20230218</version>
     <title>Altitude for Microsoft Flight Simulator 2020 (MSFS2020)</title>
     <authors>International Virtual Aviation Organisation.</authors>
     <owners>chtof</owners>
     <!--<requireLicenseAcceptance>true</requireLicenseAcceptance>-->
     <!--<licenseUrl>https://mediawiki.ivao.aero/index.php?title=End_User_License_Agreement_OF_IVAO_Pilot_Software</licenseUrl>-->
-    <projectUrl>https://www.ivao.aero/softdev/beta/altitudebeta.asp</projectUrl>
+    <projectUrl>https://www.ivao.aero/softdev/software/altitude.asp</projectUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/automatic/altitude-msfs2020/altitude-msfs2020.png</iconUrl>    
     <description><![CDATA[Plug-in which allows Microsoft Flight Simulator 2020 to connect to the IVAO network.
 
@@ -38,4 +38,7 @@ Microsoft Flight Simulator 2020 must be installed.
     <mailingListUrl>http://forum.ivao.aero</mailingListUrl>
     <bugTrackerUrl>http://forum.ivao.aero</bugTrackerUrl>
   </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
 </package>
