@@ -3,11 +3,11 @@ import-module au
 #function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
 function global:au_BeforeUpdate {
-    Invoke-WebRequest -Uri 'https://api.ivao.aero/v2/softwares/altitude/5/files/latest/download' -OutFile "$PSScriptRoot\tools\Altitude_MSFS_2020.zip"
+    Invoke-WebRequest -Uri 'https://api.ivao.aero/v2/softwares/altitude/5/files/latest/download' -OutFile "$PSScriptRoot\tools\Altitude_MSFS.exe"
 
     $Latest.ChecksumType32 = 'sha256'
     $Latest.Checksum32     = Get-RemoteChecksum $Latest.URL32 -Algorithm $Latest.ChecksumType32
-    Remove-Item "$PSScriptRoot\tools\*.zip"
+    Remove-Item "$PSScriptRoot\tools\*.exe"
 }
 
 function global:au_GetLatest {    
