@@ -19,7 +19,7 @@
     <bugTrackerUrl>https://github.com/chocolatey-community/chocolatey-package-requests/issues</bugTrackerUrl>
     <tags>asciidocfx book document editor build pdf epub mobi html document slide</tags>
     <summary>Asciidoc FX is a book / document editor to build PDF, Epub, Mobi and HTML books, documents and slides.</summary>
-    <description><![CDATA[Asciidoc FX is a book / document editor to build PDF, Epub, Mobi and HTML books, documents and slides. AsciidocFX is also a winner of [Duke’s Choice Award 2015](https://www.oracle.com/corporate/pressrelease/dukes-award-102815.html).
+    <description><![CDATA[Asciidoc FX is a book / document editor to build PDF, Epub, Mobi and HTML books, documents and slides. AsciidocFX is also a winner of Duke’s Choice Award 2015.
 ## Features
 
 * Real-Time Preview
@@ -46,7 +46,7 @@
 
 ![screenshot](https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/automatic/asciidocfx.portable/screenshot.png)
 ]]></description>
-    <releaseNotes>https://github.com/asciidocfx/AsciidocFX/blob/master/CHANGELOG.asc</releaseNotes>
+    <releaseNotes>https://github.com/asciidocfx/AsciidocFX/blob/master/CHANGELOG.md</releaseNotes>
     <dependencies>
       <dependency id="jre8" version="8.0.221" />
     </dependencies>
