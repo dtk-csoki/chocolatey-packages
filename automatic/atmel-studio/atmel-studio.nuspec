@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>atmel-studio</id>
-    <version>7.0.2389.20230218</version>
+    <version>7.0.2397.20230218</version>
     <packageSourceUrl>https://github.com/chtof/chocolatey-packages/tree/master/automatic/atmel-studio</packageSourceUrl>
     <owners>chtof</owners>
     <title>[Deprecated] Atmel Studio</title>
@@ -23,7 +23,7 @@
 ]]></description>
     <releaseNotes>https://www.microchip.com/mplab/avr-support/atmel-studio-7</releaseNotes>
     <dependencies>
-      <dependency id="microchip-studio.portable" version="7.0.2594" />
+      <dependency id="microchip-studio" version="7.0.2594" />
     </dependencies>
   </metadata>
   <files />
