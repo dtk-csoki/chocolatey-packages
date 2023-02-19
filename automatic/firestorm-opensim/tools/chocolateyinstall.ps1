@@ -15,5 +15,5 @@ $packageArgs = @{
   silentArgs     = '/S'
 }
 
-Start-Process "AutoHotKey" -Verb runas -ArgumentList "`"$toolsDir\chocolateyinstall.ahk`""
+Start-Process 'AutoHotKey' -Verb runas -ArgumentList "`"$toolsDir\chocolateyinstall.ahk`""
 Install-ChocolateyPackage @packageArgs
