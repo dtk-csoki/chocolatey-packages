@@ -20,7 +20,8 @@ function global:au_GetLatest {
       URL32   = 'https://www.poly.com/content/dam/www/software/PlantronicsHubInstaller.exe'
       Version = Get-Content "$PSScriptRoot\info" -Encoding UTF8 | select -First 1 | % { $_ -split '\|' } | select -Last 1
     }
-  }	
+  }
+  return $result
 }
 
 function global:au_SearchReplace {
