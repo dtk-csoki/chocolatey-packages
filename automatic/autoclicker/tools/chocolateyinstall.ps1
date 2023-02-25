@@ -6,7 +6,7 @@ $packageArgs = @{
   fileFullPath = "$toolsDir\AutoClicker.exe"
 
   url          = 'https://freefr.dl.sourceforge.net/project/orphamielautoclicker/AutoClicker.exe'
-  checksum     = '2E67D5E7D96AEC62A9DDA4C0259167A44908AF863C2B3AF2A019723205ABBA9E'
+  checksum     = '3406f9805dac7d055c2d0eb3f0c0dcd9caa18b180db46378c408a203438cb57b'
   checksumType = 'sha256'
 }
 
