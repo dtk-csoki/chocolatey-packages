@@ -2,17 +2,18 @@
 import-module au
 
 function global:au_GetLatest {
-	# $releases = 'https://tagloomis.com/downloads'
-    # $releases = 'https://gridtracker.org/downloads/'
-    $releases = 'https://gridtracker.org/release.html'
-    $regex     = 'GridTracker-Installer.(?<Version>[\d\.]+).exe(\?dl=1)?'
+	$releases = 'https://gridtracker.org/index.php/downloads/gridtracker'
 
+    $regex = '/gridtracker-releases/v(?<Version>[\d-]+).*/files'
     $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
-	$url = $download_page.links | ? href -match $regex | select -Last 1
+	($download_page.links | ? href -match $regex | select -First 1).href | Out-Null
 
+    $Version_url = $matches.Version
+    $Version     = $Version_url -replace '-', '.'
+    
     return @{
-        Version = $matches.Version
-        URL32   = $url.href
+        Version = $Version
+        URL32   = 'https://gridtracker.org/index.php/component/osdownloads/download/gridtracker-releases/v' + $matches.Version + '/' + 'gridtracker-v' + $matches.Version + '-windows'
     }
 }
 
