@@ -3,9 +3,9 @@
 function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
 function global:au_GetLatest {	
-    $releases = "https://trac.chirp.danplanet.com/chirp_daily/LATEST/"
+    $releases = "https://trac.chirp.danplanet.com/download?stream=next"
     $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
-    $regex   = '^chirp-daily-(?<date_url>\d+)-win32.zip$'
+    $regex   = '^chirp-next-(?<date_url>\d+)-win32.zip$'
     $download_page.links | ? href -match $regex
     $version_YY = $matches.date_url.substring(0, $matches.date_url.length-4)
     $version_MM = $matches.date_url.substring($matches.date_url.length-4, 2)
@@ -13,7 +13,7 @@ function global:au_GetLatest {
     $version = $version_YY + "." + $version_MM + "." + $version_DD
     return @{
         Version = $version
-        URL32 = 'https://trac.chirp.danplanet.com/chirp_daily/daily-' + $matches.date_url + "/chirp-daily-" + $matches.date_url + '-win32.zip' }
+        URL32 = 'https://trac.chirp.danplanet.com/chirp_next/next-' + $matches.date_url + "/chirp-next-" + $matches.date_url + '-win32.zip' }
 }
 
 function global:au_SearchReplace {
@@ -30,6 +30,6 @@ function global:au_SearchReplace {
     }
 }
 
-if ($MyInvocation.InvocationName -ne '.') { # run the update only if script is not sourced
+If ($MyInvocation.InvocationName -ne '.') { # run the update only if script is not sourced
     update -ChecksumFor none
 }
