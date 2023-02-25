@@ -6,7 +6,7 @@ function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 function global:au_GetLatest {
    return github_GetInfo -ArgumentList @{
         repository = 'Yutaka-Sawada/MultiPar'        
-        regex64    = '/(?<File>MultiPar[\d]+.zip)'
+        regex32    = '/(?<File>MultiPar[\d]+.zip)'
    }
 }
 
