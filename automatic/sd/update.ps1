@@ -3,12 +3,12 @@
 function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
 function global:au_GetLatest {
-    $releases = 'http://www.ei5di.com'
-    $regex    = '<a href="http://www.ei5di.com/sdhist.html"><b>V(?<Version>[0-9\.]+).*</b></a>'
+    $releases = 'https://www.ei5di.com'
+    $regex    = '<a href="https://(www.)?ei5di.com/sdhist.html"><b>V(?<Version>[0-9\.]+).*</b></a>'
 
     $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
-	$download_page -match $regex | Out-Null
-    return @{ Version = $matches.Version ; URL32 = 'http://www.ei5di.com/sd/sdsetup.exe' }
+	$download_page.RawContent -match $regex | Out-Null
+    return @{ Version = $matches.Version ; URL32 = 'https://www.ei5di.com/sd/sdsetup.exe' }
 }
 
 function global:au_SearchReplace {
@@ -21,6 +21,4 @@ function global:au_SearchReplace {
     }
 }
 
-if ($MyInvocation.InvocationName -ne '.') { # run the update only if script is not sourced
-    update -ChecksumFor none
-}
+update -ChecksumFor none
