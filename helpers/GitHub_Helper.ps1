@@ -112,20 +112,21 @@ function github_GetInfo {
         }
 
         If (($version) -And ($isVersionMatched -eq $false)) {            
-            # If version contained in $github_expanded_assets match \d.\d (contrarily to https://github.com/fontforge/fontforge/releases/tag/20220308 for example)
+            # If version contained in $github_expanded_assets match \d\.\d (contrarily to https://github.com/fontforge/fontforge/releases/tag/20220308 for example)
             # we grab the version from regex32            
             If ($version -NotMatch "\d\.\d") {
                 $version = $matches.Version
                 $isVersionMatched = $true
             }
             $output += @{ Version = $version -replace '-', '.' }
-        } ElseIf ($matches.Version) {
+        } ElseIf ($matches.Version) {            
             # cleanVersion - Ex: source-han-code-jp - 2.0.12R -> 2.0.12
             $version = $matches.Version -replace "([\d\.]+).*", '$1'
             # handle beta version - Ex: littlenavmap
             If ($version -match '\.beta') {
                 $version = $version -replace '\.beta', '-beta'
             }
+            $output += @{ Version = $version }
         }
     }
 
