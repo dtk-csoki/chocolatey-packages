@@ -6,7 +6,7 @@ function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 function global:au_GetLatest {
    return github_GetInfo -ArgumentList @{
         repository = 'embree/embree'        
-        regex64    = 'embree-(?<Version>[\d\.]+).x64.vc[\d]+(.windows)?\.zip$'
+        regex64    = 'embree-(?<Version>[\d\.]+).x64(.vc[\d]+)?(.windows)?\.zip$'        
    }
 }
 
@@ -23,6 +23,6 @@ function global:au_SearchReplace {
     }
 }
 
-if ($MyInvocation.InvocationName -ne '.') { # run the update only if script is not sourced
+If ($MyInvocation.InvocationName -ne '.') { # run the update only if script is not sourced
     update -ChecksumFor none
 }
