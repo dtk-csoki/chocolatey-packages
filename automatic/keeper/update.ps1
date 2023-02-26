@@ -3,7 +3,7 @@ import-module au
 
 function global:au_GetLatest {
      $releases = 'https://keepersecurity.com/desktop_electron/desktop_electron_version.txt'
-	 $version  = (Invoke-WebRequest -Uri $releases | ConvertFrom-Json).version
+	 $version  = (Invoke-WebRequest -Uri $releases -UseBasicParsing | ConvertFrom-Json).version
 
      return @{
         Version = $version
