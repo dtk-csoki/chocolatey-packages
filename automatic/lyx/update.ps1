@@ -2,12 +2,12 @@ import-module au
 
 function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
-function global:au_GetLatest {
-    $releases = 'https://www.lyx.org/Download'
-    $regex32    = 'https://ftp.lip6.fr/pub/lyx/bin/(?<Version>[\d\.]+)/LyX-[\d]+-Installer-[\d]+-x64.exe$'
-    $regex64    = 'https://ftp.lip6.fr/pub/lyx/bin/(?<Version>[\d\.]+)/LyX-[\d]+-Installer-(?<VersionMinor>[\d]+)-x64.exe$'
+function global:au_GetLatest {    
+    $releases   = 'https://www.lyx.org/Download'
+    $regex32    = '(.*/bin/([\d\.]+)/LyX-[\d]+-Installer-[\d]+-x64.exe$)'
+    $regex64    = '(?<Url>.*/bin/(?<Version>[\d\.]+)/LyX-[\d]+-Installer-(?<VersionMinor>[\d]+)-x64.exe$)'
 
-    $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing	 
+    $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
     $url32 = $download_page.links | ? href -match $regex32
     $url64 = $download_page.links | ? href -match $regex64
 
