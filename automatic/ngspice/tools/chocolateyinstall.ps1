@@ -4,7 +4,7 @@ $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
   destination   = "$toolsDir"
-  file64        = "$toolsDir\ngspice-38_64.zip"  
+  file64        = "$toolsDir\ngspice-39_64.7z"  
 }
 
 Get-ChocolateyUnzip @packageArgs
