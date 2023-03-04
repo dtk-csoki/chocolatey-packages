@@ -71,6 +71,7 @@ function github_GetInfo {
             $output += @{ URL64 = $github_url + $uri64_path }
         }
         
+        # Version found -> Added to output (Should be only added after checking format?)
         If ($version) {
             $output += @{ Version = $version -replace '-', '.' }            
             # Si la version de $github_expanded_assets contient \d.\d (contrairement à https://github.com/fontforge/fontforge/releases/tag/20220308 par exemple)
@@ -119,7 +120,7 @@ function github_GetInfo {
                 $isVersionMatched = $true
             }
             $output += @{ Version = $version -replace '-', '.' }
-        } ElseIf ($matches.Version) {            
+        } ElseIf (($matches.Version) -And ($isVersionMatched -eq $false)) {            
             # cleanVersion - Ex: source-han-code-jp - 2.0.12R -> 2.0.12
             $version = $matches.Version -replace "([\d\.]+).*", '$1'
             # handle beta version - Ex: littlenavmap
