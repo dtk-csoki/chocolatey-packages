@@ -14,7 +14,7 @@
     <projectUrl>https://www.kdevelop.org</projectUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/automatic/kdevelop/kdevelop.png</iconUrl>
     <copyright>Copyright 2016 - All rights reserved</copyright>    
-    <licenseUrl>https://github.com/KDE/kdevelop/blob/master/COPYING</licenseUrl>
+    <licenseUrl>https://invent.kde.org/kdevelop/kdevelop/-/raw/master/COPYING.DOC</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <projectSourceUrl>https://github.com/KDE/kdevelop</projectSourceUrl>
     <!--<docsUrl>At what url are the software docs located?</docsUrl>-->
