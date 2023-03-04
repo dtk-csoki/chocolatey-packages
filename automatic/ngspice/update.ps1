@@ -1,4 +1,4 @@
-﻿import-module au
+import-module au
  
 function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
@@ -9,10 +9,19 @@ function global:au_GetLatest {
   $regex     = 'ngspice-(?<Version>[\d]+) is available.'
 
   $download_page = (Invoke-WebRequest -Uri $releases).RawContent -match $regex
+  $Version = $matches.Version
+
+  $regex    = '/ngspice-(?<Version>[\d]+)_64.(zip|7z)'
+  $releases = 'https://sourceforge.net/projects/ngspice/files/ng-spice-rework/' + $Version + '/'
+  $download_page = (Invoke-WebRequest -Uri $releases).RawContent -match $regex
+
+  #https://sourceforge.net/projects/ngspice/files/ng-spice-rework/39/
+  #https://sourceforge.net/projects/ngspice/files/ng-spice-rework/39/ngspice-39_64.7z/download
+
   
   return @{
-    Version = $matches.Version + ".0"
-    URL64 = 'https://freefr.dl.sourceforge.net/project/ngspice/ng-spice-rework/' + $matches.Version + '/ngspice-' + $matches.Version + '_64.zip'
+    Version = $Version + ".0"    
+    URL64 = Get-RedirectedURL('https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/' + $matches.Version + $matches.0)
   }
 }
 
