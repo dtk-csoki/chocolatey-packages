@@ -1,15 +1,14 @@
 ﻿import-module au
 
-$releases = 'https://www.kdevelop.org/download'
-
 function global:au_GetLatest {
-     $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
-     $regex   = 'kdevelop-(?<Version>[\d\.]+)-x64-setup.exe$'
-     $url     = $download_page.links | ? href -match $regex | Select -First 1
-     $version = $matches.Version
-     $versionRelease = $version -Replace "\.", ""
+    $releases = 'https://binary-factory.kde.org/job/KDevelop_Release_win64/lastSuccessfulBuild/artifact/'
+    $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
+    #https://binary-factory.kde.org/job/KDevelop_Release_win64/lastSuccessfulBuild/artifact/kdevelop-5.6.2-1853-windows-cl-msvc2019-x86_64.exe
+    $regex   = 'kdevelop-(?<Version>[\d\.-]+)-windows-cl-msvc2019-x86_64.exe$'
+    $url     = $download_page.links | ? href -match $regex
+    $version = $matches.Version -Replace '-', '.'
  
-     return @{ Version = $version ; VersionRelease = $version_release ; URL64 = $url.href }
+    return @{ Version = $version ; URL64 = $releases + $url.href }
 }
 
 function global:au_SearchReplace {
