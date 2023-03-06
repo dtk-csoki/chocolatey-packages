@@ -6,12 +6,10 @@ function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 function global:au_GetLatest {
    return github_GetInfo -ArgumentList @{
         repository = 'huxingyi/dust3d'
-        regex32    = 'dust3d-[\d\.]+(-beta|-rc)?\.[\d\.]*-x86.zip'
-        regex64    = 'dust3d-(?<Version>[\d\.]+)(-beta|-rc)?(?<VersionBeta>\.[\d\.]*).zip'
+        regex32    = 'dust3d-[\d\.]+(-beta|-rc)?\.[\d\.]*(-x86)?.zip'
+        #regex64    = 'dust3d-(?<Version>[\d\.]+)(-beta|-rc)?(?<VersionBeta>\.[\d\.]*).zip'        
    }
 }
-
-#[Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
 
 function global:au_SearchReplace {
     @{
