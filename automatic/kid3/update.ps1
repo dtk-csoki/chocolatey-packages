@@ -2,8 +2,7 @@ import-module au
 
 function global:au_BeforeUpdate {
   Get-RemoteFiles -NoSuffix -Purge
-  $Latest.Checksum32 = Get-RemoteChecksum $Latest.URL32
-  $Latest.Checksum64 = Get-RemoteChecksum $Latest.URL64
+  $Latest.Checksum32 = Get-RemoteChecksum $Latest.URL32  
 }
 
 function global:au_GetLatest {
