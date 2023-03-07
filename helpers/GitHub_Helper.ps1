@@ -1,5 +1,9 @@
 function github_GetInfo {
-    Param([array]$ArgumentList)    
+    Param([array]$ArgumentList)
+    <#
+      exclude_versions: Return nothing for a specific version. Useful for example when a sofware version has been released but without a windows binary (example: https://github.com/libvips/nip2/releases/tag/v8.9.1).
+    #>
+
 
     $debug = 0;
     $github_url = 'https://github.com/'
@@ -31,6 +35,10 @@ function github_GetInfo {
     $regex64 = $ArgumentList.regex64;
     $output = @{}
 
+    If (($ArgumentList.exclude_versions) -And ($ArgumentList.exclude_versions.Contains($version))){
+        Write-Warning "No Windows binary for version $version."
+        exit;
+    }
     # If Version is not null or empty
     <#If (-Not([string]::IsNullOrEmpty($version))) {
         # If version in the $github_expanded_assets URL has not the correct format - Ex: 2.0.12R -> 2.0.12 (source-han-code-jp)
