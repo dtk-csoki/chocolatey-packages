@@ -6,7 +6,7 @@ function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 function global:au_GetLatest {
    return github_GetInfo -ArgumentList @{
         repository = 'olivierkes/manuskript'
-        regex32    = '/releases/download/.*/manuskript-([\d\.-]*)-win32.zip'
+        regex32    = '/releases/download/.*/manuskript-([\d\.-]*)-(win32|windows).zip'
    }
 }
 
