@@ -6,7 +6,7 @@ $packageArgs = @{
   fileFullPath   = "$toolsDir\vhusbdwin$(Get-OSArchitectureWidth).exe"
 
   url64          = 'https://virtualhere.com/sites/default/files/usbserver/vhusbdwin64.exe'
-  checksum64     = 'd379bc3a48aa7d2178d84f5308e396cc8f9bf7843c9f6476a040d65f1afd2b49'
+  checksum64     = 'e140d89e12610e14cf6321ce20caadc8370ab639e63fd5fe7d1a20a4d9895c42'
   checksumType64 = 'sha256'
 }
 
