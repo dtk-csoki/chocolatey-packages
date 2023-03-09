@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if Ã¢â‚¬Å“ÃŽÂ©Ã¢â‚¬Â doesnÃ¢â‚¬â„¢t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>chart-geany</id>
+    <version>6.3.2</version>
+    <packageSourceUrl>https://github.com/chtof/chocolatey-packages/tree/master/automatic/chart-geany</packageSourceUrl>
+    <owners>chtof</owners>
+    <title>Chart Geany</title>
+    <authors>Lucas Tsatiris</authors>
+    <projectUrl>https://chart-geany.sourceforge.io</projectUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/automatic/chart-geany/chart-geany.png</iconUrl>
+    <copyright>Copyright © 2012 - 2023 Lucas Tsatiris. All rights reserved.</copyright>
+    <licenseUrl>https://www.gnu.org/licenses/old-licenses/gpl-2.0.txt</licenseUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <projectSourceUrl>https://sourceforge.net/p/chart-geany/code/ci/master/tree/source6/</projectSourceUrl>
+    <docsUrl>https://chart-geany.sourceforge.io/manual6.html</docsUrl>
+    <mailingListUrl>https://sourceforge.net/p/chart-geany/discussion</mailingListUrl>
+    <bugTrackerUrl>https://sourceforge.net/p/chart-geany/discussion</bugTrackerUrl>
+    <tags>chart-geany market technical analysis chart charting potfolio manager</tags>
+    <summary>Chart Geany is a free cross platform software solution for market technical analysis, charting and a portfolio manager.</summary>
+    <description><![CDATA[
+## Features
+See https://chart-geany.sourceforge.io/#Features
+
+![screenshot](https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/automatic/chart-geany/screenshot.png)
+]]></description>
+    <releaseNotes>https://chart-geany.sourceforge.io</releaseNotes>
+  </metadata>
+  <files>
+    <file src="legal\**" target="legal" />
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
