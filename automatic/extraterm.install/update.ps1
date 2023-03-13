@@ -10,7 +10,7 @@ function global:au_GetLatest {
    }
 
    # append "-pre" to version
-   $output[1].Version += '-pre'
+   # $output[1].Version += '-pre'
 
    return $output
 }
