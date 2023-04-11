@@ -1,4 +1,6 @@
-﻿# The code structure for this from https://chocolatey.org/packages/hackfont
+﻿$ErrorActionPreference = 'Stop'
+
+# The code structure for this from https://chocolatey.org/packages/hackfont
  
 # create temp directory
 do {
@@ -17,14 +19,10 @@ $packageArgs = @{
  
 Install-ChocolateyZipPackage @packageArgs
  
-# Obtain system font folder for extraction
-$shell = New-Object -ComObject Shell.Application
-$fontsFolder = $shell.Namespace(0x14)
- 
 # Loop the extracted files and install them
-    Get-ChildItem -Path $tempPath\source-han-code-jp-$($env:ChocolateyPackageVersion)R\OTF -Recurse -Filter '*.otf' | ForEach-Object { 
+Get-ChildItem -Path $tempPath\source-han-code-jp-$($env:ChocolateyPackageVersion)R\OTF -Recurse -Filter '*.otf' | ForEach-Object { 
     Write-Verbose "Registering font '$($_.Name)'."
-    $fontsFolder.CopyHere($_.FullName)  # copying to fonts folder ignores a second param on CopyHere
+    Add-Font $_.FullName
 }
  
 # Remove our temporary files
