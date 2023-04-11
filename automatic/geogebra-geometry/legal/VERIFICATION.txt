@@ -7,16 +7,16 @@ Package can be verified like this:
  
 1. Download:
  
-   x32: https://download.geogebra.org/installers/6.0/geometry/GeoGebraGeometry-Windows-Installer-6-0-770-0.exe
-   x64: https://download.geogebra.org/installers/6.0/geometry/GeoGebraGeometry-Windows-Installer-6-0-770-0.exe
+   x32: https://download.geogebra.org/installers/6.0/geometry/GeoGebraGeometry-Windows-Installer-6-0-772-0.exe
+   x64: https://download.geogebra.org/installers/6.0/geometry/GeoGebraGeometry-Windows-Installer-6-0-772-0.exe
   
 2. You can use one of the following methods to obtain the SHA256 checksum:
    - Use powershell function 'Get-FileHash'
    - Use Chocolatey utility 'checksum.exe'
  
    checksum type: sha256
-   checksum32: FC9E6242B2ADE112BD708BBC061D4C3425F079C97D29BB8D07C0861ADD548837
-   checksum64: FC9E6242B2ADE112BD708BBC061D4C3425F079C97D29BB8D07C0861ADD548837
+   checksum32: 10FA5ECC9D9E69246F0A3D7ACA1F0636BC82E3427A83C1385B5DFE423097A3AD
+   checksum64: 10FA5ECC9D9E69246F0A3D7ACA1F0636BC82E3427A83C1385B5DFE423097A3AD
  
 File 'LICENSE.txt' is obtained from:
    https://www.geogebra.org/license
