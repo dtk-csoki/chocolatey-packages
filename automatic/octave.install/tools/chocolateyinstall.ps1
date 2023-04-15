@@ -5,12 +5,12 @@ $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
   destination   = "$toolsDir"
 
-  url           = 'https://ftpmirror.gnu.org/octave/windows/octave-8.1.0-w32-installer.exe'
-  checksum      = '0446efc96ec22e6116fee1f9d13371b9dd6a00d5aa1babce0dc536285517a0a0'
+  url           = 'https://ftpmirror.gnu.org/octave/windows/octave-8.2.0-w32-installer.exe'
+  checksum      = 'a1710261246db102cebf25f0ef3aa0871887f81dc6add22e734207d0a17e29d4'
   checksumType  = 'sha256'
 
-  url64         = 'https://ftpmirror.gnu.org/octave/windows/octave-8.1.0-w64-installer.exe'
-  checksum64    = '77bb68df6499aaf5bf4db55dbf3a1aa7ce127e3941036c5322157974480a4ff1'
+  url64         = 'https://ftpmirror.gnu.org/octave/windows/octave-8.2.0-w64-installer.exe'
+  checksum64    = '28f6183b4d4776877b9518d03a8f02ae3dd3d1be00c0f2d8d07eb2918b3d38a3'
   checksumType64= 'sha256'
 
   # Note: silentArgs doesn't work as expected for octave.install
