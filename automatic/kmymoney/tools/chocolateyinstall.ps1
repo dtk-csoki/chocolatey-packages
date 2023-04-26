@@ -3,10 +3,10 @@ $packageName= 'kmymoney'
 
 $packageArgs = @{
   packageName    = $packageName    
-  url64          = 'https://binary-factory.kde.org/job/KMyMoney_Release_win64/lastSuccessfulBuild/artifact/kmymoney-5.1-1748-windows-cl-msvc2019-x86_64.exe'  
+  url64          = 'https://binary-factory.kde.org/job/KMyMoney_Release_win64/lastSuccessfulBuild/artifact/kmymoney-5.1-1749-windows-cl-msvc2019-x86_64.exe'  
 
   checksumType   = 'sha256'
-  checksum64     = '2f361a3e823545bb68f3b843701da12d4b6920a8f5f6b9fc547f875d22e98062'
+  checksum64     = 'd533823ffa4c4c5e733c51791dc3c86b55ae26214d764849e58501c1b14fe22e'
   checksumType64 = 'sha256'
   
   silentArgs     = '/S'
