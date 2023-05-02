@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>asciidocfx.portable</id>
-    <version>1.8.4</version>
+    <version>1.8.5</version>
     <packageSourceUrl>https://github.com/chtof/chocolatey-packages/tree/master/automatic/asciidocfx.portable</packageSourceUrl>
     <owners>chtof</owners>
     <title>AsciidocFX - Asciidoc Book Editor based on JavaFX 8 (Portable)</title>
@@ -19,7 +19,7 @@
     <bugTrackerUrl>https://github.com/chocolatey-community/chocolatey-package-requests/issues</bugTrackerUrl>
     <tags>asciidocfx book document editor build pdf epub mobi html document slide</tags>
     <summary>Asciidoc FX is a book / document editor to build PDF, Epub, Mobi and HTML books, documents and slides.</summary>
-    <description><![CDATA[Asciidoc FX is a book / document editor to build PDF, Epub, Mobi and HTML books, documents and slides. AsciidocFX is also a winner of Duke’s Choice Award 2015.
+    <description><![CDATA[Asciidoc FX is a book / document editor to build PDF, Epub, Mobi and HTML books, documents and slides. AsciidocFX is also a winner of [Duke’s Choice Award 2015](https://www.oracle.com/corporate/pressrelease/dukes-award-102815.html).
 ## Features
 
 * Real-Time Preview
