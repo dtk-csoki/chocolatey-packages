@@ -4,7 +4,7 @@ $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
   destination   = "$toolsDir"
-  file          = "$toolsDir\GitExtensions-Portable-4.0.2.16100-25100ec1f.zip"
+  file          = "$toolsDir\GitExtensions-Portable-4.1.0.16698-1fe52a137.zip"
 }
 
 # Prevent chocolatey from creating shims for supplementary executables
