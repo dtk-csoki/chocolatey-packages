@@ -1,5 +1,7 @@
 $ErrorActionPreference = 'Stop'
- 
+
+Uninstall-BinFile -Name 'smerge'
+
 $packageArgs = @{
     packageName    = $env:ChocolateyPackageName
     softwareName   = 'Sublime Merge'

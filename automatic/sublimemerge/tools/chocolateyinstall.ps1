@@ -18,8 +18,8 @@ Install-ChocolateyPackage @packageArgs
 
 if ($key.Count -eq 1) {
   $key | ForEach-Object {
-    $submergeInstallLocation = Join-Path -Path $_.InstallLocation -ChildPath 'submerge.exe'
-    Install-BinFile -Name 'submerge' -Path $submergeInstallLocation
+    $submergeInstallLocation = Join-Path -Path $_.InstallLocation -ChildPath 'smerge.exe'
+    Install-BinFile -Name 'smerge' -Path $submergeInstallLocation
   }
 } elseif ($key.Count -eq 0) {
   Write-Error "$packageName installation failed, unable to detect uninstall registry key."
