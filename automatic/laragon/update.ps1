@@ -2,7 +2,7 @@ import-module au
 
 function global:au_GetLatest {
     $releases = 'https://github.com/leokhoa/laragon/releases/latest'
-    $regex   = '/releases/download/(?<Version>.*?)/laragon-full.exe'
+    $regex   = '/releases/download/(?<Version>.*?)/laragon.exe'
 
     $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
     $url = $download_page.links | ? href -match $regex
