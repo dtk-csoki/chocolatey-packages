@@ -20,6 +20,15 @@
     <tags>steascree screenshot upload Steam Cloud</tags>
     <summary>Steam Cloud Screenshot Uploader</summary>
     <description><![CDATA[
+## Package Parameters
+
+- `/DesktopShortcut` Create Desktop Shortcut
+
+### Examples
+
+`choco install steascree --params "/DesktopShortcut"`
+
+## Description
 SteaScree is a simple cross-platform open-source utility tool, which greatly simplifies the uploading of screenshots to the Steam Cloud, which were taken without the use of Steam's in-game overlay. You just pick pics, select game and SteaScree will do the rest.
 
 __The problem__: every Steam user has 20 GB of cloud space specifically for a screenshot storing. But not every screenshot can be easily uploaded to the Steam Cloud, since the files should have been created by Steam in-game overlay, thus have a specific filename, reside in specific Steam directories and be registered within a special screenshots.vdf file. Steam fails to upload custom screenshots returning Steam
