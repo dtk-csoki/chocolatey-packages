@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>briss</id>
-    <version>2.0</version>
+    <version>2.0.5-alpha</version>
     <packageSourceUrl>https://github.com/chtof/chocolatey-packages/tree/master/automatic/briss</packageSourceUrl>
     <owners>chtof</owners>
     <title>Briss</title>
@@ -20,6 +20,10 @@
     <tags>briss mass PDF crop</tags>
     <summary>Briss 2.0 is intended to be a GUI Update for the Briss PDF cropping tool.</summary>
     <description><![CDATA[
+## Prerequisites
+Briss needs a Java runtime to be launched. If you haven't a Java runtime on your machine, you have to install the Java runtime of your choice.
+
+## Description
 Briss 2.0 is intended to be a GUI Update for the Briss PDF cropping tool.
 
 Briss 2.0 is based on Briss 0.9 which is located at sourceforge: http://sourceforge.net/projects/briss/
