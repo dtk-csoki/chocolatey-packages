@@ -57,6 +57,9 @@ Source Han Code JP does not support any GPOS features.
 ![screenshot](https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/automatic/source-han-code-jp/screenshot.png)
 ]]></description>
     <releaseNotes>https://github.com/adobe-fonts/source-han-code-jp</releaseNotes>
+    <dependencies>
+      <dependency id="chocolatey-font-helpers.extension" version="0.0.4" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
