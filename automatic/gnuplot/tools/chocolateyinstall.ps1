@@ -3,7 +3,7 @@ $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 
 $packageArgs = @{
   packageName = $env:ChocolateyPackageName  
-  file64      = "$toolsDir\gp546-win64-mingw.exe"
+  file64      = "$toolsDir\gp547-win64-mingw.exe"
   silentArgs  = '/VERYSILENT /SUPPRESSMSGBOXES /MERGETASKS="modifypath"'
 }
 
