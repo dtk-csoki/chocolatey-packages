@@ -6,14 +6,14 @@ in verifying that this package's contents are trustworthy.
 Package can be verified like this:
  
 1. Download:
-   x64: https://github.com//pyzo/pyzo/releases/download/v4.12.8/pyzo-4.12.8-win64.exe
+   x64: https://github.com//pyzo/pyzo/releases/download/v4.13.1/pyzo-4.13.1-win64.exe
   
 2. You can use one of the following methods to obtain the SHA256 checksum:
    - Use powershell function 'Get-FileHash'
    - Use Chocolatey utility 'checksum.exe'
  
    checksum type: sha256
-   checksum64: 7C9CC3675A6848B3F76C478D46E4D7D7DEE4B8AA88D2C76DC80958B548623B17
+   checksum64: 9B7B64793F27079A8464C6A7F89FBE6BC5345E1C7FB60A434198EA82C089C76C
     
 File 'LICENSE.txt' is obtained from:
    https://raw.githubusercontent.com/pyzo/pyzo/master/pyzo/license.txt
