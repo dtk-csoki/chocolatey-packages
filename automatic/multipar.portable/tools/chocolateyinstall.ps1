@@ -4,7 +4,7 @@ $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
   destination   = "$toolsDir"
-  file          = "$toolsDir\MultiPar1327.zip"
+  file          = "$toolsDir\MultiPar1328.zip"
 }
 Install-ChocolateyZipPackage @packageArgs
 Remove-Item -Path $packageArgs.file
