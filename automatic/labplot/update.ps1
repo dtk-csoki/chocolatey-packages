@@ -6,7 +6,8 @@ function global:au_BeforeUpdate {
 }
 
 function global:au_GetLatest {
-    $releases = 'https://download.kde.org/stable/labplot/'
+    <#$releases = 'https://download.kde.org/stable/labplot/'
+    
     $regexLastMajorVersion = '<a href="(?<Version>[\d\.]+)/">'
     (Invoke-WebRequest -Uri $releases -UseBasicParsing).links |? href -match '^([\d\.]+)/' | Select -Last 1 | Out-Null
     $majorVersion = $matches.1
@@ -16,11 +17,15 @@ function global:au_GetLatest {
 
     (Invoke-WebRequest -Uri $releases -UseBasicParsing).links | ? href -match $regex | Select -First 1 | Out-Null
     $version = $matches.Version
-    $url = Get-RedirectedUrl ('https://download.kde.org/stable/labplot/' + $majorVersion + '/labplot-' + $majorVersion + '-64bit-setup.exe')
+    $url = Get-RedirectedUrl ('https://download.kde.org/stable/labplot/' + $majorVersion + '/labplot-' + $majorVersion + '-64bit-setup.exe')#>
+
+    $releases = 'https://labplot.kde.org/download/'
+    $regex    = 'labplot-(?<Version>[\d\.]+).exe'
+    $url = ((Invoke-WebRequest -Uri $releases -UseBasicParsing).links | ? href -match $regex).href
 
     return @{
-        Version = $majorVersion
-        URL64   = $url
+        Version = $matches.Version
+        URL64   = Get-RedirectedUrl $url
     }
 }
 
