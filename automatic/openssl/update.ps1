@@ -7,8 +7,8 @@ function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
 function global:au_GetLatest {
     $releases = 'https://slproweb.com/products/Win32OpenSSL.html'
-    $regex32  = 'Win32OpenSSL-([\d_]+)([a-z]+).exe'
-    $regex64  = 'Win64OpenSSL-(?<Version>[\d_]+)(?<VersionLetter>[a-z]+).exe'
+    $regex32  = 'Win32OpenSSL-([\d_]+)([a-z]+)?.exe'
+    $regex64  = 'Win64OpenSSL-(?<Version>[\d_]+)(?<VersionLetter>[a-z]+)?.exe'
 
     $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing	
 	$url32   = $download_page.links | ? href -match $regex32 | Select -First 1
@@ -47,6 +47,4 @@ function global:au_SearchReplace {
     }
 }
 
-if ($MyInvocation.InvocationName -ne '.') { # run the update only if script is not sourced
-    update -ChecksumFor none
-}
+update -ChecksumFor none
