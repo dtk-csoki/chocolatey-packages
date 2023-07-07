@@ -3,7 +3,7 @@
 function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
 function global:au_GetLatest {
-    $releases = 'https://anaconda.org/conda-forge/poppler/files'
+    $releases = 'https://anaconda.org/conda-forge/poppler/files?sort=basename&sort_order=desc'
     $regex   = '/download/win-64/poppler-(?<Version>[\d\.]+)-.*.tar.bz2$'
 
     $url = (Invoke-WebRequest -Uri $releases -UseBasicParsing).links | ? href -match $regex | Select -First 1
