@@ -15,7 +15,7 @@ foreach ($file in 'python.exe', 'pythonw.exe') {
 }
 
 Get-ChocolateyUnzip @packageArgs
-Remove-Item $packageArgs.file | Out-Null
+Remove-Item $packageArgs.file64 | Out-Null
 
 $launchy_Exe = (Get-ChildItem "$toolsDir" -Recurse Launchy.exe )
 
