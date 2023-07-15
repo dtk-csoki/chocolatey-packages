@@ -6,14 +6,14 @@ in verifying that this package's contents are trustworthy.
 Package can be verified like this:
  
 1. Download:
-   x64: https://vcvrack.com/downloads/RackFree-2.2.3-win-x64.exe
+   x64: https://vcvrack.com/downloads/RackFree-2.3.0-win-x64.exe
   
 2. You can use one of the following methods to obtain the SHA256 checksum:
    - Use powershell function 'Get-FileHash'
    - Use Chocolatey utility 'checksum.exe'
  
    checksum type: sha256
-   checksum64: 472A5849857501424ACE80BCC7C645D5249B45CFD523D49F37A00FBF27CA6CFD
+   checksum64: 96EF3AE12870307E6568C4E50CBF936D04CCDCF74F5C383E6DCF80CF72C182F7
  
 File 'LICENSE.txt' is obtained from:
    https://raw.githubusercontent.com/VCVRack/Rack/v1/LICENSE.md
