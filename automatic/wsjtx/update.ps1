@@ -2,7 +2,7 @@
 
 function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
-function global:au_GetLatest {
+function global:au_GetLatest {    
     $releases = 'https://wsjt.sourceforge.io/wsjtx.html'
     $regex32  = 'wsjtx-[\d\.]+-win32.exe$'
     $regex64  = 'wsjtx-(?<Version>[\d\.]+)-win64.exe$'
@@ -12,8 +12,8 @@ function global:au_GetLatest {
 	
     return @{
         Version = $matches.Version
-        URL32   = Get-RedirectedUrl $url32
-        URL64   = Get-RedirectedUrl $url64
+        URL32   = 'https://wsjt.sourceforge.io/' + $url32
+        URL64   = 'https://wsjt.sourceforge.io/' + $url64
     }
 }
 
