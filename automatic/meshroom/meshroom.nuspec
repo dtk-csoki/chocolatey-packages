@@ -3,10 +3,10 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>meshroom</id>
-    <version>2021.1.0</version>
+    <version>2021.1.0.20230718</version>
     <packageSourceUrl>https://github.com/chtof/chocolatey-packages/tree/master/automatic/meshroom</packageSourceUrl>
     <owners>chtof</owners>
-    <title>Meshroom</title>
+    <title>[Deprecated] Meshroom</title>
     <authors>AliceVision Team.</authors>
     <projectUrl>https://github.com/alicevision/meshroom</projectUrl>
 	<iconUrl>https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/automatic/meshroom/meshroom.png</iconUrl>
@@ -19,21 +19,8 @@
     <bugTrackerUrl>https://github.com/alicevision/meshroom/issues</bugTrackerUrl>
     <tags>meshroom 3D reconstruction alicevision photogrammetric computer vision framework</tags>
     <summary>Meshroom is a free, open-source 3D Reconstruction Software based on the AliceVision Photogrammetric Computer Vision framework.</summary>
-    <description><![CDATA[Meshroom is a free, open-source 3D Reconstruction Software based on the [AliceVision](https://github.com/alicevision/AliceVision) Photogrammetric Computer Vision framework.
-
-Learn more details about the pipeline on [AliceVision website]'http://alicevision.github.io).
-
-See [results of the pipeline on sketchfab](http://sketchfab.com/AliceVision).
-
-## Requirement
-NVIDIA CUDA-enabled GPU (compute capability >= 2.0).
-
-## Photogrammetry
-Photogrammetry is the science of making measurements from photographs. It infers the geometry of a scene from a set of unordered photographs or videos. Photography is the projection of a 3D scene onto a 2D plane, losing depth information. The goal of photogrammetry is to reverse this process.
-
-See the [presentation of the pipeline steps](http://alicevision.github.io/#photogrammetry).
-
-![screenshot](https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/automatic/meshroom/screenshot.png)
+    <description><![CDATA[
+      Meshroom can't be longer provided as Chocolatey as it is now hosted on Fosshub: https://docs.chocolatey.org/en-us/community-repository/moderation/package-validator/rules/cpmr0028
 ]]></description>
     <releaseNotes>https://github.com/alicevision/meshroom/releases</releaseNotes>
   </metadata>
