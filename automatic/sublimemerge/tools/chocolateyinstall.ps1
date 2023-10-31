@@ -14,18 +14,11 @@ $packageArgs = @{
 Install-ChocolateyPackage @packageArgs
 
 
-[array]$key = Get-UninstallRegistryKey -SoftwareName $softwareName
+[array]$key = Get-UninstallRegistryKey @packageArgs
 
-if ($key.Count -eq 1) {
+If ($key.Count -eq 1) {
   $key | ForEach-Object {
     $submergeInstallLocation = Join-Path -Path $_.InstallLocation -ChildPath 'smerge.exe'
-    Install-BinFile -Name 'smerge' -Path $submergeInstallLocation
+    Install-BinFile -Name 'smerge' -Path "$submergeInstallLocation"
   }
-} elseif ($key.Count -eq 0) {
-  Write-Error "$packageName installation failed, unable to detect uninstall registry key."
-  Write-Warning "Please report this to the package maintainer."
-} elseif ($key.Count -gt 1) {
-  Write-Error "$packageName installation failed, multiple ($($key.Count)) uninstall registry keys found."
-  Write-Warning "Please inform the package maintainer that the following keys were matched:"
-  $key | ForEach-Object { Write-Warning "- $($_.DisplayName): $($_.InstallLocation)" }
 }
