@@ -16,7 +16,7 @@
     <!--<projectSourceUrl>Software Source Location - is the software FOSS somewhere? Link to it with this</projectSourceUrl>-->
     <docsUrl>https://wiki.geogebra.org/en/Manual</docsUrl>
     <mailingListUrl>https://help.geogebra.org</mailingListUrl>
-    <bugTrackerUrl>https://help.geogebra.org/bugs</bugTrackerUrl>
+    <!--<bugTrackerUrl>https://help.geogebra.org/bugs</bugTrackerUrl>-->
     <tags>geometry GeoGebra circles angles transformations</tags>
     <summary>Construct circles, angles, transformations and more with this free geometry tool.</summary>
     <description><![CDATA[Construct circles, angles, transformations and more with this free geometry tool.
