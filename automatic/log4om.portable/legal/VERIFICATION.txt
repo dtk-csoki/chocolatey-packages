@@ -7,7 +7,7 @@ Package can be verified like this:
  
 1. Download:
  
-   x32: https://www.log4om.com/l4ong/release/Log4OM2_2_30_0_0_portable.zip
+   x32: https://www.log4om.com/l4ong/release/Log4OM2_2_30_1_0_portable.zip
    x64: https://www.log4om.com/l4ong/release/Log4OM2_2_0_0_0.zip
   
 2. You can use one of the following methods to obtain the SHA256 checksum:
@@ -15,7 +15,7 @@ Package can be verified like this:
    - Use Chocolatey utility 'checksum.exe'
  
    checksum type: sha256
-   checksum32: 74135F32C2F3C15995F5F588326F3C3879AD4A8DF7CAD99D1ADC021869F43B66
+   checksum32: 27CAFB7CD82F69997BD91EAF461896273EB355169F0049E727D58B903D4F0A57
    checksum64: 334ADD564B72479BEF2017B9829AA9D3CD39B1CD530FE6CBB68DFBC038528FBD
  
 File 'LICENSE.txt' is obtained from:
