@@ -7,16 +7,16 @@ Package can be verified like this:
  
 1. Download:
  
-   x32: https://github.com/ispc/ispc/releases/download/v1.21.0/ispc-v1.21.0-windows.zip
-   x64: https://github.com/ispc/ispc/releases/download/v1.21.0/ispc-v1.21.0-windows.zip
+   x32: https://github.com/ispc/ispc/releases/download/v1.22.0/ispc-v1.22.0-windows.zip
+   x64: https://github.com/ispc/ispc/releases/download/v1.22.0/ispc-v1.22.0-windows.zip
   
 2. You can use one of the following methods to obtain the SHA256 checksum:
    - Use powershell function 'Get-FileHash'
    - Use Chocolatey utility 'checksum.exe'
  
    checksum type: sha256
-   checksum32: B8823C03C050152AEAE19594160D9A1A00E21817FC0CD86F21BE2B4F22AB17BF
-   checksum64: B8823C03C050152AEAE19594160D9A1A00E21817FC0CD86F21BE2B4F22AB17BF
+   checksum32: E597A1568675D5C5AD9CF2FE5BE2653D279C74B46D0E899A01A844770A0A9AD1
+   checksum64: E597A1568675D5C5AD9CF2FE5BE2653D279C74B46D0E899A01A844770A0A9AD1
  
 File 'LICENSE.txt' is obtained from:
    https://raw.githubusercontent.com/ispc/ispc/master/LICENSE.txt

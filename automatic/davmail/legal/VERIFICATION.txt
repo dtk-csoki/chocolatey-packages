@@ -7,16 +7,16 @@ Package can be verified like this:
  
 1. Download:
  
-   x32: https://netcologne.dl.sourceforge.net/project/davmail/davmail/6.1.0/davmail-6.1.0-3423-setup.exe
-   x64: https://netcologne.dl.sourceforge.net/project/davmail/davmail/6.1.0/davmail-6.1.0-3423-setup64.exe
+   x32: https://netcologne.dl.sourceforge.net/project/davmail/davmail/6.2.0/davmail-6.2.0-3464-setup.exe
+   x64: https://netcologne.dl.sourceforge.net/project/davmail/davmail/6.2.0/davmail-6.2.0-3464-setup64.exe
   
 2. You can use one of the following methods to obtain the SHA256 checksum:
    - Use powershell function 'Get-FileHash'
    - Use Chocolatey utility 'checksum.exe'
  
    checksum type: sha256
-   checksum32: B1E18D1E35A208C6A0AD7EEF9F3F143D01169D73216A716BF7D41A3A76A1F79D
-   checksum64: 6F7080EEB1D1F7DC40DA2874A254BA0B9D4ADC58AEFA29682DFA9D124CFA7043
+   checksum32: 06C29B9691E76104BE6EFC40DC32B2651BBEEEBF21FF491F82D5230A14DC6A28
+   checksum64: E105BB06AA27A4A38858774D8982346711694299DBF8CB3A32C85F3335292E0A
  
 File 'LICENSE.txt' is obtained from:
    https://raw.githubusercontent.com/mguessan/davmail/master/LICENSE
