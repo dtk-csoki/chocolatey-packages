@@ -5,8 +5,8 @@ $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
   unzipLocation = "$toolsDir"
 
-  url           = 'http://ftp.fau.de/eclipse/technology/epp/downloads/release/2023-09/R/eclipse-cpp-2023-09-R-win32-x86_64.zip'
-  checksum      = 'ba3934fb9a678857efd2e0ec235cc2bf233924c403d73ee23d8fe9d06c38c454'
+  url           = 'http://ftp.fau.de/eclipse/technology/epp/downloads/release/2023-12/R/eclipse-cpp-2023-12-R-win32-x86_64.zip'
+  checksum      = 'e43865641059895a6e6536276b8b67e8fb6313a77d7958faa265e6739d84c558'
   checksumType  = 'sha256'
 }
 
