@@ -4,12 +4,12 @@ $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $packageArgs = @{
   packageName    = $env:ChocolateyPackageName
 
-  url            = 'https://downloads.firestormviewer.org/windows/Phoenix-FirestormOS-Release-6-6-14-69596_Setup.exe'
-  checksum       = 'ecb5adba2a1e29c13511eb2b2df41bc518ffbed53b469c8015ae832490d0d7e8'
+  url            = 'https://downloads.firestormviewer.org/release/windows/Phoenix-FirestormOS-Release-6-6-17-70368_Setup.exe'
+  checksum       = '3a25b386880f6623eba6bf8cfe3b0595736847ede39d3782c7f9674ed59174d2'
   checksumType   = 'sha256'
 
-  url64          = 'https://downloads.firestormviewer.org/windows/Phoenix-FirestormOS-Releasex64-6-6-14-69596_Setup.exe'
-  checksum64     = '05d2a5c05cf20d6a6c46cea5021b6db1978501052c86492b8f0bf4f026af88a0'
+  url64          = 'https://downloads.firestormviewer.org/release/windows/Phoenix-FirestormOS-Releasex64-6-6-17-70368_Setup.exe'
+  checksum64     = '87ac0fe35c17500aed07bf94930d44584134d261769fc13c70aaed8b566f72c1'
   checksumType64 = 'sha256'
 
   silentArgs     = '/S'
