@@ -4,11 +4,11 @@ $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
 
   url           = 'https://download.xnview.com/XnShellEx.exe'
-  checksum      = 'f8758fe85b3cac1baaf0392a55421ac8524d720129a943443066f09d45469ea2'
+  checksum      = '0a52999c45a8dcf216c3d1a6f8532f9b287043f00a68bd9439775a2b104fda41'
   checksumType  = 'sha256'
 
   url64         = 'https://download.xnview.com/XnShellEx64.exe'
-  checksum64    = 'a038f7048d08292a29349b0869799c11e05a3886bb220f4971f71e7134d75af2'
+  checksum64    = '5478831ad2a506d28d7d3eb620f5946de18b0c1990e331dacbfa370c4d04e0b1'
   checksumType64= 'sha256'
 
   silentArgs    = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-'
