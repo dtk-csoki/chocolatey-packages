@@ -6,11 +6,11 @@ $packageArgs = @{
   unzipLocation = "$toolsDir"
 
   url           = 'https://download.xnview.com/XnShellEx.zip'
-  checksum      = '02f4f26c04200ad060f1102bb63ad7fc9f3bff1b15600b60785a8a0d7cb22ea0'
+  checksum      = '3d7646da9d92c36d135660add9bcf4e37b1abda98b4d3da3dbf15c049413a390'
   checksumType  = 'sha256'
   
   url64         = 'https://download.xnview.com/XnShellEx64.zip'
-  checksum64    = '4f3cca971039eadf638a868db621d69bb0e8553ef8a55f058f09970c6ca809d1'
+  checksum64    = '1a9bc91c598653c51287dafa93009c3620b2adc868b6afa372a749cced35877d'
   checksumType64= 'sha256'
 }
 
