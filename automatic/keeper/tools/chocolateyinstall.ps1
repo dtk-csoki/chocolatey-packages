@@ -2,15 +2,15 @@
 
 $packageArgs = @{
   AppxPackageName = 'KeeperSecurityInc.KeeperPasswordManager'
-  packageName     = $env:ChocolateyPackageName
+  packageName     = $env:ChocolateyPackageName  
 
   url             = 'https://www.keepersecurity.com/desktop_electron/Win32/KeeperSetup32.msi'
-  checksum        = '663B03D923D13360449E3400D8AB4E7203EA9B960F3AD9B4C60648B442668B2F'
-  checksumType    = 'sha256'
+  checksum        = '39f1b5b68aafd0855675eb8c8a1bf33e5b066314c0e97746db3b609ff69571a2'
+  checksumType    = 'sha256'  
 
   url64           = 'https://www.keepersecurity.com/desktop_electron/packages/KeeperPasswordManager.msixbundle'
-  checksum64      = 'E07937D67F6A849DA75139CF63CA01DBD7F0AB86807346776D60377EDA4BD0C0'
-  checksumType64  = 'sha256'
+  checksum64      = '1188b5dae8608f5cff1325aca81aee685fd8a4dc15c53d6bcd3b8dab6e3fac8c'
+  checksumType64  = 'sha256'  
 
   silentArgs      = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-'
 }
@@ -34,7 +34,7 @@ If (Get-OSArchitectureWidth -eq 64){
         Write-Host Removing already installed version first.
         Get-AppxPackage -Name $packageArgs.AppxPackageName | Remove-AppxPackage
       } else {
-        Write-Host The $version version of Windows-Terminal is already installed. If you want to reinstall use --force
+        Write-Host The $version version of KeeperPasswordManager is already installed. If you want to reinstall use --force
         return
       }
   }
