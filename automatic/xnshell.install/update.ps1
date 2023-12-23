@@ -1,8 +1,8 @@
 ﻿import-module au
 
 function global:au_GetLatest {
-	$releases = 'https://www.xnview.com/fr/'
-	$regex    = '>XnShell Extension</span> <span class="list-group-item-description">(?<Version>[\d\.]+)</span>'
+	$releases = 'https://www.xnview.com/en/xnshell/'
+	$regex    = 'XnShell (?<Version>[\d\.]+)'
 	
     $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
 	$download_page.RawContent -match $regex
@@ -26,6 +26,6 @@ function global:au_SearchReplace {
     }
 }
 
-if ($MyInvocation.InvocationName -ne '.') { # run the update only if script is not sourced
+If ($MyInvocation.InvocationName -ne '.') { # run the update only if script is not sourced
     update
 }
