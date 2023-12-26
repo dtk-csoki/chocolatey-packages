@@ -3,10 +3,13 @@ import-module au
 
 function global:au_GetLatest {
 	$releases = 'https://ultraviewer.net/en/download.html'
-	$regex    = 'UltraViewer_setup_(?<Version>[\d\.]+)_en.exe'
+    # The version in the software link does not always reflect the current version and must be grab where the version is complete.	
+    $regex_version = 'Download UltraViewer - (?<Version>[\d\.]+)<'
+    $regex    = 'UltraViewer_setup_([\d\.]+)_en.exe'
 	
     $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
 	$url = $download_page.links | ? href -match $regex | select -Last 1
+    $download_page -match $regex_version | Out-Null
 
     return @{
         Version = $matches.Version
