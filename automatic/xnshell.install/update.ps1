@@ -1,5 +1,10 @@
 ﻿import-module au
 
+function global:au_BeforeUpdate {
+    $Latest.Checksum32 = Get-RemoteChecksum $Latest.Url32
+    $Latest.Checksum64 = Get-RemoteChecksum $Latest.Url64
+}
+
 function global:au_GetLatest {
 	$releases = 'https://www.xnview.com/en/xnshell/'
 	$regex    = 'XnShell (?<Version>[\d\.]+)'
@@ -18,14 +23,14 @@ function global:au_GetLatest {
 function global:au_SearchReplace {
     @{
         "tools\chocolateyInstall.ps1" = @{
-			"(^(\s)*url\s*=\s*)('.*')" = "`$1'$($Latest.URL32)'"
-            "(^(\s)*checksum\s*=\s*)('.*')" = "`$1'$($Latest.Checksum32)'"
-            "(^(\s)*url64\s*=\s*)('.*')" = "`$1'$($Latest.URL64)'"
+			"(^(\s)*url\s*=\s*)('.*')"        = "`$1'$($Latest.URL32)'"
+            "(^(\s)*checksum\s*=\s*)('.*')"   = "`$1'$($Latest.Checksum32)'"
+            "(^(\s)*url64\s*=\s*)('.*')"      = "`$1'$($Latest.URL64)'"
             "(^(\s)*checksum64\s*=\s*)('.*')" = "`$1'$($Latest.Checksum64)'"
         }
     }
 }
 
 If ($MyInvocation.InvocationName -ne '.') { # run the update only if script is not sourced
-    update
+    update -ChecksumFor None
 }
