@@ -3,13 +3,19 @@
 function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
 function global:au_GetLatest {
-  $releases      = 'https://vb-audio.com/Voicemeeter/banana.htm'  
-  $regex_version = 'Voicemeeter (?<Version>[\d\.]+).*\(EXE file\)'
+  $releases      = 'https://vb-audio.com/Voicemeeter/banana.htm'
+  $regex_release = 'VoicemeeterSetup_v(\d+).zip'
+  $regex_version = 'Voicemeeter (?<Version>[\d\.]+).*\(ZIP Package\)'
 
-  $download_page = (Invoke-WebRequest -Uri $releases)
+  $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
   $download_page.RawContent -match $regex_version
+  $version       = $matches.Version  
+  $url = $download_page.links | ? href -match $regex_release
   
-  return @{ Version = $matches.Version ; URL32 = 'https://download.vb-audio.com/Download_CABLE/VoicemeeterProSetup.exe' }
+  return @{
+    Version = $version + "00"
+    URL32 = $url.href
+  }
 }
 
 function global:au_SearchReplace {
@@ -23,7 +29,7 @@ function global:au_SearchReplace {
         }
 
         "tools\chocolateyinstall.ps1" = @{        
-          "(?i)(^\s*file\s*=\s*`"[$]toolsDir\\)(.*)`""   = "`$1$($Latest.FileName32)`""
+          "(?i)(^\s*FileFullPath\s*=\s*`"[$]toolsDir\\)(.*)`""   = "`$1$($Latest.FileName32)`""
         }
     }
 }
