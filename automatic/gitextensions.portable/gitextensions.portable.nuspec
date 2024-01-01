@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>gitextensions.portable</id>
-    <version>4.2.1</version>
+    <version>4.2.1.20240101</version>
     <packageSourceUrl>https://github.com/chtof/chocolatey-packages/tree/master/automatic/gitextensions.portable</packageSourceUrl>
     <owners>chtof</owners>
     <title>Git Extensions (Portable)</title>
@@ -14,7 +14,7 @@
     <licenseUrl>https://raw.githubusercontent.com/gitextensions/gitextensions/master/LICENSE.md</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <projectSourceUrl>https://github.com/gitextensions/gitextensions</projectSourceUrl>
-    <docsUrl>https://git-extensions-documentation.readthedocs.org/en/latest</docsUrl>
+    <!--<docsUrl>https://git-extensions-documentation.readthedocs.org/en/latest</docsUrl>-->
     <!--<mailingListUrl></mailingListUrl>-->
     <bugTrackerUrl>http://github.com/gitextensions/gitextensions/issues</bugTrackerUrl>
     <tags>gitextensions.portable gitextensions foss cross-platform git graphical user interface gui</tags>
