@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>hugin.install</id>
-    <version>2023.0.0</version>
+    <version>2023.0.0.20240101</version>
     <packageSourceUrl>https://github.com/chtof/chocolatey-packages/tree/master/automatic/hugin.install</packageSourceUrl>
     <owners>chtof</owners>
     <title>Hugin (Install)</title>
@@ -15,7 +15,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <projectSourceUrl>https://sourceforge.net/p/hugin/hugin/ci/default/tree</projectSourceUrl>
     <docsUrl>http://hugin.sourceforge.net/docs</docsUrl>
-    <mailingListUrl>http://googlegroups.com/group/hugin-ptx</mailingListUrl>
+    <!--<mailingListUrl>http://googlegroups.com/group/hugin-ptx</mailingListUrl>-->
     <bugTrackerUrl>https://bugs.launchpad.net/hugin</bugTrackerUrl>
     <tags>hugin.install photo image panorama</tags>
     <summary>With Hugin you can assemble a mosaic of photographs into a complete immersive panorama, stitch any series of overlapping pictures and much more.</summary>
