@@ -1,7 +1,9 @@
 ﻿import-module au
 . ..\..\helpers\GitHub_Helper.ps1
 
-function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
+function global:au_BeforeUpdate {    
+    $Latest.Checksum32 = Get-RemoteChecksum $Latest.URL32
+}
 
 function global:au_GetLatest {
    return github_GetInfo -ArgumentList @{
@@ -19,4 +21,4 @@ function global:au_SearchReplace {
     }
 }
 
-update -NoCheckUrl -ChecksumFor 32
+update -ChecksumFor None
