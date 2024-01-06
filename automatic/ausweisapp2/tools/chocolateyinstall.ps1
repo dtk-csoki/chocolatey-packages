@@ -4,7 +4,7 @@ $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $packageArgs = @{
   packageName = $env:ChocolateyPackageName
   filetype    = 'MSI'
-  file        = "$toolsDir\AusweisApp2-1.26.5.msi"
+  file        = "$toolsDir\AusweisApp-2.0.0.msi"
   silentArgs  = "/qn /norestart /l*v `"$env:TEMP\$($packageName).$($env:chocolateyPackageVersion).MsiInstall.log`""
 }
 
