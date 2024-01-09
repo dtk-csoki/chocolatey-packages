@@ -3,11 +3,13 @@
 $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
 
-  url           = 'https://clockify-resources.s3.eu-central-1.amazonaws.com/downloads/Clockify_Setup.exe'
-  checksum      = '93625BE289AAEF410B7273E50DD5DB4AAB3E6D0E4A2DC67B199AD78516A9334B063EAB0CF71E115FCE7DB48D1AC47584FA6429560271EC19CDBF268CA8DE08EF'
+  url           = 'https://clockify.me/downloads/clockify-setup.msi'
+  checksum      = '86fa6f52876e95355158b7a630584b83c3453b9b4d40bc87f57255ed5913b9f8f1d94d9fdade0c4a0b976bc0d03c60c060edb74035e0f2dce52813d432cd6485'
   checksumType  = 'sha512'
 
-  silentArgs    = '/S'
+  fileType      = 'MSI'
+
+  silentArgs    = "/qn /norestart /l*v `"$env:TEMP\$($packageName).$($env:chocolateyPackageVersion).MsiInstall.log`""
 }
 
 Install-ChocolateyPackage @packageArgs
