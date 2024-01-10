@@ -7,14 +7,14 @@ Package can be verified like this:
  
 1. Download:
  
-   x64: https://github.com//Yutaka-Sawada/MultiPar/releases/download/v1.3.3.1/MultiPar1331_setup.exe
+   x64: https://github.com//Yutaka-Sawada/MultiPar/releases/download/v1.3.3.2/MultiPar1332_setup.exe
   
 2. You can use one of the following methods to obtain the SHA256 checksum:
    - Use powershell function 'Get-FileHash'
    - Use Chocolatey utility 'checksum.exe'
  
    checksum type: sha256
-   checksum64: 23157FA379EDC6539811C33DCDC827C69700BB23CE303499014F2307E78ADA26
+   checksum64: C1EFB700FA4DF51ACC038C47F19D82676BA1D1BFF2AEC3BCF2104EDD8A127BDE
  
 File 'LICENSE.txt' is obtained from:
    %LOCALAPPDATA\help\ReadMe2_English.txt included in the software zip file when the default path is used to install it.
