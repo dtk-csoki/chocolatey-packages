@@ -8,7 +8,7 @@ function global:au_GetLatest {
     $releases = 'https://docs.aws.amazon.com/systems-manager/latest/userguide/plugin-version-history.html'
     $regexVersion = '<td(.*)?>(?<Version>[\d\.]+)</td>'
 
-    (Invoke-WebRequest -Uri $releases -UseBasicParsing).Content -match $regexVersion
+    (Invoke-WebRequest -Uri $releases -UseBasicParsing).Content -match $regexVersion | Select -First 1
 	
     return @{ Version = $matches.Version ; URL32 = 'https://s3.amazonaws.com/session-manager-downloads/plugin/latest/windows/SessionManagerPluginSetup.exe' }
 }
