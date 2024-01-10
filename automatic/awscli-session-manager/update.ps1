@@ -5,8 +5,8 @@
 function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
 function global:au_GetLatest {
-    $releases = 'https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html'
-    $regexVersion = '<td>(?<Version>[\d\.]+)</td>'
+    $releases = 'https://docs.aws.amazon.com/systems-manager/latest/userguide/plugin-version-history.html'
+    $regexVersion = '<td(.*)?>(?<Version>[\d\.]+)</td>'
 
     (Invoke-WebRequest -Uri $releases -UseBasicParsing).Content -match $regexVersion
 	
