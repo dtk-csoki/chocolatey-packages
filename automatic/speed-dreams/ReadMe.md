@@ -1,0 +1,5 @@
+# <img src="https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/automatic/speed-dreams/speed-dreams.png" width="48" height="48"/> [Speed Dreams : an Open Motorsport Sim](https://chocolatey.org/packages/speed-dreams)
+
+Speed Dreams is a Motorsport Simulator featuring high-quality 3D graphics and an accurate physics engine, all targeting maximum realism. Initially forked from [TORCS](http://torcs.sourceforge.net), it has now reached a clearly higher realism level in visual and physics simulation, thanks to its active development team and growing community. It mainly aims to implement exciting new features, cars, tracks and AI opponents to make a more enjoyable game for the player, while constantly pushing forward visual and physics realism. It is also intended for any research, study or teaching activity, around physics and AI, thanks to its GPL V2+ license, and the clear and modular architecture of its C/C++ code base.
+
+![screenshot](https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/automatic/speed-dreams/screenshot.png)

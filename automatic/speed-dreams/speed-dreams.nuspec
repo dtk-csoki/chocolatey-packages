@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>speed-dreams</id>
+    <version>2.3.0.8786</version>
+    <packageSourceUrl>https://github.com/chtof/chocolatey-packages/tree/master/automatic/speed-dreams</packageSourceUrl>
+    <owners>chtof</owners>
+    <title>Speed Dreams : an Open Motorsport Sim</title>
+    <authors>Speed Dreams Team</authors>
+    <projectUrl>https://www.speed-dreams.net</projectUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/automatic/speed-dreams/speed-dreams.png</iconUrl>
+    <copyright>Copyright Speed Dreams Team</copyright>
+    <licenseUrl>https://sourceforge.net/p/speed-dreams/code/HEAD/tree/trunk/COPYING.txt</licenseUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <projectSourceUrl>https://sourceforge.net/p/speed-dreams/code/HEAD/tree/</projectSourceUrl>
+    <docsUrl>https://sourceforge.net/p/speed-dreams/wiki/Home/</docsUrl>
+    <mailingListUrl>https://sourceforge.net/p/speed-dreams/mailman/</mailingListUrl>
+    <bugTrackerUrl>https://sourceforge.net/p/speed-dreams/tickets/</bugTrackerUrl>
+    <tags>speed-dreams game car open motorsport sim</tags>
+    <summary>Speed Dreams : an Open Motorsport Sim</summary>
+    <description><![CDATA[
+Speed Dreams is a Motorsport Simulator featuring high-quality 3D graphics and an accurate physics engine, all targeting maximum realism. Initially forked from [TORCS](http://torcs.sourceforge.net), it has now reached a clearly higher realism level in visual and physics simulation, thanks to its active development team and growing community. It mainly aims to implement exciting new features, cars, tracks and AI opponents to make a more enjoyable game for the player, while constantly pushing forward visual and physics realism. It is also intended for any research, study or teaching activity, around physics and AI, thanks to its GPL V2+ license, and the clear and modular architecture of its C/C++ code base.
+
+![screenshot](https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/automatic/speed-dreams/screenshot.png)
+]]></description>
+    <!-- <releaseNotes>__REPLACE_OR_REMOVE__MarkDown_Okay</releaseNotes> -->
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
