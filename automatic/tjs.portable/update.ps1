@@ -1,15 +1,15 @@
 ﻿import-module au
 
 function global:au_GetLatest {
-    $releases = 'https://community.jaspersoft.com/project/jaspersoft-studio/releases'
-    $regex    = 'TIB_js-studiocomm_(?<Version>[\d\.]+)_windows_x86_64.zip'
+    $releases = 'https://community.jaspersoft.com/files/file/19-jaspersoft%C2%AE-studio-community-edition/'
+    $regex    = 'Jaspersoft® Studio Community Edition (?<Version>[\d\.]+)'
 
-    (Invoke-WebRequest -Uri $releases) -match $regex | Out-Null
+    (Invoke-WebRequest -Uri $releases -UseBasicParsing).Content -match $regex | Out-Null
     $version = $matches.Version
 
     return @{
         Version = $version
-        URL64   = 'https://netcologne.dl.sourceforge.net/project/jasperstudio/JaspersoftStudio-' + $version + '/TIB_js-studiocomm_' + $version + '_windows_x86_64.zip'
+        URL64   = 'https://downloads.sourceforge.net/project/jasperstudio/JaspersoftStudio-' + $version + '/js-studiocomm_' + $version + '_windows_x86_64.zip'
     }
 }
 
