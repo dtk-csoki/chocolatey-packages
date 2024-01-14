@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>openssl</id>
-    <version>3.1.1</version>
+    <version>3.2.0</version>
     <packageSourceUrl>https://github.com/chtof/chocolatey-packages/tree/master/automatic/openssl</packageSourceUrl>
     <owners>chtof</owners>
     <title>OpenSSL</title>
@@ -29,7 +29,6 @@ LEGAL NOTICE: This product includes software developed by the OpenSSL Project fo
     </dependencies>
   </metadata>
   <files>
-    <file src="legal\**" target="legal" />
     <file src="tools\**" target="tools" />
   </files>
 </package>
