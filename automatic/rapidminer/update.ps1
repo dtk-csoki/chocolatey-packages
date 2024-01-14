@@ -3,9 +3,9 @@ import-module au
 
 function global:au_GetLatest {
     $releases = 'https://docs.rapidminer.com/latest/studio/releases'
-    $regex = '<title>(?<Version>[\d\.]+) - RapidMiner Documentation</title>'
+    $regex = 'Version (?<Version>[\d\.]+)'
 
-    (Invoke-WebRequest -Uri $releases).RawContent -match $regex
+    (Invoke-WebRequest -Uri $releases -UseBasicParsing).RawContent -match $regex
 
     return @{
         Version = $matches.Version
