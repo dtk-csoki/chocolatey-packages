@@ -6,7 +6,7 @@
     <version>2.3.0.8786</version>
     <packageSourceUrl>https://github.com/chtof/chocolatey-packages/tree/master/automatic/speed-dreams</packageSourceUrl>
     <owners>chtof</owners>
-    <title>Speed Dreams : an Open Motorsport Sim</title>
+    <title>Speed Dreams: an Open Motorsport Sim</title>
     <authors>Speed Dreams Team</authors>
     <projectUrl>https://www.speed-dreams.net</projectUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/automatic/speed-dreams/speed-dreams.png</iconUrl>
