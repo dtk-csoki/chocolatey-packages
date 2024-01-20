@@ -4,8 +4,7 @@ import-module au
 function global:au_GetLatest {
     $releases     = 'https://www.goodsync.com/download?os=windows'
     $regexVersion = 'ver ([\d\.]+)\<'
-    #$regexUrl     = 'a href="(?<url>https://.*/(GoodSync-v[\d\.]+-Setup.msi|GoodSync-vsub-Setup.exe))"'
-    #https://www.goodsync.com/download/GoodSync-vsub-Setup.exe
+    $regexUrl     = 'a href="(?<url>https://.*/(GoodSync-v[\d\.]+-Setup.msi|GoodSync-vsub-Setup.exe))"'
     
     # From AppVeyor platform, "iwr https://www.goodsync.com" works only when used with "-OutFile" option!
     Invoke-WebRequest -Uri $releases -UseBasicParsing -OutFile buff    
