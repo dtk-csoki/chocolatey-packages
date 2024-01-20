@@ -14,7 +14,7 @@ function global:au_GetLatest {
 
     return @{
         Version = "0.0.0." + $matches.version
-        URL32   = 'http://rx4hx.qrz.ru/' + $url.href
+        URL32   = $releases + $url.href
     }    
 }
 
