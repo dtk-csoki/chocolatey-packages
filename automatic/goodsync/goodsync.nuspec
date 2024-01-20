@@ -6,7 +6,7 @@
     <version>12.2.8</version>
     <packageSourceUrl>https://github.com/chtof/chocolatey-packages/tree/master/automatic/goodsync</packageSourceUrl>
     <owners>chtof</owners>
-    <title>GoodSync</title>
+    <title>GoodSync Personal for Windows</title>
     <authors>Siber Systems Inc</authors>
     <projectUrl>https://www.goodsync.com/for-windows-desktop</projectUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/automatic/goodsync/goodsync.png</iconUrl>
