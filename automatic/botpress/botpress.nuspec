@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>   
     <id>botpress</id>    
-    <version>12.30.9</version>    
+    <version>12.30.9.20240120</version>    
     <packageSourceUrl>https://github.com/chtof/chocolatey-packages/tree/master/automatic/botpress</packageSourceUrl>    
     <owners>chtof</owners>    
     <title>Botpress</title>
@@ -11,7 +11,7 @@
     <projectUrl>https://botpress.io</projectUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/automatic/botpress/botpress.png</iconUrl>
     <copyright>Copyright © 2018 Botpress, Inc.</copyright>    
-    <licenseUrl>https://github.com/botpress/botpress/blob/master/README.md#license</licenseUrl>
+    <licenseUrl>https://raw.githubusercontent.com/botpress/botpress/master/LICENSE</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <projectSourceUrl>https://github.com/botpress/botpress</projectSourceUrl>
     <!-- <docsUrl>https://botpress.io/docs/</docsUrl> -->
