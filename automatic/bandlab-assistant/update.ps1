@@ -5,7 +5,7 @@ function global:au_GetLatest {
     $downloadUrl = 'https://static.bandlab.com/assistant/latest.yml'
 
     $regexVersion = 'version: (?<Version>[\d\.]+)'
-    $regexFile = 'path: (?<File>.*)'    
+    $regexFile    = 'path: (?<File>.*)'      
 
     $download_Page = Invoke-WebRequest -Uri $downloadUrl -UseBasicParsing
 
