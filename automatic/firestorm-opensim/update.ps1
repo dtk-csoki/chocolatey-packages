@@ -46,7 +46,7 @@ function global:au_GetLatest {
 
     return @{
         Version = ($matches.Version).Replace('-','.')
-        Options = @{ Headers = @{ "Referer" = 'https://www.firestormviewer.org/os-operating-system/' }}
+        #Options = @{ Headers = @{ "Referer" = 'https://www.firestormviewer.org/os-operating-system/' }}
         URL32   = $url32.href
         URL64   = $url64.href
     }
