@@ -1,26 +1,20 @@
 ﻿$ErrorActionPreference = 'Stop';
 $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 
-if ( [environment]::OSVersion.Version.Major -ge 10 )  {
-    $url_win10      = 'https://build.openvpn.net/downloads/releases/tap-windows-9.24.2-I601-Win10.exe'
-    $checksum_win10 = '1782d56568092e8fba575fe7e11b2e86f04518f40a18a4ce594bd1209e0cb547'
-    $url            = $url_win10
-    $checksum       = $checksum_win10
-} else {
-  $url_others     = 'https://build.openvpn.net/downloads/releases/tap-windows-9.24.2-I601-Win7.exe'
-  $checksum_others= '35cfa71fe2952192c13cbbd8a2f3f62a6486af406008e654646ea1d823928d46'
-  $url            = $url_others
-  $checksum       = $checksum_others
-}
-
 $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
-  url           = "$url"
-  checksum      = "$checksum"
+  url           = 'https://build.openvpn.net/downloads/releases/tap-windows-9.24.6.zip'
+  checksum      = '4d570348205c36e55528da2ca8dfc754c1762716f9c2428532a98f47455f0378'
   checksumType  = 'sha256'
+  destination   = "$toolsDir"  
+}
+Install-ChocolateyZipPackage @packageArgs
+Remove-Item -Path "$toolsDir" -Include *.zip
 
-  silentArgs	= '/S'
+If (Get-OSArchitectureWidth -Compare 64) {
+  $file = (Get-ChildItem -Recurse -Path "$toolsDir\*\amd64" -Include 'tapinstall.exe').FullName
+} Else {
+  $file = (Get-ChildItem -Recurse -Path "$toolsDir\*\i386" -Include 'tapinstall.exe').FullName
 }
 
-Start-Process "AutoHotKey" -Verb runas -ArgumentList "`"$toolsDir\chocolateyinstall.ahk`""
-Install-ChocolateyPackage @packageArgs
+Start-Process "$file" -Verb Runas -Wait -ArgumentList 'install OemVista.inf tap0901'
