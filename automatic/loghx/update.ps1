@@ -6,16 +6,16 @@ function global:au_BeforeUpdate() {
 }
 
 function global:au_GetLatest {
-	$releases = 'http://rx4hx.qrz.ru/index.php?page=download_loghx'
+	$releases = 'http://rx4hx.qrz.ru/files/loghx/'
 	$regex    = 'LogHX3Setup_build_(?<Version>[\d]+).exe'
 
     $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
-	$url = $download_page.links | ? href -match $regex
+	$url = $download_page.links | ? href -match $regex | Select -last 1
 
     return @{
         Version = "0.0.0." + $matches.version
         URL32   = 'http://rx4hx.qrz.ru/' + $url.href
-    }
+    }    
 }
 
 function global:au_SearchReplace {
