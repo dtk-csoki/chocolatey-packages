@@ -14,18 +14,19 @@ function global:au_GetLatest {
     $productTapWinBuild = $matches.ProductTapWinBuild
 
     return @{
-        Version      = $productVersion
-        URL32 = $releases + "/tap-windows-$productVersion-I$productTapWinBuild-Win10.exe"
+        Version = $productVersion        
+        URL32   = $releases + "/tap-windows-$productVersion.zip"
     }
 }
 
 function global:au_SearchReplace {
     @{
-        "tools\chocolateyInstall.ps1" = @{
-            "(^(\s)*\`$url_win10\s*=\s*)('.*')"       = "`$1'$($Latest.URL32)'"
-            "(^(\s)*\`$checksum_win10\s*=\s*)('.*')"  = "`$1'$($Latest.Checksum32)'"
+        "tools\chocolateyinstall.ps1" = @{            
+            #"(^(\s)*url\s*=\s*)('.*')"       = "`$1'$($Latest.URL32)'"
+            #"(^(\s)*checksum\s*=\s*)('.*')"  = "`$1'$($Latest.Checksum32)'"
+            #"(?i)(^\s*fileFullPath\s*=\s*`"[$]toolsDir\\)(.*)`""   = "`${1}$($Latest.FileName32)`""            
         }
     }
 }
 
-update
+update -NoCheckUrl
