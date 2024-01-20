@@ -2,6 +2,9 @@
 
 Manage EFI/UEFI Boot Options & Manage EFI System Partitions & Fix EFI/UEFI Boot Issues.
 
+## Notes
+EasyUEFI can only be installed on (U)EFI-based Windows operating system.
+
 ## Features
 ### EFI/UEFI boot option management
 ![EFI/UEFI boot option management](https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/automatic/easyuefi/screenshot1.png)
