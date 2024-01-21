@@ -6,7 +6,7 @@ $packageArgs = @{
   destination   = "$toolsDir"
   file          = "$toolsDir\MultiPar1332.zip"
 }
-Install-ChocolateyZipPackage @packageArgs
+Get-ChocolateyUnzip @packageArgs
 Remove-Item -Path $packageArgs.file
 
 # Install start menu shortcut
