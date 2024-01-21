@@ -18,6 +18,7 @@ $packageArgs = @{
   file64          = "$toolsDir\VBCABLE_Setup_x64.exe"
   silentArgs      = '-i -h'
 }
+Start-Process "AutoHotKey" -Verb runas -ArgumentList "`"$toolsDir\chocolateyinstall.ahk`""
 Install-ChocolateyInstallPackage @packageArgs
 
 <# # Don't create shims for executables
