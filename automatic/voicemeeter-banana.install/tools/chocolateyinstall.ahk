@@ -1,12 +1,12 @@
 #NoTrayIcon
 SendMode "Input"  ; Recommended for new scripts due to its superior speed and reliability.
-SetControlDelay 0  
+SetControlDelay 20  
 SetWorkingDir A_ScriptDir  ; Ensures a consistent starting directory.
 
-SetTitleMatchMode 2  ; A windows's title must start with the specified WinTitle to be a match.
+SetTitleMatchMode 1  ; A windows's title must start with the specified WinTitle to be a match.
 winTitle1 := "VB-Audio Voicemeeter Installation"
 WinWait(winTitle1,, 30)
-ControlSend "{Enter}","","VB-Audio Voicemeeter Installation"
+ControlSend "{Enter}",,"VB-Audio Voicemeeter Installation"
 
 Sleep 10000
 
@@ -21,6 +21,8 @@ if WinExist(winTitle3)
 
 SetTitleMatchMode 1  ; A windows's title must start with the specified WinTitle to be a match.
 winTitle2 := "REBOOT YOUR SYSTEM"
-WinWait(winTitle2,, 30)
+WinWait(winTitle2,, 60)
 WinActivate
-ControlClick "OK",winTitle2
+Sleep 1000
+SetControlDelay -1
+ControlClick "Button1",winTitle2,,,,"NA"
