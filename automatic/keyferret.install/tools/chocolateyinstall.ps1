@@ -12,7 +12,7 @@ Remove-Item -Path $packageArgs.file
 
 $packageArgs = @{
   packageName  = $env:ChocolateyPackageName  
-  fileFullPath = "$toolsDir\keyferret-setup-keyferret-setup-3.0.exe"
+  fileFullPath = Get-ChildItem ("$toolsDir\keyferret-setup-*.exe").FullName
   silentArgs   = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-'
 }
 

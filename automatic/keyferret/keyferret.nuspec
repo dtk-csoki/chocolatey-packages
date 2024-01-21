@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>keyferret</id>
-    <version>3.0</version>
+    <version>3.0.0.20240121</version>
     <packageSourceUrl>https://github.com/chtof/chocolatey-packages/tree/master/automatic/keyferret.install</packageSourceUrl>
     <owners>chtof</owners>
     <title>Keyferret</title>
@@ -52,7 +52,7 @@
 ]]></description>
     <!-- <releaseNotes>__REPLACE_OR_REMOVE__MarkDown_Okay</releaseNotes> -->
     <dependencies>
-      <dependency id="keyferret.install" version="3.0" />
+      <dependency id="keyferret.install" version="[3.0.0.20240121]" />
     </dependencies>
   </metadata>
   <files></files>
