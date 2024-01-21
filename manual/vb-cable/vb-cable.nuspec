@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vb-cable</id>
-    <version>43.0.0.20220220</version>
+    <version>43.0.0.20240121</version>
     <packageSourceUrl>https://github.com/chtof/chocolatey-packages/tree/master/manual/vb-cable</packageSourceUrl>
     <owners>chtof</owners>
     <title>VB-CABLE Virtual Audio Device</title>
@@ -37,7 +37,7 @@ With VB-CABLE Technology, VB-Audio Applications can be endowed with Virtual I/O 
 ]]></description>
     <!-- <releaseNotes>__REPLACE_OR_REMOVE__MarkDown_Okay</releaseNotes> -->
     <dependencies>
-      <dependency id="autohotkey.portable" version="1.1.30.03" />
+      <dependency id="autohotkey.portable" version="2.0.11" />
     </dependencies>
   </metadata>
   <files>
