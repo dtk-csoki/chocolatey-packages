@@ -9,7 +9,10 @@ WinWait(winTitle1,, 30)
 WinActivate
 ControlSend "{Enter}","",winTitle1
 
+SetTitleMatchMode 1  ; A windows's title must start with the specified WinTitle to be a match.
 winTitle2 := "REBOOT YOUR SYSTEM"
-WinWait(winTitle2,, 30)
+WinWait(winTitle2,, 60)
 WinActivate
-ControlClick "OK", "",winTitle2
+Sleep 1000
+SetControlDelay -1
+ControlClick "Button1",winTitle2,,,,"NA"
