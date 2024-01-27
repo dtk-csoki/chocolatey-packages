@@ -9,7 +9,7 @@ if ($pp['T'] -eq 'true') { $silentArgs += ' /T' }
 
 $packageArgs = @{
   packageName = $env:ChocolateyPackageName
-  file        = "$toolsDir\weasel-0.14.3.0-installer.exe"
+  file        = "$toolsDir\weasel-0.15.0.0-installer.exe"
   silentArgs  = "$silentArgs"
 }
 
