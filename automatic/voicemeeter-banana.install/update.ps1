@@ -11,7 +11,7 @@ function global:au_GetLatest {
   $download_page.RawContent -match $regex_version
   $version       = $matches.Version  
   $url = $download_page.links | ? href -match $regex_release
-  If $version -match "^2.0.6." { $version += '00' }
+  If ($version -match "^2.0.6.") { $version += '00' }
   
   return @{
     Version = $version
