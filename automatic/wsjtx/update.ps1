@@ -12,8 +12,8 @@ function global:au_GetLatest {
 	
     return @{
         Version = $matches.Version
-        URL32   = 'https://wsjt.sourceforge.io/' + $url32
-        URL64   = 'https://wsjt.sourceforge.io/' + $url64
+        URL32   = $url32
+        URL64   = $url64
     }
 }
 
