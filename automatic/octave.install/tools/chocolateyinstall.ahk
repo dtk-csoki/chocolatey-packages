@@ -1,6 +1,6 @@
 #NoTrayIcon
 SendMode "Input"  ; Recommended for new scripts due to its superior speed and reliability.
-SetControlDelay 20
+SetControlDelay -1
 
 Post_install_scriptDir := "C:\Octave\Octave-8.4.0\post-install.bat"
 
@@ -11,21 +11,26 @@ WinWait(winTitle, "the installer was unable to find a Java Runtime Environment|W
 If WinExist(winTitle, "the installer was unable to find a Java Runtime Environment")
 {
   ControlClick "Button1", winTitle,,,,"NA" ; &Yes
-  WinWait(winTitle, "Welcome to GNU Octave Setup", 10)
+  WinWait(winTitle, "Welcome to GNU Octave Setup", 15)
 }
+WinActivate
 ControlClick "Button2", winTitle,,,,"NA" ; &Next >
 
 SetTitleMatchMode 2  ; 2: A window's title can contain WinTitle anywhere inside it to be a match.
 WinWait(winTitle, "Welcome to GNU Octave Setup", 900)
+WinActivate
 ControlClick "Button2", winTitle,,,,"NA" ; &Next >
 
-WinWait(winTitle, "License Agreement", 10)
+WinWait(winTitle, "License Agreement", 15)
+WinActivate
 ControlClick "Button2", winTitle,,,,"NA" ; &Next >
 
-WinWait(winTitle, "Install Options", 10)
+WinWait(winTitle, "Install Options", 15)
+WinActivate
 ControlClick "Button2", winTitle,,,,"NA" ; &Next >
 
-WinWait(%winTitle%, "Choose Install Location", 10)
+WinWait(winTitle, "Choose Install Location", 15)
+WinActivate
 ControlClick "Button2", winTitle,,,,"NA" ; &Install
 
 ; https://github.com/chocolatey-community/chocolatey-package-requests/issues/487
@@ -42,6 +47,7 @@ FileDelete(Post_install_scriptDir)
 FileAppend(BUFF, Post_install_scriptDir)
 
 WinWait(winTitle, "Completing GNU Octave Setup", 900)
+WinActivate
 Sleep 350
 ControlClick "Button4", winTitle,,,,"NA" ; Don't launch octave automatically after the end of the installation
 Sleep 350
