@@ -6,5 +6,5 @@ SetControlDelay 0
 
 ; Remove VueScan
 WinTitle := "VueScan ahk_class #32770 ahk_exe vuescan.exe"
-WinWait(%WinTitle%,, 30) ; Do you want to remove VueScan?
-ControlClick "Button1", %winTitle% ; Yes
+WinWait(WinTitle,, 30) ; Do you want to remove VueScan?
+ControlClick "Button1", WinTitle ; Yes
