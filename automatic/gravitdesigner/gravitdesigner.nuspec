@@ -14,9 +14,9 @@
     <licenseUrl>https://www.corel.com/en/eula</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <!--<projectSourceUrl>Software Source Location - is the software FOSS somewhere? Link to it with this</projectSourceUrl>-->
-    <docsUrl>https://documentation.designer.io/</docsUrl>
+    <!--<docsUrl>https://documentation.designer.io/</docsUrl>-->
     <!--<mailingListUrl></mailingListUrl>-->
-    <bugTrackerUrl>https://support.gravit.io/hc/en-us/requests/new</bugTrackerUrl>
+    <!--<bugTrackerUrl>https://support.gravit.io/hc/en-us/requests/new</bugTrackerUrl>-->
     <tags>gravitdesigner gravit designer vector graphic edit svg</tags>
     <summary>A cross-platform graphic design tool for the 21st century.</summary>
     <description><![CDATA[
