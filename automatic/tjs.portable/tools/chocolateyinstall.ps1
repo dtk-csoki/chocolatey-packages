@@ -5,7 +5,7 @@ $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
   unzipLocation = "$toolsDir"  
 
-  url64          = 'https://downloads.sourceforge.net/project/jasperstudio/JaspersoftStudio-6.20.6/js-studiocomm_6.20.6_windows_x86_64.zip'
+  url64          = Get-RedirectedUrl 'https://downloads.sourceforge.net/project/jasperstudio/JaspersoftStudio-6.21.0/js-studiocomm_6.21.0_windows_x86_64.zip'  
   checksum64     = '4f54d32521d6515f28ec9c71081227ff295dc83818516cd87121d03cbee37374'
   checksumType64 = 'sha256'  
 }
