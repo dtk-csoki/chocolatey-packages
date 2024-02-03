@@ -6,7 +6,7 @@
     <version>2021.1.1.20240203</version>
     <packageSourceUrl>https://github.com/chtof/chocolatey-packages/tree/master/automatic/gravitdesigner</packageSourceUrl>
     <owners>chtof</owners>
-    <title>[Deprecated] Gravit Designer</title>
+    <title>Gravit Designer</title>
     <authors>Gravit GmbH, Corel Corporation</authors>
     <projectUrl>https://www.designer.io</projectUrl>
 	<iconUrl>https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/automatic/gravitdesigner/gravitdesigner.png</iconUrl>
