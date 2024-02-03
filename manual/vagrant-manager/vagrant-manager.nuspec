@@ -5,7 +5,7 @@
     <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
     <id>vagrant-manager</id>
     <title>Vagrant Manager</title>
-    <version>1.0.2.2</version>
+    <version>1.0.2.200</version>
 	<packageSourceUrl>https://github.com/chtof/chocolatey-packages/tree/master/manual/vagrant-manager</packageSourceUrl>
     <authors>Lanayo Technology</authors>
     <owners>chtof</owners>
@@ -19,6 +19,7 @@
     <iconUrl>https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/manual/vagrant-manager/vagrant.png</iconUrl>
     <dependencies>
       <dependency id="vagrant" />
+      <dependency id="virtualbox" />      
     </dependencies>
     <releaseNotes>https://github.com/lanayotech/vagrant-manager-windows/releases</releaseNotes>
   </metadata>
