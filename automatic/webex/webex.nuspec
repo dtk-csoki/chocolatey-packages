@@ -55,7 +55,7 @@ Command-line options for installer configuration. See the [official page](https:
 ### Examples
 `choco install webex --params "/ACCEPT_EULA"`
 `choco install webex --params "/ACCEPT_EULA /DELETEUSERDATA /ALLUSERS /INSTALLWV2"`
-`choco install webex --params "/EMAIL:acassidy@example.com /INSTALL_ROOT:C:\Program Files /AUTOSTART_WITH_WINDOWS:false"`
+`choco install webex --params "/EMAIL:acassidy[at]example.com /INSTALL_ROOT:C:\Program Files /AUTOSTART_WITH_WINDOWS:false"`
 
 ]]></description>
     <releaseNotes>https://help.webex.com/en-us/mqkve8/Webex-Teams-Release-Notes</releaseNotes>
