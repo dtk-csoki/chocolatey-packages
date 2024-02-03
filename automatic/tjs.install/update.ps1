@@ -9,14 +9,14 @@ function global:au_GetLatest {
 
     return @{
         Version = $version
-        URL64   = 'https://downloads.sourceforge.net/project/jasperstudio/JaspersoftStudio-' + $version + '/js-studiocomm_' + $version + '_windows_x86_64.exe'
+        URL64   = 'http://sourceforge.net/projects/jasperstudio/files/JaspersoftStudio-' + $version + '/js-studiocomm_' + $version + '_windows_x86_64.exe/download'
     }
 }
 
 function global:au_SearchReplace {
     @{
         "tools\chocolateyInstall.ps1" = @{
-			"(^(\s)*url64\s*=\s*)('.*')"      = "`$1'$($Latest.URL64)'"
+			"(^(\s)*url64\s*=\s*Get-RedirectedUrl\s*)('.*')"      = "`$1'$($Latest.URL64)'"
             "(^(\s)*checksum64\s*=\s*)('.*')" = "`$1'$($Latest.Checksum64)'"
         }
     }
