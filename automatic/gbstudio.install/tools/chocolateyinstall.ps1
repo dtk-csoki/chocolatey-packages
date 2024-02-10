@@ -13,13 +13,11 @@ $packageArgs = @{
   checksum64    = '6602b647a2ea1a4cfff9ac1c7addbf6a1120bd88e1301a077381cb4aadd7a612'
   checksumType64= 'sha256'
 }
-
 Install-ChocolateyZipPackage @packageArgs
 
 $packageArgs = @{
-  packageName = $env:ChocolateyPackageName
-  file32      = "$toolsDir\gb-studio-master-windows_x86-squirrel\GB Studio-3.2.0 Setup.exe"
-  file64      = "$toolsDir\gb-studio-master-windows_x86_64-squirrel\GB Studio-3.2.0 Setup.exe"
+  packageName = $env:ChocolateyPackageName  
+  file        = (Get-ChildItem "$toolsDir\*\GB Studio-* Setup.exe").FullName
   silentArgs  = '--silent'
 }
 Install-ChocolateyInstallPackage @packageArgs
