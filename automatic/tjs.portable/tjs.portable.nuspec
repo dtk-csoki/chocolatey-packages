@@ -3,38 +3,25 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>tjs.portable</id>
-    <version>6.21</version>
+    <version>6.21.0.20240210</version>
     <packageSourceUrl>https://github.com/chtof/chocolatey-packages/tree/master/automatic/tjs.portable</packageSourceUrl>
     <owners>chtof</owners>
-    <title>TIBCO Jaspersoft Studio (Portable)</title>
+    <title>[Deprecated] TIBCO Jaspersoft Studio (Portable)</title>
     <authors>TIBCO Software Inc.</authors>
     <projectUrl>https://www.jaspersoft.com</projectUrl>
 	<iconUrl>https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/automatic/tjs.portable/tjs.portable.png</iconUrl>
     <copyright>Copyright © 2010-2018 TIBCO Software Inc.  All Rights Reserved.</copyright>
     <licenseUrl>https://www.eclipse.org/org/documents/epl-v10.php</licenseUrl>
-    <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <!--<projectSourceUrl>Software Source Location - is the software FOSS somewhere? Link to it with this</projectSourceUrl>-->
-    <docsUrl>https://community.jaspersoft.com/project/jaspersoft-studio/resources</docsUrl>
-    <!--<mailingListUrl>https://community.jaspersoft.com/project/jaspersoft-studio/answers</mailingListUrl>-->
-    <!--<bugTrackerUrl>https://community.jaspersoft.com/project/jaspersoft-studio/tracker</bugTrackerUrl>-->
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>    
     <tags>tjs.portable report development tool eclipse JasperReports</tags>
     <summary>The Eclipse-based report development tool for JasperReports and JasperReports Server.</summary>
-    <description><![CDATA[TIBCO Jaspersoft® Studio is editing software for TIBCO JasperReports®. It will help you design and run report templates; build report queries; write complex expressions; layout visual components like 50+ types of charts, maps, tables, crosstabs, and custom visualizations; and much more. It integrates TIBCO JasperReports® Server to create powerful report publishing workflows.
+    <description><![CDATA[
+      Starting January 25, 2024, JaspersoftⓇ will no longer offer [JasperReportsⓇ Server community edition](https://community.jaspersoft.com/downloads/community-edition) as part of its free downloads. If you would like to try JasperReports Server to embed or distribute reports and dashboards, as well as access other advanced features, you can take a 30-day trial to the Jaspersoft commercial edition.
 
- 
-With Jaspersoft Studio you can build documents of any complexity from your data—from print-ready in PDFs to interactive masterpieces in dynamic HTML, with navigation to interactive components, like maps and charts that may be inside or outside the report. You can generate high quality OpenOffice, PowerPoint , RTF, Word, and spreadsheet documents or you can generate raw CSV, JSON, or XML  documents. It's not difficult to build your own custom exporter to suit any data need.
+      The new free Jaspersoft community edition will include JasperReports Library and Jaspersoft Studio, with a one-time required login after downloading Jaspersoft Studio.
 
- 
-Using Jaspersoft Studio, you can access different types of data sources, including big data, CSV, Hibernate, Jaspersoft Domain, JavaBeans, JDBC, JSON, NoSQL, TIBCO Spotfire® Information Links, XML, or your own custom data source.
-
- 
-Available as an Eclipse plug-in or a standalone application, Jaspersoft Studio comes in two editions: Community and Professional. The Professional edition includes additional features, like access to Spotfire, maps, and advanced HTML5 charts, as well as professional support.
-
-The Community version of TIBCO Jaspersoft® Studio uses the [Java Profiler JProfiler tool](https://www.ej-technologies.com/products/jprofiler/overview.html) for performance analisys and tuning.
-
-![screenshot](https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/automatic/tjs.portable/screenshot.png)
-]]></description>
-    <releaseNotes>https://community.jaspersoft.com/project/jaspersoft-studio/releases</releaseNotes>
+      Please visit [their FAQs](https://community.jaspersoft.com/knowledgebase/faq/faqs-on-community-edition-changes-effective-january-25-2024-r4629/) for more information, or if you have any questions, you can send a message through their Contact Us link at the bottom of [their community website page](https://community.jaspersoft.com/).
+]]></description>    
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
