@@ -6,8 +6,8 @@ function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 function global:au_GetLatest {
    return github_GetInfo -ArgumentList @{
         repository = 'VirusTotal/yara'
-        regex32    = 'yara-v?[\d\.]+-\d+-win32.zip'
-        regex64    = 'yara-v?(?<Version>[\d\.]+)-\d+-win64.zip'
+        regex32    = 'yara-(v?[\d\.]+|master)-\d+-win32.zip'
+        regex64    = 'yara-(v?(?<Version>[\d\.]+|master))-\d+-win64.zip'
    }
 }
 
