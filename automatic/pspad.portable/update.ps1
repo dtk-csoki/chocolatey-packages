@@ -13,7 +13,7 @@ function global:au_GetLatest {
     return @{
         Version = $version
         URL32   = 'https://www.pspad.com/files/pspad/pspad' + $versionURL + 'en.zip'
-        URL32   = 'https://www.pspad.com/files/pspad/pspad' + $versionURL + 'en_x64.zip'
+        URL64   = 'https://www.pspad.com/files/pspad/pspad' + $versionURL + 'en_x64.zip'
     }
 }
 
