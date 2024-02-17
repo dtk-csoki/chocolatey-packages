@@ -3,25 +3,31 @@
 function global:au_BeforeUpdate { Get-RemoteFiles -NoSuffix -Purge }
 
 function global:au_GetLatest {
-    $releases = 'https://sourceforge.net/projects/davmail/files'
-    $regex    = 'davmail-(?<Version>[\d\.-]+)-setup(64)?.exe'
+    $releases               = 'https://sourceforge.net/projects/davmail/files/davmail/'
+    $regexLastVersionFolder = "/projects/davmail/files/davmail/(?<VersionMajor>[\d\.]+)/"
+    (Invoke-WebRequest -Uri $releases -UseBasicParsing).Content -Match $regexLastVersionFolder | out-null
+    
+    $versionMajor           = $matches.VersionMajor
 
-    (Invoke-WebRequest -Uri $releases).RawContent -Match $regex | out-null
-    $version      = $matches.Version
-    $majorVersion = $version -Split '-' | Select -First 1
+    $regex32        = "davmail-[\d\.-]+-setup?.exe/download"
+    $regex64        = "davmail-(?<FullVersion>[\d\.-]+)-setup64?.exe/download"
+    $download_page  = (Invoke-WebRequest -Uri "$releases/$versionMajor" -UseBasicParsing)
+    $url32          = $download_page.links | ? href -match $regex32
+    $url64          = $download_page.links | ? href -match $regex64
+    $fullVersion    = $matches.FullVersion
 
-     return @{
-        Version = $matches.Version -Replace '-', '.'
-        URL32   = 'https://netcologne.dl.sourceforge.net/project/davmail/davmail/' + $majorVersion + '/davmail-' + $version + '-setup.exe'
-        URL64   = 'https://netcologne.dl.sourceforge.net/project/davmail/davmail/' + $majorVersion + '/davmail-' + $version + '-setup64.exe'
+    return @{
+        Version = $fullVersion -Replace '-', '.'
+        URL32   = Get-RedirectedUrl ('https://sourceforge.net/projects/davmail/files/davmail/' + $versionMajor + '/davmail-' + $fullVersion + '-setup.exe')
+        URL64   = Get-RedirectedUrl ('https://sourceforge.net/projects/davmail/files/davmail/' + $versionMajor + '/davmail-' + $fullVersion + '-setup64.exe')
     }
 }
 
 function global:au_SearchReplace {
     @{
         "legal\VERIFICATION.txt"  = @{
-            "(?i)(x32: ).*"               = "`${1}$($Latest.URL32)"
-            "(?i)(x64: ).*"               = "`${1}$($Latest.URL64)"
+            "(?i)(x32: ).*"             = "`${1}$($Latest.URL32)"
+            "(?i)(x64: ).*"             = "`${1}$($Latest.URL64)"
             "(?i)(checksum type:\s+).*" = "`${1}$($Latest.ChecksumType32)"
             "(?i)(checksum32:).*"       = "`${1} $($Latest.Checksum32)"
             "(?i)(checksum64:).*"       = "`${1} $($Latest.Checksum64)"
