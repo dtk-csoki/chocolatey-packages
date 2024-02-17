@@ -31,7 +31,7 @@ $tasks = $arr_tasks -Join ","
 ### INSTALLATION
 $packageArgs = @{
   packageName = "$env:ChocolateyPackageName"
-  file64      = "$toolsDir\laragon-full.exe"
+  file64      = "$toolsDir\laragon-wamp.exe"
   silentArgs  = "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP- /components= /tasks=""$tasks"""
 }
 
