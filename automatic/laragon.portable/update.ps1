@@ -8,7 +8,7 @@ function global:au_BeforeUpdate() {
 function global:au_GetLatest {
    return github_GetInfo -ArgumentList @{
         repository = 'leokhoa/laragon'
-        regex64    = '/[\d.].zip$'        
+        regex64    = '/[\d.]+.zip$'        
    }
 }
 
