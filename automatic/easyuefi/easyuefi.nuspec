@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>easyuefi</id>
-    <version>5.2</version>
+    <version>5.3</version>
     <packageSourceUrl>https://github.com/chtof/chocolatey-packages/tree/master/automatic/easyuefi</packageSourceUrl>
     <owners>chtof</owners>
     <title>EasyUEFI (Free Trial)</title>
@@ -20,6 +20,9 @@
     <tags>easyuefi trial admin efi uefi bios system partition disk boot</tags>
     <summary>Manage EFI/UEFI Boot Options, manage EFI System Partitions and fix EFI/UEFI Boot Issues.</summary>
     <description><![CDATA[Manage EFI/UEFI Boot Options & Manage EFI System Partitions & Fix EFI/UEFI Boot Issues.
+
+## Notes
+EasyUEFI can only be installed on (U)EFI-based Windows operating system.
 
 ## Features
 ### EFI/UEFI boot option management
