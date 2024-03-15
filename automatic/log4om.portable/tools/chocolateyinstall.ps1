@@ -6,7 +6,7 @@ Remove-Item -Path "$toolsDir\*.exe" -ErrorAction SilentlyContinue
 $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
   destination   = "$toolsDir"
-  file          = "$toolsDir\Log4OM2_2_31_0_0_portable.zip"                                  
+  file          = "$toolsDir\Log4OM2_2_32_0_0_portable.zip"                                   
 }
 
 Get-ChocolateyUnzip @packageArgs
