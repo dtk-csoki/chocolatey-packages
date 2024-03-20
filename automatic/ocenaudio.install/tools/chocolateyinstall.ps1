@@ -4,11 +4,11 @@ $packageArgs = @{
   packageName    = $env:ChocolateyPackageName
     
   url            = 'https://www.ocenaudio.com/downloads/index.php/ocenaudio.exe'
-  checksum       = '0d73fe63b7f4460e1e3d5f9eb531e3278c089ef9bb2bfdb31115204d6eb751c3'
+  checksum       = '38acc921bebc00edb51cdbf9ebd1e501e5d91c5a32fde7ae06bf494e2e9c945d'
   checksumType   = 'sha256'
 
   url64          = 'https://www.ocenaudio.com/downloads/index.php/ocenaudio64.exe'
-  checksum64     = 'a7be64077034bb2c75f4b414c3529c41dccc68aae74e6172a57b642cf5a7c120'
+  checksum64     = 'e0f08c6835680e80880f9ce40a611ffa641de25bb345c023e963c85c367f47e9'
   checksumType64 = 'sha256'
 
   silentArgs     = "/S"
