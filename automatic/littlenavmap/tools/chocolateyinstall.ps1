@@ -5,10 +5,10 @@ $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
   destination   = "$toolsDir"
   
-  url32         = 'https://github.com//albar965/littlenavmap/releases/download/v3.0.5/LittleNavmap-win32-3.0.5.zip'
-  checksum32    = '04b90afe994ae4c806f40e522134a9253413c2b44a85cbe26c600c263c063b6e'
-  url64         = 'https://github.com//albar965/littlenavmap/releases/download/v3.0.5/LittleNavmap-win64-3.0.5.zip'
-  checksum64    = '750d0fbee6ad8710b3bb93278a8ecb40e12443488b32448396188805218bba89'
+  url32         = 'https://github.com//albar965/littlenavmap/releases/download/v3.0.6/LittleNavmap-win32-3.0.6.zip'
+  checksum32    = '719f63f2ec069000c05e120fd8884b201e818faea554b54e4fab6e620f2d1eaf'
+  url64         = 'https://github.com//albar965/littlenavmap/releases/download/v3.0.6/LittleNavmap-win64-3.0.6.zip'
+  checksum64    = 'c81de159ce2b04583f220e222425ac26e280aa641e76d78671f46be603168786'
   checksumType  = 'sha256'
 }
 
