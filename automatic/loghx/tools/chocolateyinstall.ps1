@@ -3,8 +3,8 @@
 $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
 
-  url           = 'http://rx4hx.qrz.ru/files/loghx/LogHX3Setup_build_757.exe'
-  checksum      = '338529e3315748936990cd63cb2602d8c36d3e1b950aaffc88b6b0f3ca786403'
+  url           = 'http://rx4hx.qrz.ru/files/loghx/LogHX3Setup_build_758.exe'
+  checksum      = 'd0a3e46ffe8a290db58cf9ba44709ae1b2cd09918729c23dc68bec3ae88a9a8f'
   checksumType  = 'sha256'
 
   silentArgs    = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-'
