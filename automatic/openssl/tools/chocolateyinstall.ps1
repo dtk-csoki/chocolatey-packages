@@ -3,13 +3,13 @@
 $packageArgs = @{
   packageName     = $env:ChocolateyPackageName
   
-  url32           = 'https://slproweb.com/download/Win32OpenSSL-3_2_1.exe'  
+  url32           = 'https://slproweb.com/download/Win32OpenSSL-3_3_0.exe'  
   checksumType32  = 'sha512'
-  checksum32      = 'a267bf8f220f334ba86b46f30ccd2e7aa73519b904612b56b3fc7f69fed04e2e2b8902fdbbb9d9d7cbf10fe5687b530e3e3d1d71f8b4027e2084616bdacb4383'
+  checksum32      = '5cc015cfd353d96844799c85d3d6be2b44756be362129b04011bcd2e67a2cf2dbfb877298b27bc5804b4de24ef90187a3c4db9abd98ce9a9bc8c2a0a6d02e69b'
 
-  url64           = 'https://slproweb.com/download/Win64OpenSSL-3_2_1.exe'
+  url64           = 'https://slproweb.com/download/Win64OpenSSL-3_3_0.exe'
   checksumType64  = 'sha512'
-  checksum64      = '657f7cb56d8ae48b60812ce1d42c5158c953b438a9ea013b98dd6cbeca3a51b919636a68a9801af07410af50e90fbbdc20d1ce783e4e65356d61002a15b606cc'
+  checksum64      = 'c94aaeb5ab650631009b540b4728e8c17eae2683f2c06c82da3cc1fc891fb60fd2b071d6a781a251e5c6b624be71868fbaad03fb021bb8935e79d2fe4196d837'
   silentArgs      = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-'
 }
 
