@@ -26,8 +26,8 @@ function global:au_GetLatest {
     }
     else {        
         $result = @{
-            URL32   = 'https://www.hamrick.com/' + $file32
-            URL64   = 'https://www.hamrick.com/' + $file64
+            URL32   = 'https://files.hamrick.com/' + $file32
+            URL64   = 'https://files.hamrick.com/' + $file64
             Version = $matches.Version
         }
     }
