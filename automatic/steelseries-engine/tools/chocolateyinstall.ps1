@@ -10,4 +10,9 @@ $packageArgs = @{
   silentArgs    = '/S'
 }
 
+If ( [environment]::OSVersion.Version.Major -lt 10 )  {
+  Write-Warning 'Windows 10 or up is required for SteelSeries GG.'
+  return
+}
+
 Install-ChocolateyPackage @packageArgs
