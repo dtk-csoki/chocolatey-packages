@@ -1,14 +1,19 @@
 ﻿$ErrorActionPreference = 'Stop';
+$toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
+$url        = 'https://www.screenpresso.com/binaries/releases/v2-1-24-000/dotnet47/ScreenpressoSetup.msi'
 
 $packageArgs = @{
-  packageName  = $env:ChocolateyPackageName
+  packageName   = $env:ChocolateyPackageName
+  unzipLocation = $toolsDir
+  fileType      = 'MSI'
+  url           = $url
+  softwareName  = 'Screenpresso*'
 
-  url            = 'https://www.screenpresso.com/binaries/releases/stable/dotnet47/Screenpresso.exe'
-  checksum       = '3AFFB1C2600429B0F4F017C4114490CABCDA7FE5014A6D7268F005ACD7B047AB'
-  checksumType   = 'sha256'
+  checksum      = '40D1152BC8900C99392D94AA6EF7ED955AF40362A1ABB15ABA2DA54187604EC7'
+  checksumType  = 'sha256'
 
-  silentArgs     = '-install pf -silent'
-  validExitCodes = @(0, 4)
+  silentArgs    = "/qn /norestart /l*v `"$($env:TEMP)\$($packageName).$($env:chocolateyPackageVersion).MsiInstall.log`""
+  validExitCodes= @(0, 3010, 1641)
 }
 
 Install-ChocolateyPackage @packageArgs
