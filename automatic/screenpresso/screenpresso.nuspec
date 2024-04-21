@@ -1,38 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Do not remove this test for UTF-8: if â€œÎ©â€ doesnâ€™t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>screenpresso</id>
-    <version>1.9.5.20210414</version>
-    <packageSourceUrl>https://github.com/chtof/chocolatey-packages/tree/master/automatic/screenpresso</packageSourceUrl>
-    <owners>chtof</owners>
+    <version>2.1.24.20240421</version>
+  <packageSourceUrl>https://bitbucket.org/learnpulse/screenpresso-chocolatey</packageSourceUrl>
     <title>Screenpresso</title>
-    <authors>LEARNPULSE SAS</authors>
+    <authors>Learnpulse SAS</authors>
+    <owners>Screenpresso</owners>
     <projectUrl>https://www.screenpresso.com</projectUrl>
-    <iconUrl>https://cdn.jsdelivr.net/gh/chtof/chocolatey-packages/automatic/screenpresso/screenpresso.png</iconUrl>
-    <copyright>© 2020 LEARNPULSE SAS - All Rights Reserved</copyright>
-    <licenseUrl>https://www.screenpresso.com/software-license-agreement</licenseUrl>
+    <iconUrl>https://bitbucket.org/learnpulse/screenpresso-chocolatey/raw/b2a3f1ca7d4dae5b1dedb43f09ea42f1bfc76383/screenpresso.png</iconUrl>
+    <copyright>© 2022 LEARNPULSE SAS - All Rights Reserved</copyright>
+    <licenseUrl>https://www.screenpresso.com/software-license-agreement/</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <!--<projectSourceUrl>Software Source Location - is the software FOSS somewhere? Link to it with this</projectSourceUrl>-->
-    <!--<docsUrl>At what url are the software docs located?</docsUrl>-->
-    <mailingListUrl>https://facebook.com/screenpresso</mailingListUrl>
-    <!--<bugTrackerUrl></bugTrackerUrl>-->
-    <tags>screenpresso screenshots capture recording screen grab </tags>
+    <docsUrl>https://www.screenpresso.com/docs/ScreenpressoHelp.pdf</docsUrl>
+    <mailingListUrl>https://www.screenpresso.com/about-us/</mailingListUrl>
+    <tags>screenpresso capture screencapture screenshot videocapture recording screen grab</tags>
     <summary>Screenpresso captures your desktop (screenshots and HD videos) for your training documents, collaborative design work, IT bug reports, and more...</summary>
-    <description><![CDATA[Screenpresso captures your desktop (screenshots and HD videos) for your training documents, collaborative design work, IT bug reports, and more...
-## [Main features](https://www.screenpresso.com/features)
+    <description>Screenpresso captures your desktop (screenshots and HD videos) for your training documents, collaborative design work, IT bug reports, and more...
+
+## [Main features](https://www.screenpresso.com/features):
+
 - Capture screenshots including scrolling parts
+
 - Capture your screen in HD videos
+
 - Smooth workflow
+
 - Powerful built-in image editor
+
 - Workspaces and libraries
+
 - Sharing of captures
+
 - Android screen capture
+
 - Document generator
+
 - Multilingual with support for 19 languages
-]]></description>
-    <!-- <releaseNotes>__REPLACE_OR_REMOVE__MarkDown_Okay</releaseNotes> -->
-    <dependencies>
+</description>
+    <releaseNotes>
+    [Click here to access the official releases notes](https://www.screenpresso.com/releases/)
+    </releaseNotes>
+     <dependencies>
       <dependency id="dotnetfx" version="4.8.0.20190930" />
     </dependencies>
   </metadata>
