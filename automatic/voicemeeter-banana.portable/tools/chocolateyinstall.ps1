@@ -4,7 +4,7 @@ $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $packageArgs = @{
   packageName = $env:ChocolateyPackageName
   destination = "$toolsDir"
-  file        = "$toolsDir\VoicemeeterSetup_v2054.zip"
+  file        = "$toolsDir\VoicemeeterSetup_v2111.zip"
 }
 
 Get-ChocolateyUnzip @packageArgs
@@ -12,7 +12,7 @@ Remove-Item -Path $packageArgs.file
 
 $packageArgs = @{
   packageName  = $env:ChocolateyPackageName  
-  fileFullPath = "$toolsDir\VoicemeeterSetup_v2068.zip"
+  fileFullPath = "$toolsDir\VoicemeeterSetup_v2111.zip"
 }
 
 Start-Process "AutoHotKey" -Verb runas -ArgumentList "`"$toolsDir\chocolateyinstall.ahk`""
